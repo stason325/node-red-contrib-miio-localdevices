@@ -1,0 +1,26 @@
+{
+    "author": {
+      "name": "Stas Zaytsev"
+    },
+    "description": "Add nodes to get data from and send commands to deerma.humidifier.mjjsq via node-mihome",
+    "dependencies": {
+      "node-mihome": "latest"
+    },
+    "keywords": [
+      "node-red",
+      "xiaomi",
+      "miio",
+      "humidifier",
+      "mjjsq"
+    ],
+    "license": "GPL-3.0",
+    "name": "node-red-contrib-node-miio-localdevices",
+    "version": "0.0.6",
+    "node-red": {
+      "nodes": {
+        "devices": "nodes/devices.js",
+        "GET": "nodes/MIIOgetdata.js",
+        "SET": "nodes/MIIOsendcommand.js"
+      }
+    }
+}

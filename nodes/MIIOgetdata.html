@@ -1,0 +1,22 @@
+<script type="text/html" data-template-name="MIIOgetdata">
+    <div class="form-row">
+        <label for="node-input-devices"><i class="fa fa-wifi"></i> Device</label>
+        <input id="node-input-devices">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('MIIOgetdata',{
+        category: 'mihome',
+        color: '#00bc9c',
+        defaults: {
+            devices: {value:"", type:"MIIOdevices"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "mi.png",
+        align: "right",
+        label: "MIIOgetdata",
+        
+    });
+</script>

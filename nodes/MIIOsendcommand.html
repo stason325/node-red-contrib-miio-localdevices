@@ -1,0 +1,65 @@
+<script type="text/html" data-template-name="MIIOsendcommand">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Put Node name here">
+    </div>
+    <div class="form-row">
+        <label for="node-input-devices"><i class="fa fa-wifi"></i> Device</label>
+        <input id="node-input-devices">
+    </div>
+    <div class="form-row">
+        <label for="node-input-command"><i class="fa fa-tasks"></i> Command</label>
+        <input type="text" id="node-input-command">
+    </div>
+    <div class="form-row">
+        <label for="node-input-command_state"><i class="fa fa-tasks"></i> State</label>
+        <input type="text" id="node-input-command_state">
+        <input type="hidden" id="node-input-command_state-type">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('MIIOsendcommand',{
+        category: 'mihome',
+        color: '#00bc9c',
+        defaults: {
+            name: {value:""},
+            devices: {value:"", type:"MIIOdevices"},
+            command: {value:""},
+            command_state: {value:"payload"},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "mi.png",
+        align: "left",
+        label: function() {
+            if (this.name) {
+                return this.name + " - " + this.command || "MIIOsendcommand";
+            } else {
+                return this.command || "MIIOsendcommand";
+            }
+        },
+        oneditprepare: function () {
+            $("#node-input-command").typedInput({
+                types: [
+                    {
+                        value: "command",
+                        options: [
+                            { value: "Power", label: "&#9211; Power"},
+                            { value: "FanLevel", label: "&#x2668; Fan Level"},
+                            { value: "TargetHumidity", label: "&#x2668; Terget Humidity"},
+                            { value: "Led", label: "&#9788; Led Lamp"},
+                            { value: "Buzzer", label: "&#x266A; Sound"},
+                        ]
+                    }
+                ]
+            });
+
+            $("#node-input-command_state").typedInput({
+                type:"msg",
+                types:["msg"],
+                typeField: "#node-input-command_state-type"
+            })
+        }
+    });
+</script>
