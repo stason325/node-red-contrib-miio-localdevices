@@ -3,9 +3,12 @@ const mihome = require('node-mihome');
 module.exports = function(RED) {
     function MIIOgetdataNode(config) {
         RED.nodes.createNode(this,config);
+        
         var node = this;
         node.MIdevice = RED.nodes.getNode(config.devices);
         
+        node.status({}); //cleaning status
+
         node.on('input', function(msg) {
             node.status({fill:"gray",shape:"dot",text:"Connecting..."});
             
@@ -27,14 +30,14 @@ module.exports = function(RED) {
             
                 async function ConnDevice () {
                     try {
-                        // connect to device and poll for properties
-                        await device.init(); 
+                        // connect to device and poll for properties 
                         await device.on('properties', (data) => {
                             msg.payload = data;
 						    node.send(msg);
-                            node.status({fill:"green",shape:"dot",text:"Connection: OK"});
-                            device.destroy();                      
+                            node.status({fill:"green",shape:"dot",text:"Connection: OK"});                      
                         })
+                        await device.init();
+                        device.destroy();
                     }
                     catch (exception) {
                         // catching errors from MIIO Protocol
