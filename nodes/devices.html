@@ -23,18 +23,23 @@
     	<label for="node-config-input-token"><i class="fa fa-id-card"></i> Token</label>
     	<input type="text" id="node-config-input-token" placeholder="Insert Local Token Here">
 	</div>
+    <div class="form-row">
+    	<label for="node-config-input-pollinginterval"><i class="fa fa-refresh"></i> Polling, sec</label>
+    	<input type="text" id="node-config-input-pollinginterval" placeholder="XX seconds">
+	</div>
 </script>
 
 <script type="text/javascript">
     RED.nodes.registerType('MIIOdevices',{
         category: 'config',
         defaults: {
-            name: {value:""},
-            room: {value:""},
-            MI_id: {value:""},
-            model: {value:"", required:true},
-            address: {value:"", required:true},
-            token: {value:"", required:true}
+            name: {value: ""},
+            room: {value: ""},
+            MI_id: {value: ""},
+            model: {value: "", required: true},
+            address: {value: "", required: true},
+            token: {value: "", required: true},
+            pollinginterval: {value: "30"}
         },
         label: function() {
             return this.name + " - " + this.room;
@@ -45,7 +50,12 @@
                     {
                         value: "model",
                         options: [
-                            { value: "deerma.humidifier.mjjsq", label: "Mi Smart Humidifier"},
+                            { value: "deerma.humidifier.mjjsq", label: "Mi Smart Humidifier (mjjsq)"},
+                            { value: "deerma.humidifier.jsq", label: "Mi Smart Antibacterial Humidifier (jsq)"},
+                            { value: "zhimi.airpurifier.v7", label: "Mi Air Purifier Pro (v7)"},
+                            { value: "zhimi.humidifier.ca1", label: "Smartmi Evaporative Humidifier (ca1)"},
+                            { value: "zhimi.humidifier.cb1", label: "Smartmi Evaporative Humidifier (cb1)"},
+                            { value: "zhimi.humidifier.ca4", label: "Smartmi Evaporative Humidifer 2 (ca4)"},
                         ]
                     }
                 ]

@@ -23,10 +23,10 @@
         category: 'mihome',
         color: '#00bc9c',
         defaults: {
-            name: {value:""},
-            devices: {value:"", type:"MIIOdevices"},
-            command: {value:""},
-            command_state: {value:"payload"},
+            name: {value: ""},
+            devices: {value: "", type: "MIIOdevices"},
+            command: {value: ""},
+            command_state: {value: "payload"},
         },
         inputs:1,
         outputs:1,
@@ -48,8 +48,14 @@
                             { value: "Power", label: "⏻ Power"},
                             { value: "FanLevel", label: "♨ Fan Level"},
                             { value: "TargetHumidity", label: "♨ Terget Humidity"},
-                            { value: "Led", label: "☉ Led Lamp"},
-                            { value: "Buzzer", label: "♪ Sound"},
+                            { value: "Mode", label: "⚙ Mode"},
+                            { value: "FavoriteLevel", label: "❤ Favourite Level"},
+                            { value: "Led", label: "☉ Led - On/Off"},
+                            { value: "LedBrightness", label: "☉ Led - Brightness"},
+                            { value: "Display", label: "░ Display - On/Off"},
+                            { value: "Buzzer", label: "♪ Sound - On/Off"},
+                            { value: "Volume", label: "♪ Sound - Volume"},
+                            { value: "ChildLock", label: "🔒 Child Lock"},
                         ]
                     }
                 ]

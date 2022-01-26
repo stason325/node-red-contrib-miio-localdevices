@@ -9,6 +9,7 @@ module.exports = function(RED) {
         node.model = n.model;
         node.address = n.address;
         node.token = n.token;
+        node.pollinginterval = n.pollinginterval;
     }
     
     RED.nodes.registerType("MIIOdevices",MIIOdevicesNode);

@@ -1,0 +1,425 @@
+[
+    {
+        "id": "d2709410c8d527e6",
+        "type": "group",
+        "z": "2591ccce.456d14",
+        "name": "Typical Flow",
+        "style": {
+            "stroke": "#ff0000",
+            "fill": "#ffefbf",
+            "label": true,
+            "color": "#0070c0"
+        },
+        "nodes": [
+            "532d5ddd7d913596",
+            "0b288f8bf328cd1b",
+            "c783b32b007f279f",
+            "cd36365020eecde3",
+            "48938d5980d0de22",
+            "8b8188bde265a84c",
+            "84f00e2c44cdccc9",
+            "f94cec6e4262bb54",
+            "36a7a476a8741af3",
+            "551c783c2c19d559",
+            "c07a76420cd5bb7a",
+            "3d699af8383eac42",
+            "58941e0823a4c8af",
+            "822b6e403d291731",
+            "6f39230b8f50f232",
+            "a3497a23fc7d3bbb",
+            "73476e8a4da7bbb5",
+            "7bc695af41465904"
+        ],
+        "x": 14,
+        "y": 4359,
+        "w": 672,
+        "h": 402
+    },
+    {
+        "id": "532d5ddd7d913596",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 95,
+        "y": 4440,
+        "wires": [
+            [
+                "a3497a23fc7d3bbb"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "0b288f8bf328cd1b",
+        "type": "debug",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "TEST_Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 375,
+        "y": 4440,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "c783b32b007f279f",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 450,
+        "y": 4540,
+        "wires": [
+            [
+                "58941e0823a4c8af"
+            ]
+        ]
+    },
+    {
+        "id": "cd36365020eecde3",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 450,
+        "y": 4580,
+        "wires": [
+            [
+                "58941e0823a4c8af"
+            ]
+        ]
+    },
+    {
+        "id": "48938d5980d0de22",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 450,
+        "y": 4640,
+        "wires": [
+            [
+                "6f39230b8f50f232"
+            ]
+        ]
+    },
+    {
+        "id": "8b8188bde265a84c",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "x": 450,
+        "y": 4720,
+        "wires": [
+            [
+                "6f39230b8f50f232"
+            ]
+        ]
+    },
+    {
+        "id": "84f00e2c44cdccc9",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 4540,
+        "wires": [
+            [
+                "3d699af8383eac42"
+            ]
+        ]
+    },
+    {
+        "id": "f94cec6e4262bb54",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 4580,
+        "wires": [
+            [
+                "3d699af8383eac42"
+            ]
+        ]
+    },
+    {
+        "id": "36a7a476a8741af3",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "num",
+        "x": 450,
+        "y": 4680,
+        "wires": [
+            [
+                "6f39230b8f50f232"
+            ]
+        ]
+    },
+    {
+        "id": "551c783c2c19d559",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 4660,
+        "wires": [
+            [
+                "822b6e403d291731"
+            ]
+        ]
+    },
+    {
+        "id": "c07a76420cd5bb7a",
+        "type": "inject",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 4700,
+        "wires": [
+            [
+                "822b6e403d291731"
+            ]
+        ]
+    },
+    {
+        "id": "3d699af8383eac42",
+        "type": "MIIOsendcommand",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "devices": "19bc4241d8cfef68",
+        "command": "Power",
+        "command_state": "payload",
+        "x": 270,
+        "y": 4560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "58941e0823a4c8af",
+        "type": "MIIOsendcommand",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "devices": "19bc4241d8cfef68",
+        "command": "Led",
+        "command_state": "payload",
+        "x": 590,
+        "y": 4560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "822b6e403d291731",
+        "type": "MIIOsendcommand",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "devices": "19bc4241d8cfef68",
+        "command": "Buzzer",
+        "command_state": "payload",
+        "x": 270,
+        "y": 4680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6f39230b8f50f232",
+        "type": "MIIOsendcommand",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "",
+        "devices": "19bc4241d8cfef68",
+        "command": "FanLevel",
+        "command_state": "payload",
+        "x": 600,
+        "y": 4680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3497a23fc7d3bbb",
+        "type": "MIIOgetdata",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "devices": "19bc4241d8cfef68",
+        "autopoll": true,
+        "x": 230,
+        "y": 4440,
+        "wires": [
+            [
+                "0b288f8bf328cd1b"
+            ]
+        ]
+    },
+    {
+        "id": "73476e8a4da7bbb5",
+        "type": "comment",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "Commands",
+        "info": "",
+        "x": 110,
+        "y": 4500,
+        "wires": []
+    },
+    {
+        "id": "7bc695af41465904",
+        "type": "comment",
+        "z": "2591ccce.456d14",
+        "g": "d2709410c8d527e6",
+        "name": "Commands",
+        "info": "",
+        "x": 110,
+        "y": 4400,
+        "wires": []
+    },
+    {
+        "id": "19bc4241d8cfef68",
+        "type": "MIIOdevices",
+        "name": "Humidifier",
+        "room": "Living Room",
+        "MI_id": "12345",
+        "model": "deerma.humidifier.mjjsq",
+        "address": "192.168.100.100",
+        "token": "tokenistoolongtotypeit",
+        "pollinginterval": "15"
+    }
+]
