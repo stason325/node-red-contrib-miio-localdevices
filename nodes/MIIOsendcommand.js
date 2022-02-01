@@ -44,7 +44,7 @@ module.exports = function(RED) {
                             // 2.3.2.2) sending msg and status after 1 sec time
                             setTimeout(() => {
                                 node.status({fill:"green",shape:"dot",text:"Command: sent"});
-                                msg.payload = node.config.command + "(" + msg.payload + ")";
+                                msg.payload = {[node.config.command]: msg.payload};
                                 node.send(msg);
                             }, 1000);
                         }
@@ -56,7 +56,8 @@ module.exports = function(RED) {
                             
                             // 2.3.2.2) sending msg and status after device answer
                             node.status({fill:"green",shape:"dot",text:"Command: sent"});
-                            msg.payload = node.config.command + "(" + msg.payload + ")";
+                            msg.payload = {[node.config.command]: msg.payload};
+
                             node.send(msg);
                         }
 

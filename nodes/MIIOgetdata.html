@@ -3,10 +3,6 @@
         <label for="node-input-devices"><i class="fa fa-wifi"></i> Device</label>
         <input id="node-input-devices">
     </div>
-    <div class="form-row">
-        <label for="node-input-autopoll"><i class="fa fa-refresh"></i> Auto Polling</label>
-        <input type="checkbox" id="node-input-autopoll" checked="checked">
-    </div>
 </script>
 
 <script type="text/javascript">
@@ -15,13 +11,11 @@
         color: '#00bc9c',
         defaults: {
             devices: {value: "", type: "MIIOdevices"},
-            autopoll : {value: "", required: true}
         },
         inputs:1,
         outputs:1,
         icon: "mi.png",
         align: "right",
-        label: "MIIOgetdata",
-        
+        label: "MIIOgetdata",   
     });
 </script>

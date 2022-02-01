@@ -23,7 +23,25 @@
     	<label for="node-config-input-token"><i class="fa fa-id-card"></i> Token</label>
     	<input type="text" id="node-config-input-token" placeholder="Insert Local Token Here">
 	</div>
+    
     <div class="form-row">
+        <label for="node-config-input-isMIOT"><i class="fa fa-id-card"></i> Cloud Auth</label>
+        <input type="checkbox" id="node-config-input-isMIOT">
+    </div>
+    <div class="form-row MIOT-show-or-hide">
+    	<label for="node-config-input-username"><i class="fa fa-id-card"></i> Username</label>
+    	<input type="text" id="node-config-input-username" placeholder="email@example.com">
+	</div>
+    <div class="form-row MIOT-show-or-hide">
+    	<label for="node-config-input-password"><i class="fa fa-id-card"></i> Password</label>
+    	<input type="text" id="node-config-input-password" placeholder="MiHome password">
+	</div>
+    
+    <div class="form-row">
+        <label for="node-config-input-isPolling"><i class="fa fa-refresh"></i> Auto Polling</label>
+        <input type="checkbox" id="node-config-input-isPolling">
+    </div>
+    <div class="form-row polling-show-or-hide">
     	<label for="node-config-input-pollinginterval"><i class="fa fa-refresh"></i> Polling, sec</label>
     	<input type="text" id="node-config-input-pollinginterval" placeholder="XX seconds">
 	</div>
@@ -39,27 +57,61 @@
             model: {value: "", required: true},
             address: {value: "", required: true},
             token: {value: "", required: true},
+            
+            isMIOT: {value: false},
+            username: {value: ""},
+            password: {value: ""},
+
+            isPolling : {value: false},
             pollinginterval: {value: "30"}
         },
         label: function() {
             return this.name + " - " + this.room;
         },
-        oneditprepare: function () {
-            $("#node-config-input-model").typedInput({
-                types: [
-                    {
-                        value: "model",
-                        options: [
-                            { value: "deerma.humidifier.mjjsq", label: "Mi Smart Humidifier (mjjsq)"},
-                            { value: "deerma.humidifier.jsq", label: "Mi Smart Antibacterial Humidifier (jsq)"},
-                            { value: "zhimi.airpurifier.v7", label: "Mi Air Purifier Pro (v7)"},
-                            { value: "zhimi.humidifier.ca1", label: "Smartmi Evaporative Humidifier (ca1)"},
-                            { value: "zhimi.humidifier.cb1", label: "Smartmi Evaporative Humidifier (cb1)"},
-                            { value: "zhimi.humidifier.ca4", label: "Smartmi Evaporative Humidifer 2 (ca4)"},
-                        ]
-                    }
-                ]
-            });
-        }
-    });
+        oneditprepare: OnOpen,
+    });   
+        
+    function OnOpen () {
+        $("#node-config-input-model").typedInput({
+            types: [
+                {
+                    value: "model",
+                    options: [
+                        { value: "deerma.humidifier.mjjsq", label: "Mi Smart Humidifier (mjjsq)"},
+                        { value: "deerma.humidifier.jsq", label: "Mi Smart Antibacterial Humidifier (jsq)"},
+                        { value: "deerma.humidifier.jsq4", label: "Mijia CJSJSQ01DY Pure Evaporation (jsq4)"},
+                        { value: "zhimi.airpurifier.v7", label: "Mi Air Purifier Pro (v7)"},
+                        { value: "zhimi.airpurifier.vb2", label: "Mi Air Purifier Pro H (vb2)"},
+                        { value: "zhimi.humidifier.ca1", label: "Smartmi Evaporative Humidifier (ca1)"},
+                        { value: "zhimi.humidifier.cb1", label: "Smartmi Evaporative Humidifier (cb1)"},
+                        { value: "zhimi.humidifier.ca4", label: "Smartmi Evaporative Humidifer 2 (ca4)"},
+                        { value: "nwt.derh.330ef", label: "NWT Internet Dehumidifier 30L"},
+                        { value: "zhimi.airpurifier.m1", label: "Mi Air Purifier 2 (m1)"},
+                        { value: "zhimi.airpurifier.ma2", label: "Mi Air Purifier 2S (ma2)"},
+                        { value: "zhimi.airpurifier.ma4", label: "Mi Air Purifier 3 (ma4)"},
+                        { value: "zhimi.airpurifier.mb3", label: "Mi Air Purifier 3H (mb3)"},
+                        { value: "zhimi.airpurifier.mb4", label: "Mi Air Purifier 3C (mb4)"},
+                        { value: "zhimi.airpurifier.mc1", label: "Mi Air Purifier 2S (mc1)"},
+                        { value: "zhimi.airpurifier.mc2", label: "Mi Air Purifier 2H (mc2)"}
+                    ]
+                }
+            ]
+        });
+
+        $("#node-config-input-isMIOT").on('change', function (type, value) {
+            if ($(this).prop('checked')) {
+                $(".MIOT-show-or-hide").show();
+            } else if (!$(this).prop('checked')) {
+                $(".MIOT-show-or-hide").hide();
+            };
+        });
+
+        $("#node-config-input-isPolling").on('change', function (type, value) {
+            if ($(this).prop('checked')) {
+                $(".polling-show-or-hide").show();
+            } else if (!$(this).prop('checked')) {
+                $(".polling-show-or-hide").hide();
+            };
+        });
+    }
 </script>

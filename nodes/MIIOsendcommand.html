@@ -39,33 +39,40 @@
                 return this.command || "MIIOsendcommand";
             }
         },
-        oneditprepare: function () {
-            $("#node-input-command").typedInput({
-                types: [
-                    {
-                        value: "command",
-                        options: [
-                            { value: "Power", label: "⏻ Power"},
-                            { value: "FanLevel", label: "♨ Fan Level"},
-                            { value: "TargetHumidity", label: "♨ Terget Humidity"},
-                            { value: "Mode", label: "⚙ Mode"},
-                            { value: "FavoriteLevel", label: "❤ Favourite Level"},
-                            { value: "Led", label: "☉ Led - On/Off"},
-                            { value: "LedBrightness", label: "☉ Led - Brightness"},
-                            { value: "Display", label: "░ Display - On/Off"},
-                            { value: "Buzzer", label: "♪ Sound - On/Off"},
-                            { value: "Volume", label: "♪ Sound - Volume"},
-                            { value: "ChildLock", label: "🔒 Child Lock"},
-                        ]
-                    }
-                ]
-            });
-
-            $("#node-input-command_state").typedInput({
-                type:"msg",
-                types:["msg"],
-                typeField: "#node-input-command_state-type"
-            })
-        }
+        oneditprepare: OnMessage,
     });
+        
+    function OnMessage () {
+        $("#node-input-command").typedInput({
+            types: [
+                {
+                    value: "command",
+                    options: [
+                        { value: "Power", label: "⏻ Power"},
+                        { value: "FanLevel", label: "♨ Fan Level"},
+                        { value: "TargetHumidity", label: "♨ Terget Humidity"},
+                        { value: "Mode", label: "⚙ Mode"},
+                        { value: "FavoriteLevel", label: "❤ Favourite Level"},
+                        { value: "FavLevel", label: "❤ Fav Level"},
+                        { value: "FavSpeed", label: "❤ Favourite Speed"},
+                        { value: "Led", label: "☉ Led - On/Off"},
+                        { value: "LedB", label: "☉ Led B - On/Off"},
+                        { value: "LedBrightness", label: "☉ Led - Brightness"},
+                        { value: "Bright", label: "☉ Bright - On/Off"},
+                        { value: "Display", label: "░ Display - On/Off"},
+                        { value: "LcdBrightness", label: "░ Display - Brightness"},
+                        { value: "Buzzer", label: "♪ Sound - On/Off"},
+                        { value: "Volume", label: "♪ Sound - Volume"},
+                        { value: "ChildLock", label: "🔒 Child Lock"},
+                    ]
+                }
+            ]
+        });
+
+        $("#node-input-command_state").typedInput({
+            type:"msg",
+            types:["msg"],
+            typeField: "#node-input-command_state-type"
+        })
+    }    
 </script>
