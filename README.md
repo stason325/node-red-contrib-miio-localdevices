@@ -76,7 +76,7 @@ Send command node:
 
 * go to `Pittini`'s library: <https://github.com/Pittini/iobroker-nodemihome/tree/main/DefinitionfilesForNode-Mihome>
 * download definition js-file for your device
-* copy it to your Node-Red folder: `~/.node-red/node_modules/node-red-contrib-miio-localdevices/node_modules/node-mihome/lib/devices`
+* copy it to your Node-Red folder: `~/.node-red/node_modules/node-mihome/lib/devices`
 * reboot Nodered.
 
 Errors and Exceptions:
