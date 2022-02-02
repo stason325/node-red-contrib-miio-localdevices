@@ -2,7 +2,7 @@
 
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
 ![npm](https://img.shields.io/npm/dm/node-red-contrib-miio-localdevices)
-[![GitHub](https://img.shields.io/github/license/spongioblast/node-red-contrib-local-mihome?style=flat-square)](https://github.com/spongioblast/node-red-contrib-local-mihome/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/github/license/stason325/node-red-contrib-miio-localdevices?style=flat-square)](https://github.com/stason325/node-red-contrib-miio-localdevices/blob/main/LICENSE)
 
 Node-Red Nodes for Xiaomi humidifiers and purifiers which can be operated locally via MIIO protocol.
 
