@@ -1,15 +1,17 @@
 # node-red-contrib-miio-localdevices
 
-[![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
-[![Min Node Version](https://img.shields.io/node/v/node-red-contrib-miio-localdevices.svg)](https://www.npmjs.com/package/node-red-contrib-miio-localdevices)
+[![platform](https://img.shields.io/badge/platform-Node--RED-red?logo=nodered)](https://nodered.org)
+[![Min Node Version](https://img.shields.io/node/v/node-red-contrib-miio-localdevices.svg)](https://nodejs.org/en/)
 [![GitHub](https://img.shields.io/github/license/stason325/node-red-contrib-miio-localdevices)](https://github.com/stason325/node-red-contrib-miio-localdevices/blob/master/LICENSE)
 ![Repo size](https://img.shields.io/github/repo-size/stason325/node-red-contrib-miio-localdevices)
 
-![GitHub version](https://img.shields.io/github/package-json/v/stason325/node-red-contrib-miio-localdevices)
+[![GitHub version](https://img.shields.io/github/package-json/v/stason325/node-red-contrib-miio-localdevices?logo=npm)](https://www.npmjs.com/package/node-red-contrib-miio-localdevices)
+[![Package Quality](https://packagequality.com/shield/node-red-contrib-miio-localdevices.svg)](https://packagequality.com/#?package=node-red-contrib-miio-localdevices)
 ![GitHub last commit](https://img.shields.io/github/last-commit/stason325/node-red-contrib-miio-localdevices/master)
-[![NPM Total Downloads](https://img.shields.io/npm/dt/node-red-contrib-miio-localdevices.svg)](https://www.npmjs.com/package/node-red-contrib-miio-localdevices)
+![NPM Total Downloads](https://img.shields.io/npm/dt/node-red-contrib-miio-localdevices.svg)
 ![NPM Downloads per month](https://img.shields.io/npm/dm/node-red-contrib-miio-localdevices)
-![issues](https://img.shields.io/github/issues/stason325/node-red-contrib-miio-localdevices)
+[![issues](https://img.shields.io/github/issues/stason325/node-red-contrib-miio-localdevices?logo=github)](https://github.com/stason325/node-red-contrib-miio-localdevices/issues)
+
 
 
 
