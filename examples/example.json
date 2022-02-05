@@ -2,7 +2,7 @@
     {
         "id": "7ebe1b5be689f3f6",
         "type": "group",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "name": "Typical Flow",
         "style": {
             "stroke": "#ff3f3f",
@@ -20,7 +20,6 @@
             "ffe27fd94fa5ad10",
             "388864c3da4e9f0f",
             "4c63b549c837daef",
-            "619f93628cdabec2",
             "4bb147077d451f51",
             "bc77585c641ca1db",
             "8c9973b21b94d7f1",
@@ -48,15 +47,15 @@
             "116dc8adf2e002c9",
             "f4c77c6c3aefcbd1"
         ],
-        "x": 14,
-        "y": 99,
-        "w": 822,
+        "x": 74,
+        "y": 4559,
+        "w": 802,
         "h": 422
     },
     {
         "id": "0628d81b56d37788",
         "type": "function",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "State",
         "func": "var msg_out = {};\n\nmsg_out.payload = flow.get(\"HUMID_power\");\n\nnode.status({ fill: \"green\", shape: \"dot\", text: msg_out.payload });\nsetTimeout(() => {\n    node.status({}); //clean status\n}, 3000);\n\nreturn msg_out;",
@@ -65,8 +64,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 235,
-        "y": 140,
+        "x": 275,
+        "y": 4600,
         "wires": [
             [
                 "03cd18a50ea54adb"
@@ -77,7 +76,7 @@
     {
         "id": "b1a22142c655b3fd",
         "type": "function",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Speed",
         "func": "var msg_out = {};\n\nmsg_out.payload = flow.get(\"HUMID_speed\");\n\nnode.status({ fill: \"green\", shape: \"dot\", text: msg_out.payload });\nsetTimeout(() => {\n    node.status({}); //clean status\n}, 3000);\n\nreturn msg_out;",
@@ -86,8 +85,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 235,
-        "y": 240,
+        "x": 275,
+        "y": 4700,
         "wires": [
             [
                 "bc96b73c5816f507"
@@ -98,7 +97,7 @@
     {
         "id": "f487cd8e641f162d",
         "type": "debug",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Liv_Humid_Debug",
         "active": true,
@@ -109,67 +108,67 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 75,
-        "y": 320,
+        "x": 115,
+        "y": 4780,
         "wires": [],
         "l": false
     },
     {
         "id": "609d7ec3a4544cb9",
         "type": "link out",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Hum_out>>",
         "links": [
             "fbe19a1bcb09914d"
         ],
-        "x": 795,
-        "y": 140,
+        "x": 835,
+        "y": 4600,
         "wires": []
     },
     {
         "id": "fc3184309b29a8e1",
         "type": "link out",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Hum_out>>",
         "links": [
             "a908eaca02db1dde"
         ],
-        "x": 795,
-        "y": 240,
+        "x": 835,
+        "y": 4700,
         "wires": []
     },
     {
         "id": "f08d3f65a2064859",
         "type": "link out",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Hum_out>>",
         "links": [
             "5a48d2dee841214d"
         ],
-        "x": 795,
-        "y": 340,
+        "x": 835,
+        "y": 4800,
         "wires": []
     },
     {
         "id": "ffe27fd94fa5ad10",
         "type": "link out",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Hum_out>>",
         "links": [
             "116dc8adf2e002c9"
         ],
-        "x": 795,
-        "y": 440,
+        "x": 835,
+        "y": 4900,
         "wires": []
     },
     {
         "id": "388864c3da4e9f0f",
         "type": "function",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "LED",
         "func": "var msg_out = {};\n\nmsg_out.payload = flow.get(\"HUMID_led\");\n\nnode.status({ fill: \"green\", shape: \"dot\", text: msg_out.payload });\nsetTimeout(() => {\n    node.status({}); //clean status\n}, 3000);\n\nreturn msg_out;",
@@ -178,8 +177,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 235,
-        "y": 340,
+        "x": 275,
+        "y": 4800,
         "wires": [
             [
                 "3a9d229819fbba7f"
@@ -190,7 +189,7 @@
     {
         "id": "4c63b549c837daef",
         "type": "function",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Sound",
         "func": "var msg_out = {};\n\nmsg_out.payload = flow.get(\"HUMID_sound\");\n\nnode.status({ fill: \"green\", shape: \"dot\", text: msg_out.payload });\nsetTimeout(() => {\n    node.status({}); //clean status\n}, 3000);\n\nreturn msg_out;",
@@ -199,8 +198,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 235,
-        "y": 440,
+        "x": 275,
+        "y": 4900,
         "wires": [
             [
                 "bc77585c641ca1db"
@@ -209,39 +208,9 @@
         "l": false
     },
     {
-        "id": "619f93628cdabec2",
-        "type": "inject",
-        "z": "c38821b96c9a7442",
-        "g": "7ebe1b5be689f3f6",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 75,
-        "y": 240,
-        "wires": [
-            [
-                "f42e16698d64867d"
-            ]
-        ],
-        "l": false
-    },
-    {
         "id": "4bb147077d451f51",
         "type": "function",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "parse",
         "func": "if (msg.payload.Humidity_Value == null) {\n    node.status({ fill: \"red\", shape: \"ring\", text: \"NOTsaved\" });\n} else {\n    flow.set(\"HUMID_power\", msg.payload.OnOff_State);\n    flow.set(\"HUMID_speed\", msg.payload.Humidifier_Gear);\n    flow.set(\"HUMID_led\", msg.payload.Led_State);\n    flow.set(\"HUMID_sound\", msg.payload.TipSound_State);\n\n    node.status({ fill: \"green\", shape: \"dot\", text: \"Saved\" });\n};\n\nsetTimeout(() => {\n    node.status({}); //clean status\n}, 3000);\n\nreturn msg;",
@@ -250,8 +219,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 135,
-        "y": 280,
+        "x": 175,
+        "y": 4740,
         "wires": [
             [
                 "4c63b549c837daef",
@@ -265,7 +234,7 @@
     {
         "id": "bc77585c641ca1db",
         "type": "rbe",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "func": "rbe",
@@ -274,8 +243,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 375,
-        "y": 440,
+        "x": 415,
+        "y": 4900,
         "wires": [
             [
                 "5fdf4bffdf65f9a7"
@@ -286,7 +255,7 @@
     {
         "id": "8c9973b21b94d7f1",
         "type": "rbe",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "func": "rbe",
@@ -295,8 +264,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 595,
-        "y": 240,
+        "x": 635,
+        "y": 4700,
         "wires": [
             [
                 "0fd4893a46cacb53"
@@ -307,7 +276,7 @@
     {
         "id": "ce14c0e64328b21b",
         "type": "rbe",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "func": "rbe",
@@ -316,8 +285,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 595,
-        "y": 440,
+        "x": 635,
+        "y": 4900,
         "wires": [
             [
                 "38e5052861e5f611"
@@ -328,7 +297,7 @@
     {
         "id": "583c7e7e09fd4aed",
         "type": "rbe",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "func": "rbe",
@@ -337,8 +306,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 595,
-        "y": 340,
+        "x": 635,
+        "y": 4800,
         "wires": [
             [
                 "ae7c8b3102b242ce"
@@ -349,7 +318,7 @@
     {
         "id": "6ff6e31adc4bb3fd",
         "type": "rbe",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "func": "rbe",
@@ -358,8 +327,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 595,
-        "y": 140,
+        "x": 635,
+        "y": 4600,
         "wires": [
             [
                 "553e3e22798f98a5"
@@ -370,7 +339,7 @@
     {
         "id": "3a9d229819fbba7f",
         "type": "rbe",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "func": "rbe",
@@ -379,8 +348,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 375,
-        "y": 340,
+        "x": 415,
+        "y": 4800,
         "wires": [
             [
                 "2c8b8988f781f704"
@@ -391,7 +360,7 @@
     {
         "id": "bc96b73c5816f507",
         "type": "rbe",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "func": "rbe",
@@ -400,8 +369,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 375,
-        "y": 240,
+        "x": 415,
+        "y": 4700,
         "wires": [
             [
                 "b3643ca69a97d87c"
@@ -412,7 +381,7 @@
     {
         "id": "03cd18a50ea54adb",
         "type": "rbe",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "func": "rbe",
@@ -421,8 +390,8 @@
         "inout": "out",
         "septopics": true,
         "property": "payload",
-        "x": 375,
-        "y": 140,
+        "x": 415,
+        "y": 4600,
         "wires": [
             [
                 "0d1d927ce3ea488e"
@@ -433,11 +402,11 @@
     {
         "id": "f42e16698d64867d",
         "type": "MIIOgetdata",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "devices": "4d92610bf0ef9094",
-        "x": 75,
-        "y": 280,
+        "x": 115,
+        "y": 4740,
         "wires": [
             [
                 "f487cd8e641f162d",
@@ -449,14 +418,14 @@
     {
         "id": "553e3e22798f98a5",
         "type": "MIIOsendcommand",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "devices": "4d92610bf0ef9094",
         "command": "Power",
         "command_state": "payload",
-        "x": 710,
-        "y": 140,
+        "x": 750,
+        "y": 4600,
         "wires": [
             [
                 "609d7ec3a4544cb9"
@@ -466,14 +435,14 @@
     {
         "id": "0fd4893a46cacb53",
         "type": "MIIOsendcommand",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "devices": "4d92610bf0ef9094",
         "command": "FanLevel",
         "command_state": "payload",
-        "x": 700,
-        "y": 240,
+        "x": 740,
+        "y": 4700,
         "wires": [
             [
                 "fc3184309b29a8e1"
@@ -483,14 +452,14 @@
     {
         "id": "ae7c8b3102b242ce",
         "type": "MIIOsendcommand",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "devices": "4d92610bf0ef9094",
         "command": "Led",
         "command_state": "payload",
-        "x": 710,
-        "y": 340,
+        "x": 750,
+        "y": 4800,
         "wires": [
             [
                 "f08d3f65a2064859"
@@ -500,14 +469,14 @@
     {
         "id": "38e5052861e5f611",
         "type": "MIIOsendcommand",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "devices": "4d92610bf0ef9094",
         "command": "Buzzer",
         "command_state": "payload",
-        "x": 710,
-        "y": 440,
+        "x": 750,
+        "y": 4900,
         "wires": [
             [
                 "ffe27fd94fa5ad10"
@@ -517,14 +486,14 @@
     {
         "id": "fbe19a1bcb09914d",
         "type": "link in",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Feedback",
         "links": [
             "609d7ec3a4544cb9"
         ],
-        "x": 280,
-        "y": 180,
+        "x": 320,
+        "y": 4640,
         "wires": [
             [
                 "6d8cef335fbae663"
@@ -535,7 +504,7 @@
     {
         "id": "6d8cef335fbae663",
         "type": "function",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "parse",
         "func": "flow.set(\"HUMID_power\", msg.payload.Power);\nnode.status({ fill: \"green\", shape: \"dot\", text: \"Saved\" });\n\nsetTimeout(() => {\n    node.status({}); //clean status\n}, 3000);\n\nreturn msg;",
@@ -544,8 +513,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 375,
-        "y": 180,
+        "x": 415,
+        "y": 4640,
         "wires": [
             [
                 "0628d81b56d37788"
@@ -556,14 +525,14 @@
     {
         "id": "a908eaca02db1dde",
         "type": "link in",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Feedback",
         "links": [
             "fc3184309b29a8e1"
         ],
-        "x": 280,
-        "y": 280,
+        "x": 320,
+        "y": 4740,
         "wires": [
             [
                 "06c07a47dd65c614"
@@ -574,7 +543,7 @@
     {
         "id": "06c07a47dd65c614",
         "type": "function",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "parse",
         "func": "flow.set(\"HUMID_speed\", msg.payload.FanLevel);\nnode.status({ fill: \"green\", shape: \"dot\", text: \"Saved\" });\n\nsetTimeout(() => {\n    node.status({}); //clean status\n}, 3000);\n\nreturn msg;",
@@ -583,8 +552,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 375,
-        "y": 280,
+        "x": 415,
+        "y": 4740,
         "wires": [
             [
                 "b1a22142c655b3fd"
@@ -595,7 +564,7 @@
     {
         "id": "89c868ce484aee06",
         "type": "function",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "parse",
         "func": "flow.set(\"HUMID_led\", msg.payload.Led);\nnode.status({ fill: \"green\", shape: \"dot\", text: \"Saved\" });\n\nsetTimeout(() => {\n    node.status({}); //clean status\n}, 3000);\n\nreturn msg;",
@@ -604,8 +573,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 375,
-        "y": 380,
+        "x": 415,
+        "y": 4840,
         "wires": [
             [
                 "388864c3da4e9f0f"
@@ -616,7 +585,7 @@
     {
         "id": "0d1d927ce3ea488e",
         "type": "ui_switch",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "label": "Power",
@@ -640,8 +609,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 490,
-        "y": 140,
+        "x": 530,
+        "y": 4600,
         "wires": [
             [
                 "6ff6e31adc4bb3fd"
@@ -651,7 +620,7 @@
     {
         "id": "2c8b8988f781f704",
         "type": "ui_switch",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "label": "Led",
@@ -675,8 +644,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 490,
-        "y": 340,
+        "x": 530,
+        "y": 4800,
         "wires": [
             [
                 "583c7e7e09fd4aed"
@@ -686,7 +655,7 @@
     {
         "id": "5fdf4bffdf65f9a7",
         "type": "ui_switch",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "label": "Sound",
@@ -710,8 +679,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 490,
-        "y": 440,
+        "x": 530,
+        "y": 4900,
         "wires": [
             [
                 "ce14c0e64328b21b"
@@ -721,7 +690,7 @@
     {
         "id": "b3643ca69a97d87c",
         "type": "ui_dropdown",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "",
         "label": "Fan Level",
@@ -754,8 +723,8 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 480,
-        "y": 240,
+        "x": 520,
+        "y": 4700,
         "wires": [
             [
                 "8c9973b21b94d7f1"
@@ -765,14 +734,14 @@
     {
         "id": "5a48d2dee841214d",
         "type": "link in",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Feedback",
         "links": [
             "f08d3f65a2064859"
         ],
-        "x": 280,
-        "y": 380,
+        "x": 320,
+        "y": 4840,
         "wires": [
             [
                 "89c868ce484aee06"
@@ -783,14 +752,14 @@
     {
         "id": "116dc8adf2e002c9",
         "type": "link in",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "Feedback",
         "links": [
             "ffe27fd94fa5ad10"
         ],
-        "x": 280,
-        "y": 480,
+        "x": 320,
+        "y": 4940,
         "wires": [
             [
                 "f4c77c6c3aefcbd1"
@@ -801,7 +770,7 @@
     {
         "id": "f4c77c6c3aefcbd1",
         "type": "function",
-        "z": "c38821b96c9a7442",
+        "z": "2591ccce.456d14",
         "g": "7ebe1b5be689f3f6",
         "name": "parse",
         "func": "flow.set(\"HUMID_sound\", msg.payload.Buzzer);\nnode.status({ fill: \"green\", shape: \"dot\", text: \"Saved\" });\n\nsetTimeout(() => {\n    node.status({}); //clean status\n}, 3000);\n\nreturn msg;",
@@ -810,8 +779,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 375,
-        "y": 480,
+        "x": 415,
+        "y": 4940,
         "wires": [
             [
                 "4c63b549c837daef"

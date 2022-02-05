@@ -61,15 +61,15 @@ You can find nodes in `mihome` section.
 
 Ta make sure that your flow works properly I would recommend using certain hints (like in [example.json](examples/example.json) attached):
 - save data to context and use filter-nodes to prevent looping in your flow
-- send input message (timestamp) to GET-notes only after making changes to configuration of your device ... don't overpush GET-node
+- ~~send input message (timestamp) to GET-notes only after making changes to configuration of your device ... don't overpush GET-node~~ (*depreciated*)
 - try not to trigger several SEND-nodes related to the same device at the same time - this can lead to "call to device timed out" error and as a result you will need to reboot Node Red to restore connection with the device
 
 
-### Errors and Device Status Updates
+### Device Status Updates and Errors
 Get node:
-1) sending JSON with actual device characteristics is trigered by input message
-2) you can poll your device once or continuously with some interval, for that please check the box and choose polling interval in configuration node
-3) if polling was successful you will see ok-status under the node and after that get message with actual device characteristics
+1) ~~sending JSON with actual device characteristics is trigered by input message~~ (*depreciated: starting from 0.3.0 there is no input in GET-not, JSON with current device properties is sent automatically after saving device configuration and deploying*)
+2) you can poll your device once or continuously with some interval, for that please check the box and choose polling interval in configuration node (*starting from 0.3.0 if auto-polling is turned on, GET-node sends JSON with actual characteristics only if these sharacteristics have changed*)
+3) if polling was successful you will see "Connection: OK" or "State: changed" green status under the node and after that get message with actual device characteristics
 
 ![NR-Miio_pic6.png](images/NR-Miio_pic6.png)
 
@@ -102,7 +102,8 @@ You can import attached [example.json](examples/example.json) from Node-Red Impo
 ## Future Updates and Improvement
 - [x] add auto-polling option with configurable interval
 - [x] implement MIOT protocol + add MIOT-humidifiers and purifiers
-- [ ] enlarge the list of devices with those operated via MIOT protocol (not only humidifiers and purifiers)
+- [ ] enlarge the list of devices with those operated via MIIO and MIOT protocols (not only humidifiers and purifiers)
+- [ ] shorten the list of commands in SEND-node to those which are applicable only to the device chosen 
 
 ## Reporting an issue and new devices support requests
 Please feel free to report all issues and to request support for new devices.

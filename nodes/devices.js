@@ -1,3 +1,4 @@
+const EventEmitter = require('events');
 const mihome = require('node-mihome');
 
 module.exports = function(RED) {
@@ -19,19 +20,11 @@ module.exports = function(RED) {
         node.isPolling = n.isPolling;
         node.pollinginterval = n.pollinginterval;
         
-        // 1) Initialization of MiLocal Protocol
-        mihome.miioProtocol.init();
-
-        // 2) Logging in to MiCloud if needed
+        // 1) Initialization of MI Protocols
+        MiioConnect ();
         MiotConnect ();
-        async function MiotConnect () {
-            MIOT_login = node.isMIOT;
-            if (MIOT_login == true) {
-                await mihome.miCloudProtocol.login(node.username, node.password);
-            } else {return};
-        };
 
-        // 3) Setting up the device
+        // 2) Setting up the device
         const device = mihome.device({
             id: node.MI_id,
             model: node.model,
@@ -40,49 +33,85 @@ module.exports = function(RED) {
             refresh: 5000 // miio-device option, device properties refresh interval in ms
         });
 
-        // 4) Defining auto-polling variables
+        // 3) Defining auto-polling variables
         Poll_or_Not = node.isPolling;
-        if (node.pollinginterval == null) {Polling_Interval = 60} 
+        if (node.pollinginterval == null) {Polling_Interval = 30} 
         else {Polling_Interval = node.pollinginterval};
 
+        // 4) Tiding Up after device is destroyed
+        node.on('close', () => OnClose());
+
         // 5) Main Function - Polling the device
-        ConnDevice ();
-        async function ConnDevice () {
-            try {
-                // 5.1) connect to device and poll for properties 
-                await device.on('properties', (data) => {
-                    node.Polling_succeeded = true;
-                    node.Polling_data = data;                     
-                });
-                await device.init();
-                device.destroy();   
-            }
-            catch (exception) {
-                // 5.2) catching errors from MIHOME Protocol
-                node.Polling_succeeded = false;
-                node.Polling_error = `Mihome Exception. IP: ${node.address} -> ${exception.message}`;
-            }
-        };
+        OldData = {};
+        ConnDevice().then((data) => {
+            data = OldData;    
+            node.emit('onInit', data);
+            });
+        
 
         // 6) Auto-polling cycle
         setTimeout(function run() {    
             // 6.1) stop auto-polling cycle
             if (Poll_or_Not == false) {return};
-
-            // 5.3) continue auto-polling cycle
+            // 6.2) continue auto-polling cycle
             if (Poll_or_Not == true && Polling_Interval > 0) {
-                // 5.3.1) re-define auto-polling interval
-                if (node.pollinginterval == null) {New_Interval = 60}
+                // 6.2.1) re-define auto-polling interval
+                if (node.pollinginterval == null) {New_Interval = 30}
                 else {New_Interval = node.pollinginterval};
-
-                // 5.3.2) check for changing the Interval, if changed then stop previous cycle
+                // 6.2.2) check for changing the Interval, if changed then stop previous cycle
                 if (New_Interval == Polling_Interval) {
                     ConnDevice ();
                     setTimeout(run, Polling_Interval * 1000);
                 }; 
             };
         },  Polling_Interval * 1000);
-    };
 
+        // functions in USE:
+        // A) Initializing MiLocal
+        function MiioConnect () {
+            mihome.miioProtocol.init();
+        };
+        // B) Logging in to MiCloud if needed
+        async function MiotConnect () {
+            MIOT_login = node.isMIOT;
+            if (MIOT_login == true) {
+                await mihome.miCloudProtocol.login(node.username, node.password);
+            } else {return};
+        };
+        // C) OnClose Destroying
+        function OnClose () {
+            device.destroy();
+        };
+        // D) Main Function - Polling the device
+        async function ConnDevice () {
+            try {
+                // D.1) connect to device and poll for properties 
+                await device.on('properties', (data) => {
+                    NewData = data;
+                    // D.1.1) check for any changes in properties
+                    for (var key in NewData) {
+                        var value = NewData[key];
+                        if (key in OldData) {
+                            if (OldData[key] !== value) {
+                                //node.Polling_data = data;
+                                node.emit('onChange', data);
+                                OldData = data;
+                            }
+                        }
+                    };
+                    // D.1.2) case with no changes in properties
+                    OldData = data;                   
+                });
+                await device.init();
+                device.destroy();   
+            }
+            catch (exception) {
+                // D.2) catching errors from MIHOME Protocol
+                PollError = `Mihome Exception. IP: ${node.address} -> ${exception.message}`;
+                node.emit('onError', PollError);
+            }
+        }
+    };
+    
     RED.nodes.registerType("MIIOdevices",MIIOdevicesNode);
 }
