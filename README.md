@@ -30,6 +30,7 @@ See [DEVICES.md](DEVICES.md) for full list of supported devices and commands ava
 - [x] deerma.humidifier.mjjsq
 - [x] zhimi.airpurifier.mb4
 - [x] zhimi.humidifier.cb1
+- [x] zhimi.heater.za1
 ## Installation
 
 ```sh
