@@ -87,12 +87,10 @@ Send command node:
 
 ![NR-Miio_pic5.png](images/NR-Miio_pic5.png)
 
-2) Some devices are not basically included into Node-mihome library but supported through node-red-contrib-miio-localdevices (please see collumn "Import File" in [DEVICES.md](DEVICES.md)). If you have such device you need to download additionally the definition-file for your device. Do it this way:
+2) Some devices are not basically included into Node-mihome library but supported through node-red-contrib-miio-localdevices (please see collumn "Import File" in [DEVICES.md](DEVICES.md)). If you have such device you need to copy-paste additionally the definition-file for your device. Do it this way:
 
-* some definiotion files can be found in defFiles derictory here: please go to `~/.node-red/node_modules/node-red-contrib-miio-localdevices/defFiles`
-* if you do not see the file but you still need it go to `Pittini`'s library: <https://github.com/Pittini/iobroker-nodemihome/tree/main/DefinitionfilesForNode-Mihome>
-* download definition js-file for your device
-* copy it to your Node-Red folder: `~/.node-red/node_modules/node-mihome/lib/devices`
+* find file you need in "defFiles" folder here: `~/.node-red/node_modules/node-red-contrib-miio-localdevices/defFiles`  
+* copy definition-file you need and paste it to your node-mihome folder: `~/.node-red/node_modules/node-mihome/lib/devices`
 * reboot Nodered.
 
 Errors and Exceptions:

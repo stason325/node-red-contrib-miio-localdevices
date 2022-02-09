@@ -72,7 +72,7 @@
       <td><ul><li>⏻ Power</li><li>♪ Sound - On/Off</li><li>♨ Fan Level</li><li>♨ Terget Humidity</li><li>☉ Led - Brightness</li><li>🔒 Child Lock</li><li>⚙ Mode</li></ul></td>
       <td><ul><li>true / false</li><li>true / false</li><li>0, 1, 2, 3</li><li>30, 40, 50, 60, 70, 80</li><li>string</li><li>true / false</li><li>string: "dry" / "humidity"</li></ul></td>
       <td align="center">&#10060;</td>
-      <td align="center">&#10060;</td>
+      <td align="center">&#9989;</td>
     </tr>
     <tr>
       <td>7</td>
