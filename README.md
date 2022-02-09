@@ -26,6 +26,10 @@ Inspired by `@spongioblast`: <https://github.com/spongioblast/node-red-contrib-l
 ## List of supported devices
 See [DEVICES.md](DEVICES.md) for full list of supported devices and commands available for them.
 
+## Successfully Tested Devices
+- [x] deerma.humidifier.mjjsq
+- [x] zhimi.airpurifier.mb4
+- [x] zhimi.humidifier.cb1
 ## Installation
 
 ```sh
@@ -85,7 +89,8 @@ Send command node:
 
 2) Some devices are not basically included into Node-mihome library but supported through node-red-contrib-miio-localdevices (please see collumn "Import File" in [DEVICES.md](DEVICES.md)). If you have such device you need to download additionally the definition-file for your device. Do it this way:
 
-* go to `Pittini`'s library: <https://github.com/Pittini/iobroker-nodemihome/tree/main/DefinitionfilesForNode-Mihome>
+* some definiotion files can be found in defFiles derictory here: please go to `~/.node-red/node_modules/node-red-contrib-miio-localdevices/defFiles`
+* if you do not see the file but you still need it go to `Pittini`'s library: <https://github.com/Pittini/iobroker-nodemihome/tree/main/DefinitionfilesForNode-Mihome>
 * download definition js-file for your device
 * copy it to your Node-Red folder: `~/.node-red/node_modules/node-mihome/lib/devices`
 * reboot Nodered.

@@ -2,7 +2,7 @@
   "author": {
     "name": "Stas Zaytsev"
   },
-  "description": "Node for Node-red to control Mi Humidifiers and Purifiers locally via node-mihome",
+  "description": "Node for Node-red to control Mi Humidifiers, Purifiers and Heaters (list of devices to be enlarged) locally via node-mihome",
   "dependencies": {
     "node-mihome": "latest"
   },
@@ -10,7 +10,7 @@
     "node": ">=10.0.0"
   },
   "keywords": [
-    "node-red", "xiaomi", "miio", "humidifier", "purifier", "deerma", "mjjsq", "jsq", "jsq4", "zhimi", "v7", "vb2", "ca1", "cb1", "ca4", "m1", "ma2", "ma4", "mb3", "mb4", "mc1", "mc2"
+    "node-red", "xiaomi", "miio", "humidifier", "purifier", "heater", "deerma", "mjjsq", "jsq", "jsq4", "zhimi", "v7", "vb2", "ca1", "cb1", "ca4", "m1", "ma2", "ma4", "mb3", "mb4", "mc1", "mc2", "za1"
   ],
   "license": "GPL-3.0",
   "name": "node-red-contrib-miio-localdevices",
@@ -26,6 +26,6 @@
     "type": "git",
     "url": "git+https://github.com/stason325/node-red-contrib-miio-localdevices.git"
   },
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/stason325/node-red-contrib-miio-localdevices"
 }
