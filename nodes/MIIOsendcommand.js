@@ -51,8 +51,10 @@ module.exports = function(RED) {
                         // 2.3.2) all other commands ... to be tested
                         else {
                             // 2.3.2.1) transfer command from input into device (in AWAIT mode)
+                            if (device._miotSpecType) {
+                                await device.init();
+                            }
                             await eval("device.set" + node.config.command + "(" + msg.payload + ")");
-                            await device.init();
                             device.destroy();
                             
                             // 2.3.2.2) sending msg and status after device answer

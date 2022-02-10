@@ -13,9 +13,7 @@
 [![issues](https://img.shields.io/github/issues/stason325/node-red-contrib-miio-localdevices?logo=github)](https://github.com/stason325/node-red-contrib-miio-localdevices/issues)
 
 
-
-
-Node-Red Nodes for Xiaomi humidifiers and purifiers which can be operated locally via MIIO protocol.
+Node for Node-red to control Mi Humidifiers, Purifiers and Heaters (list of devices to be enlarged) locally via node-mihome
 
 ## References
 
@@ -28,9 +26,9 @@ See [DEVICES.md](DEVICES.md) for full list of supported devices and commands ava
 
 ## Successfully Tested Devices
 - [x] deerma.humidifier.mjjsq
-- [x] zhimi.airpurifier.mb4
 - [x] zhimi.humidifier.cb1
 - [x] zhimi.heater.za1
+- [ ] zhimi.airpurifier.mb4
 ## Installation
 
 ```sh
