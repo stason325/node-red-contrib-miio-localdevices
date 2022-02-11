@@ -28,7 +28,7 @@ See [DEVICES.md](DEVICES.md) for full list of supported devices and commands ava
 - [x] deerma.humidifier.mjjsq
 - [x] zhimi.humidifier.cb1
 - [x] zhimi.heater.za1
-- [ ] zhimi.airpurifier.mb4
+- [x] zhimi.airpurifier.mb4
 ## Installation
 
 ```sh
@@ -70,7 +70,7 @@ Ta make sure that your flow works properly I would recommend using certain hints
 
 ### Device Status Updates and Errors
 Get node:
-1) ~~sending JSON with actual device characteristics is trigered by input message~~ (*depreciated: starting from 0.3.0 there is no input in GET-not, JSON with current device properties is sent automatically after saving device configuration and deploying*)
+1) ~~sending JSON with actual device characteristics is trigered by input message~~ (*depreciated: starting from 0.3.0 there is no input in GET-node, JSON with current device properties is sent automatically after saving device configuration and deploying*)
 2) you can poll your device once or continuously with some interval, for that please check the box and choose polling interval in configuration node (*starting from 0.3.0 if auto-polling is turned on, GET-node sends JSON with actual characteristics only if these sharacteristics have changed*)
 3) if polling was successful you will see "Connection: OK" or "State: changed" green status under the node and after that get message with actual device characteristics
 
@@ -104,8 +104,9 @@ You can import attached [example.json](examples/example.json) from Node-Red Impo
 ## Future Updates and Improvement
 - [x] add auto-polling option with configurable interval
 - [x] implement MIOT protocol + add MIOT-humidifiers and purifiers
-- [ ] enlarge the list of devices with those operated via MIIO and MIOT protocols (not only humidifiers and purifiers)
-- [ ] shorten the list of commands in SEND-node to those which are applicable only to the device chosen 
+- [ ] filter the list of commands in SEND-node to those applicable only to the device chosen
+- [ ] make vocabulary with universal frendly names of properties 
+- [ ] enlarge the list of devices with those operated via MIIO and MIOT protocols
 
 ## Reporting an issue and new devices support requests
 Please feel free to report all issues and to request support for new devices.

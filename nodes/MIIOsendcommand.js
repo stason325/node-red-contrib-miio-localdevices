@@ -29,7 +29,7 @@ module.exports = function(RED) {
                     model: node.MIdevice.model,
                     address: node.MIdevice.address,
                     token: node.MIdevice.token,
-                    refresh: 5000 // miio-device option, device properties refresh interval in ms
+                    //refresh: 5000 // miio-device option, device properties refresh interval in ms
                 });
 
                 // 2.3) main function
@@ -53,7 +53,7 @@ module.exports = function(RED) {
                             // 2.3.2.1) transfer command from input into device (in AWAIT mode)
                             if (device._miotSpecType) {
                                 await device.init();
-                            }
+                            };
                             await eval("device.set" + node.config.command + "(" + msg.payload + ")");
                             device.destroy();
                             

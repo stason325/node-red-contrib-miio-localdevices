@@ -30,7 +30,7 @@ module.exports = function(RED) {
             model: node.model,
             address: node.address,
             token: node.token,
-            refresh: 5000 // miio-device option, device properties refresh interval in ms
+            //refresh: 5000 // miio-device option, device properties refresh interval in ms
         });
 
         // 3) Defining auto-polling variables
