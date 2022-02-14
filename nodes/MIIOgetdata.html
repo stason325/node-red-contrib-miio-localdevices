@@ -3,7 +3,44 @@
         <label for="node-input-devices"><i class="fa fa-wifi"></i> Device</label>
         <input id="node-input-devices">
     </div>
+
+    <div class="form-row">
+        <label for="node-input-prop_type"><i class="fa fa-newspaper-o"></i> Props Type</label>
+        <input type="text" id="node-input-prop_type">
+    </div>
 </script>
+
+
+<script type="text/html" data-help-name="MIIOgetdata">
+    <h3>Guide for setting up node:</h3>
+        <ol>
+            <li>Select a pre-configured device from the pick-list</li>
+            <li>Select property type in output message: Mi Protocol default name or Friendly name</li>
+        </ol>
+    <h3>Output</h3>
+        <dl class="message-properties">
+            <dt>payload <span class="property-type">object</span></dt>
+            <dd>object with full list of device properties</dd>
+
+            <dt>polling <span class="property-type">string</span></dt>
+            <dd>state and interval of auto-polling</dd>
+
+            <dt>name <span class="property-type">string</span></dt>
+            <dd>name and room of the device</dd>
+
+            <dt>polling <span class="property-type">string</span></dt>
+            <dd>state and interval of auto-polling</dd>
+
+            <dt>model <span class="property-type">string</span></dt>
+            <dd>model of the device</dd>
+        </dl>    
+    <h3>Output Messages</h3>
+        <p>If auto-polling in config-node is turned off then message will be send only once on initialization and after deploy</p>
+        <p>If auto-polling in config-node is turned on then message will be sent each time properties of the device have changed</p>
+    <h3>Details</h3>
+        <p>For details please refer to <a href="https://github.com/stason325/node-red-contrib-miio-localdevices">documentation</a></p>
+</script>
+
 
 <script type="text/javascript">
     RED.nodes.registerType('MIIOgetdata',{
@@ -11,11 +48,27 @@
         color: '#00bc9c',
         defaults: {
             devices: {value: "", type: "MIIOdevices"},
+            prop_type: {value: ""},
         },
         inputs:0,
         outputs:1,
         icon: "mi.png",
         align: "right",
-        label: "Get Data",   
+        label: "Get Data",
+        oneditprepare: OnStart,  
     });
+
+    function OnStart() {
+        $("#node-input-prop_type").typedInput({
+            types: [
+                {
+                    value: "prop_type",
+                    options: [
+                        { value: "MiProtocol", label: "Mi Protocol Name"},
+                        { value: "Friendly", label: "Friendly Name"},
+                    ]
+                }
+            ]
+        });
+    }
 </script>

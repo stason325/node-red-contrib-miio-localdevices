@@ -76,9 +76,9 @@ module.exports = function(RED) {
                         return;
                     }                           
                 }; 
-            }
-        })       
-    }
+            };
+        });
+    };
 
     RED.nodes.registerType("MIIOsendcommand",MIIOsendcommandNode);
 }

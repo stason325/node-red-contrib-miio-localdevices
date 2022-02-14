@@ -96,8 +96,9 @@ getFavSpeed() {
     return this.miotSetProperty('custom-service:favorite-speed', v);
   }
 
-  setFanLevel(v) { // 1-3
-    return this.miotSetProperty('air-purifier:fan-level', v);
+  setFanLevel(v) { // 1-65000
+    //return this.miotSetProperty('air-purifier:fan-level', v);
+    return this.miotSetProperty('custom-service:moto-speed-rpm', v);
   }
 
   setBuzzer(v) {

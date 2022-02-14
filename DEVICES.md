@@ -149,8 +149,8 @@
       <td>zhimi.airpurifier.mb4</td>
       <td>Mi Air Purifier 3C</td>
       <td><img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_15504816557tej1pj6.png" width="100"></td>
-      <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Speed</li><li>♨ Fan Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
-      <td><ul><li>true / false</li><li>'string: "auto" / "sleep" / "favorite" / "none"</li><li>300 - 2200</li><li>1, 2, 3</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
+      <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Speed</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
+      <td><ul><li>true / false</li><li>'string: "auto" / "sleep" / "favorite" / "none"</li><li>300 - 2200</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
       <td align="center">&#9989;</td>
       <td align="center">&#9989;</td>
     </tr>

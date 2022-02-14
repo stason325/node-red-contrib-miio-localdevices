@@ -24,6 +24,8 @@ Inspired by `@spongioblast`: <https://github.com/spongioblast/node-red-contrib-l
 ## List of supported devices
 See [DEVICES.md](DEVICES.md) for full list of supported devices and commands available for them.
 
+It is theoretically possible to add support for any wifi-device which is operated via MIIO and MIOT protocols. Thus feel  free to request support of new devices.
+
 ## Successfully Tested Devices
 - [x] deerma.humidifier.mjjsq
 - [x] zhimi.humidifier.cb1
@@ -34,6 +36,19 @@ See [DEVICES.md](DEVICES.md) for full list of supported devices and commands ava
 ```sh
 npm install node-red-contrib-miio-localdevices
 ```
+
+## Latest Updates
+### version 0.4.0
+- "frendly names" option for JSON with device properties was added in GET-node
+- filter for list of commands apllicable for the chosen device was added in SEND-node
+- "Node Help" section was added in GET-node and SEND-node
+- two more devices were tested (za1, mb4)
+
+### version 0.3.0
+- algorithm for sending commands to MIOT devices was updated
+- logic behind GET-node was revised: no need to trigger GET-node with input message anymore, in case of auto-polling GET-node sends actual JSON each time properties were changed
+- one more device was tested (cb1)
+
 ## Description and Setup
 ### Available nodes:
 * MIIOgetdata
@@ -45,7 +60,7 @@ You can find nodes in `mihome` section.
 ![NR-Miio_pic9.png](images/NR-Miio_pic9.png)
 
 ### Setting Up:
-1) Configure your device with configuaration node
+1) Configure your device with configuration node
 
 ![NR-Miio_pic1.png](images/NR-Miio_pic1.png)
 ![NR-Miio_pic2.png](images/NR-Miio_pic2.png)
@@ -54,11 +69,17 @@ You can find nodes in `mihome` section.
 
 <https://github.com/Maxmudjon/com.xiaomi-miio/blob/master/docs/obtain_token.md>
 
-3) Set up controlling nodes in line with pictures and example:
+3) Starting from 0.4.0 you can choose whether GET-node returns JSON with original Mi-protocol properties' names or "friendly" names
+
+![NR-Miio_pic1_2.png](images/NR-Miio_pic1_2.png)
+
+4) Set up Send command nodes in line with pictures and example:
 
 ![NR-Miio_pic3.png](images/NR-Miio_pic3.png)
+![NR-Miio_pic3_2.png](images/NR-Miio_pic3_2.png)
+![NR-Miio_pic3_3.png](images/NR-Miio_pic3_3.png)
 
-4) Overall flow could look like that (instead of or together with dashboard nodes you can use Alice-nodes, HomeKit-nodes etc.):
+5) Overall flow could look like that (instead of or together with dashboard nodes you can use Alice-nodes, HomeKit-nodes etc.):
 
 ![NR-Miio_pic4.png](images/NR-Miio_pic4.png)
 
@@ -72,7 +93,7 @@ Ta make sure that your flow works properly I would recommend using certain hints
 Get node:
 1) ~~sending JSON with actual device characteristics is trigered by input message~~ (*depreciated: starting from 0.3.0 there is no input in GET-node, JSON with current device properties is sent automatically after saving device configuration and deploying*)
 2) you can poll your device once or continuously with some interval, for that please check the box and choose polling interval in configuration node (*starting from 0.3.0 if auto-polling is turned on, GET-node sends JSON with actual characteristics only if these sharacteristics have changed*)
-3) if polling was successful you will see "Connection: OK" or "State: changed" green status under the node and after that get message with actual device characteristics
+3) if polling was successful you will see "Connection: OK" or "State: changed" green status under the node and after that get message with actual device characteristics (*starting from 0.4.0 the vocabulary was added and you are free to choose whether GET-node returns JSON with original Mi-protocol properties' names or "friendly" names*)
 
 ![NR-Miio_pic6.png](images/NR-Miio_pic6.png)
 
@@ -86,7 +107,7 @@ Send command node:
 
 ![NR-Miio_pic5.png](images/NR-Miio_pic5.png)
 
-2) Some devices are not basically included into Node-mihome library but supported through node-red-contrib-miio-localdevices (please see collumn "Import File" in [DEVICES.md](DEVICES.md)). If you have such device you need to copy-paste additionally the definition-file for your device. Do it this way:
+2) Some devices are not basically included into Node-mihome library but supported through node-red-contrib-miio-localdevices (please see collumn "Import File" in [DEVICES.md](DEVICES.md)). If you have such a device you need to copy-paste additionally the definition-file for your device. Do it this way:
 
 * find file you need in "defFiles" folder here: `~/.node-red/node_modules/node-red-contrib-miio-localdevices/defFiles`  
 * copy definition-file you need and paste it to your node-mihome folder: `~/.node-red/node_modules/node-mihome/lib/devices`
@@ -104,11 +125,11 @@ You can import attached [example.json](examples/example.json) from Node-Red Impo
 ## Future Updates and Improvement
 - [x] add auto-polling option with configurable interval
 - [x] implement MIOT protocol + add MIOT-humidifiers and purifiers
-- [ ] filter the list of commands in SEND-node to those applicable only to the device chosen
-- [ ] make vocabulary with universal frendly names of properties 
+- [x] make vocabulary with universal frendly names of properties 
+- [x] filter the list of commands in SEND-node to those applicable only to the device chosen 
 - [ ] enlarge the list of devices with those operated via MIIO and MIOT protocols
 
 ## Reporting an issue and new devices support requests
-Please feel free to report all issues and to request support for new devices.
+Please feel free to report all issues and to request support of new devices.
 
 

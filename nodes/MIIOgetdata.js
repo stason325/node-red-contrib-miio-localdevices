@@ -1,3 +1,5 @@
+const MIIOpropsVocabulary = require('../lib/propsLib.js');
+
 module.exports = function(RED) {
     function MIIOgetdataNode(config) {
         RED.nodes.createNode(this,config);
@@ -28,32 +30,57 @@ module.exports = function(RED) {
         };
 
         // functions in USE
+        // A) send msg on Initialization of the device
         function SendOnStart () {
             node.MIdevice.on('onInit', (data) => {
                 node.status({fill:"green",shape:"dot",text:"Connection: OK"});
-                msg.payload = data;
+                
+                DataAsIS = data;
+                ConvertObj();
+                msg.payload = DataToBe;
                 node.send(msg);
-                setTimeout(() => {
-                    node.status({});
-                }, 2000);
-            });
-        }
-        function SendOnChange () {
-            node.MIdevice.on('onChange', (data) => {
-                node.status({fill:"green",shape:"dot",text:"State: changed"});
-                msg.payload = data;
-                node.send(msg);
+
                 setTimeout(() => {
                     node.status({});
                 }, 2000);
             });
         };
+        // B) send msg on Change in properties' value
+        function SendOnChange () {
+            node.MIdevice.on('onChange', (data) => {
+                node.status({fill:"green",shape:"dot",text:"State: changed"});
+                
+                DataAsIS = data;
+                ConvertObj ();
+                msg.payload = DataToBe;
+                node.send(msg);
+
+                setTimeout(() => {
+                    node.status({});
+                }, 2000);
+            });
+        };
+        // C) send msg on Errors accured during polling
         function SendOnError () {
             node.MIdevice.on('onError', (PollError) => {
                 node.status({fill:"red",shape:"ring",text:"Connection: error"});
                 node.warn(PollError);
             });
-        }
+        };
+        // D) conversion JSON with properties to friendly names as per Vocabulary
+        function ConvertObj () {
+            DataToBe = {};
+            if (node.config.prop_type == "Friendly") {
+                var FriendlyKeys = MIIOpropsVocabulary.properties_list(node.MIdevice.model);
+                let mapped = Object.keys(DataAsIS).map(OldKey => {
+                    let NewKey = FriendlyKeys[OldKey];
+                    DataToBe[NewKey] = DataAsIS[OldKey];
+                    return DataToBe;
+                });
+            } else {
+                DataToBe = DataAsIS;
+            };
+        };
     };
 
     RED.nodes.registerType("MIIOgetdata",MIIOgetdataNode);

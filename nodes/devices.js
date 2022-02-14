@@ -1,3 +1,4 @@
+const MIIOcommandsVocabulary = require('../lib/commandsLib.js');
 const EventEmitter = require('events');
 const mihome = require('node-mihome');
 
@@ -10,6 +11,7 @@ module.exports = function(RED) {
         node.room = n.room;
         node.MI_id = n.MI_id;
         node.model = n.model;
+
         node.address = n.address;
         node.token = n.token;
         
@@ -20,6 +22,14 @@ module.exports = function(RED) {
         node.isPolling = n.isPolling;
         node.pollinginterval = n.pollinginterval;
         
+        // Transfering device from runtime to filter commands in SEND-node
+        var NODE_PATH = '/node-red-contrib-miio-localdevices/nodes/';
+        RED.httpAdmin.get(NODE_PATH + 'getCommands/' + node.id, function (req, res) {
+            var ModelForCommand = node.model;
+            var ImportedJSON = MIIOcommandsVocabulary.command_list(ModelForCommand);
+            res.json(ImportedJSON);
+        });
+
         // 1) Initialization of MI Protocols
         MiioConnect ();
         MiotConnect ();
@@ -47,8 +57,7 @@ module.exports = function(RED) {
             data = OldData;    
             node.emit('onInit', data);
             });
-        
-
+            
         // 6) Auto-polling cycle
         setTimeout(function run() {    
             // 6.1) stop auto-polling cycle
@@ -93,7 +102,6 @@ module.exports = function(RED) {
                         var value = NewData[key];
                         if (key in OldData) {
                             if (OldData[key] !== value) {
-                                //node.Polling_data = data;
                                 node.emit('onChange', data);
                                 OldData = data;
                             }
@@ -103,15 +111,14 @@ module.exports = function(RED) {
                     OldData = data;                   
                 });
                 await device.init();
-                device.destroy();   
+                device.destroy();
             }
             catch (exception) {
                 // D.2) catching errors from MIHOME Protocol
                 PollError = `Mihome Exception. IP: ${node.address} -> ${exception.message}`;
                 node.emit('onError', PollError);
             }
-        }
-    };
-    
+        };
+    };   
     RED.nodes.registerType("MIIOdevices",MIIOdevicesNode);
 }

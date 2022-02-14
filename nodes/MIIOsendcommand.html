@@ -7,16 +7,47 @@
         <label for="node-input-devices"><i class="fa fa-wifi"></i> Device</label>
         <input id="node-input-devices">
     </div>
+    
     <div class="form-row">
         <label for="node-input-command"><i class="fa fa-tasks"></i> Command</label>
-        <input type="text" id="node-input-command">
+        <div style="display: inline-block; position: relative; width: 70%; height: 20px;">
+            <div style="position: absolute; left: 0; right: 40px;">
+                <input type="text" id="node-input-command" style="width: 100%" placeholder="Refresh and Chose the Command">
+            </div>
+            <button onclick="OnClick()" class="red-ui-button" style="text-align: end; display: inline; float: right">
+                <i class="fa fa-refresh"></i>
+            </button>
+        </div>    
     </div>
+    
     <div class="form-row">
         <label for="node-input-command_state"><i class="fa fa-tasks"></i> State</label>
         <input type="text" id="node-input-command_state">
         <input type="hidden" id="node-input-command_state-type">
     </div>
 </script>
+
+
+<script type="text/html" data-help-name="MIIOsendcommand">
+    <h3>Guide for setting up node:</h3>
+        <ol>
+            <li>Select a pre-configured device from the pick-list</li>
+            <li>Refresh the list of commands</li>
+            <li>Select command applicable to the chosen device</li>
+            <li>Select the source for state of the selected command</li>
+        </ol>
+    <h3>Input</h3>
+        <p>The node is triggered by input message.</p>
+        <p>Standard input for state of the selected command is <code>msg.payload</code>, but it can be customized</p>
+    <h3>Output</h3>
+        <dl class="message-properties">
+            <dt>payload <span class="property-type">object</span></dt>
+            <dd>object {command: state}</dd>
+        </dl>    
+    <h3>Details</h3>
+        <p>For details please refer to <a href="https://github.com/stason325/node-red-contrib-miio-localdevices">documentation</a></p>
+</script>
+
 
 <script type="text/javascript">
     RED.nodes.registerType('MIIOsendcommand',{
@@ -41,39 +72,32 @@
         },
         oneditprepare: OnMessage,
     });
-        
+    
     function OnMessage () {
-        $("#node-input-command").typedInput({
-            types: [
-                {
-                    value: "command",
-                    options: [
-                        { value: "Power", label: "⏻ Power"},
-                        { value: "FanLevel", label: "♨ Fan Level"},
-                        { value: "TargetHumidity", label: "♨ Target Humidity"},
-                        { value: "TargetTemperature", label: "℃ Target Temperature"},
-                        { value: "Mode", label: "⚙ Mode"},
-                        { value: "FavoriteLevel", label: "❤ Favorite Level"},
-                        { value: "FavLevel", label: "❤ Fav Level"},
-                        { value: "FavSpeed", label: "❤ Favorite Speed"},
-                        { value: "Led", label: "☉ Led - On/Off"},
-                        { value: "LedB", label: "☉ Led B - On/Off"},
-                        { value: "LedBrightness", label: "☉ Led - Brightness"},
-                        { value: "Bright", label: "☉ Bright - On/Off"},
-                        { value: "Display", label: "░ Display - On/Off"},
-                        { value: "LcdBrightness", label: "░ Display - Brightness"},
-                        { value: "Buzzer", label: "♪ Sound - On/Off"},
-                        { value: "Volume", label: "♪ Sound - Volume"},
-                        { value: "ChildLock", label: "🔒 Child Lock"},
-                    ]
-                }
-            ]
-        });
-
         $("#node-input-command_state").typedInput({
             type:"msg",
             types:["msg"],
             typeField: "#node-input-command_state-type"
-        })
-    }    
+        });
+    };
+    
+    function OnClick () {
+        let ChosenDevice = RED.nodes.node($('#node-input-devices').val());
+        $.getJSON('node-red-contrib-miio-localdevices/nodes/getCommands/' + ChosenDevice.id).done(function (data) {
+            var ImportedCommands = data;
+            var CommandList = [];
+            for (var key in ImportedCommands) {
+                CommandList.push({value: key, label: ImportedCommands[key].label})
+            };
+
+            $("#node-input-command").typedInput({
+                types: [
+                    {
+                        value: "command",
+                        options: CommandList,
+                    }
+                ]
+            });
+        });
+    };
 </script>
