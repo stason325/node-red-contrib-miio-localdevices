@@ -13,7 +13,7 @@
 [![issues](https://img.shields.io/github/issues/stason325/node-red-contrib-miio-localdevices?logo=github)](https://github.com/stason325/node-red-contrib-miio-localdevices/issues)
 
 
-Node for Node-red to control Mi Humidifiers, Purifiers and Heaters (list of devices to be enlarged) locally via node-mihome
+Node for Node-Red to control Mi Devices locally via node-mihome (Humidifiers, Purifiers, Heaters, Lights - list of devices to be enlarged).
 
 ## References
 
@@ -38,6 +38,11 @@ npm install node-red-contrib-miio-localdevices
 ```
 
 ## Latest Updates
+
+### version 0.4.1
+- DEVICES.md was splitted by device types
+- now five new Philips Lights are supported: downlight, bulb, hbulb, candle, candle2
+
 ### version 0.4.0
 - "frendly names" option for JSON with device properties was added in GET-node
 - filter for list of commands apllicable for the chosen device was added in SEND-node
@@ -126,7 +131,8 @@ You can import attached [example.json](examples/example.json) from Node-Red Impo
 - [x] add auto-polling option with configurable interval
 - [x] implement MIOT protocol + add MIOT-humidifiers and purifiers
 - [x] make vocabulary with universal frendly names of properties 
-- [x] filter the list of commands in SEND-node to those applicable only to the device chosen 
+- [x] filter the list of commands in SEND-node to those applicable only to the device chosen
+- [x] added support for Xiaomi Philips Lights (5 devices as of now)
 - [ ] enlarge the list of devices with those operated via MIIO and MIOT protocols
 
 ## Reporting an issue and new devices support requests
