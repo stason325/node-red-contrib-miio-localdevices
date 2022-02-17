@@ -159,7 +159,7 @@
         <td>Mi Air Purifier 3H</td>
         <td><img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_15504816557tej1pj6.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
-        <td><ul><li>true / false</li><li>'string: "auto" / "sleep" / "favorite" / "none"</li><li>1, 2, 3</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
+        <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>1, 2, 3</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
         <td align="center">&#9989;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -168,8 +168,8 @@
         <td>zhimi.airpurifier.mb4</td>
         <td>Mi Air Purifier 3C</td>
         <td><img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_15504816557tej1pj6.png" width="100"></td>
-        <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Speed</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
-        <td><ul><li>true / false</li><li>'string: "auto" / "sleep" / "favorite" / "none"</li><li>300 - 2200</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
+        <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Speed</li><li>♨ Fan Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
+        <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>string: "auto" / "silent" / "medium" / "high"</li><li>300 - 2200</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -179,7 +179,7 @@
         <td>Mi Air Purifier 2S</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Level</li><li>☉ Led - On/Off</li><li>☉ Led B - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
-        <td><ul><li>true / false</li><li>'string: "auto" / "sleep" / "favorite" / "none"</li><li>0 - 16</li><li>true / false</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
+        <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>0 - 16</li><li>true / false</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -189,14 +189,14 @@
         <td>Mi Air Purifier 2H</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
-        <td><ul><li>true / false</li><li>'string: "auto" / "sleep" / "favorite" / "none"</li><li>1, 2, 3</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
+        <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>1, 2, 3</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
         <td align="center">&#9989;</td>
         <td align="center">&#10060;</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>3) Heaters</h2>
+  <h2>3) Heaters & Fans</h2>
   <table>
     <thead>
       <tr>
@@ -286,6 +286,136 @@
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639548423185Z8zhZvpr.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1 - 100</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>yeelink.light.ceiling1</td>
+        <td>
+          <p>Yeelight ShaoHua Celing Light (ceiling 1)</p>
+          <p>Yeelight LED Ceiling Light (ceiling 3 - 7, 13)</p>
+          <p>Yeelight Square Ceiling Light (ceiling 8, 11)</p>
+          <p>Yeelight HaoShi LED Ceiling Lamp Pro (ceiling 9, 12, 18, 19)</p>
+          <p>Yeelight YLDL01YL (ceiling 10)</p>
+          <p>Yeelight LED Ceiling Mini (ceiling 14)</p>
+          <p>Yeelight LED Ceiling 480 (ceiling 15)</p>
+          <p>Yeelight RGB (ceiling 20)</p>
+        </td>
+        <td>
+          <img src="http://static.home.mi.com/app/image/get/file/developer_1522404220fc1599ca.png" width="100">
+          <img src="http://static.home.mi.com/app/image/get/file/developer_1522409464p7ymuvm8.png" width="100">
+          <img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639549180470LMnHRnvR.png" width="100">
+          <img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639381023213CCbJHb9e.png" width="100">
+          <img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639121694502D5FER5nu.png" width="100">
+        </td>
+        <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>☀ Sleep Mode</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>2700 - 6500</li><li>1 - Day, 2 - Night</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#10060;</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>yeelink.light.ceiling2</td>
+        <td>
+          <p>Yeelight ShaoHua Celing Light (ceiling 2)</p>
+        </td>
+        <td>
+          <img src="http://static.home.mi.com/app/image/get/file/developer_1522404220fc1599ca.png" width="100">
+        </td>
+        <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>☀ Sleep Mode</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1 - Day, 2 - Night</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>yeelink.light.ceiling16</td>
+        <td>
+          <p>Yeelight LED Ceiling Light (ceiling 16, 17)</p>
+          <p>Yeelight LED Ceiling 260 (ceiling 24)</p>
+        </td>
+        <td>
+          <img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639643106451l8hc04ZS.png" width="100">
+        </td>
+        <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>3000 - 5700</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>yeelink.light.ceila</td>
+        <td>
+          <p>Yeelight C2001 (ceila)</p>
+          <p>Yeelight Arwen 450S/550S (ceilb)</p>
+          <p>Yeelight Arwen  450C/550C (ceilc)</p>
+          <p>Yeelight Minas Ceiling Light (ceild)</p>
+        </td>
+        <td>
+          <img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639568936367JEeuio8S.png" width="100">
+        </td>
+        <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>☀ Sleep Mode</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>2700 - 6500</li><li>0 - Day, 1 - Night</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>yeelink.light.strip1</td>
+        <td>
+          <p>Yeelight Lightstrip (strip1)</p>
+          <p>Yeelight LED Lightstrip 1S (stripa)</p>
+        </td>
+        <td>
+          <img src="http://static.home.mi.com/app/image/get/file/developer_1522402108a74o9ufa.png" width="100">
+        </td>
+        <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>░ HSV Color</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,satuartion: YY}</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#10060;</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>yeelink.light.strip2</td>
+        <td>
+          <p>Yeelight Lightstrip Plus (strip2)</p>
+          <p>Yeelight LED Lightstrip 1S (strip6)</p>
+          <p>Yeelight Chameleon Lightstrip (strip8)</p>
+        </td>
+        <td>
+          <img src="http://static.home.mi.com/app/image/get/file/developer_1522402108a74o9ufa.png" width="100">
+        </td>
+        <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>░ HSV Color</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,satuartion: YY}</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#10060;</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>yeelink.light.strip4</td>
+        <td>
+          <p>Yeelight Willow LED Lightstrip (strip4)</p>
+        </td>
+        <td>
+          <img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639381158825FAnuYkJ2.png" width="100">
+        </td>
+        <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#10060;</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>yeelink.light.color3</td>
+        <td>
+          <p>Mi LED Smart Bulb (White and Color)</p>
+        </td>
+        <td>
+          <img src="https://cdn.awsusor0.fds.api.mi-img.com/miio.files/developer_15239567889mgx5j3j.png" width="100">
+        </td>
+        <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>░ HSV Color</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,satuartion: YY}</li></ul></td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>

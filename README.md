@@ -24,6 +24,8 @@ Inspired by `@spongioblast`: <https://github.com/spongioblast/node-red-contrib-l
 ## List of supported devices
 See [DEVICES.md](DEVICES.md) for full list of supported devices and commands available for them.
 
+Please make sure whether your device is supported by default, or you need to import additional definition file (please inspect carefully column "Import File" in DEVICES table). In case you need to import the file follow the instuctions below (*section "Send command node"* in README).
+
 It is theoretically possible to add support for any wifi-device which is operated via MIIO and MIOT protocols. Thus feel  free to request support of new devices.
 
 ## Successfully Tested Devices
@@ -31,6 +33,7 @@ It is theoretically possible to add support for any wifi-device which is operate
 - [x] zhimi.humidifier.cb1
 - [x] zhimi.heater.za1
 - [x] zhimi.airpurifier.mb4
+- [x] philips.light.downlight
 ## Installation
 
 ```sh
@@ -38,6 +41,9 @@ npm install node-red-contrib-miio-localdevices
 ```
 
 ## Latest Updates
+### version 0.4.2
+- zhimi.airpurifier.mb4 fan level command was fixed
+- now 15 new Yeelight ceilings, 6 new Yeelight strips and 1 Yeelight bulb are supported
 
 ### version 0.4.1
 - DEVICES.md was splitted by device types
@@ -95,7 +101,7 @@ Ta make sure that your flow works properly I would recommend using certain hints
 
 
 ### Device Status Updates and Errors
-Get node:
+#### Get node:
 1) ~~sending JSON with actual device characteristics is trigered by input message~~ (*depreciated: starting from 0.3.0 there is no input in GET-node, JSON with current device properties is sent automatically after saving device configuration and deploying*)
 2) you can poll your device once or continuously with some interval, for that please check the box and choose polling interval in configuration node (*starting from 0.3.0 if auto-polling is turned on, GET-node sends JSON with actual characteristics only if these sharacteristics have changed*)
 3) if polling was successful you will see "Connection: OK" or "State: changed" green status under the node and after that get message with actual device characteristics (*starting from 0.4.0 the vocabulary was added and you are free to choose whether GET-node returns JSON with original Mi-protocol properties' names or "friendly" names*)
@@ -107,7 +113,7 @@ Get node:
 
 4) some MIOT devices could require authorization in your MiHome account (please see collumn "Cloud Auth" in [DEVICES.md](DEVICES.md)). If you failed to get JSON with device charecteristics without MiHome auth, fill in your MiHome credentials in config node and try to poll the device once again (I hope you will not need it).
 
-Send command node:
+#### Send command node:
 1) If sending command was successful and device supports your command (please see [DEVICES.md](DEVICES.md)) you will see ok-status under the node.
 
 ![NR-Miio_pic5.png](images/NR-Miio_pic5.png)
@@ -118,7 +124,7 @@ Send command node:
 * copy definition-file you need and paste it to your node-mihome folder: `~/.node-red/node_modules/node-mihome/lib/devices`
 * reboot Nodered.
 
-Errors and Exceptions:
+#### Errors and Exceptions:
 1) in case of errors you will see red status under the node and get message with the nature of error accured.
 
  ![NR-Miio_pic7.png](images/NR-Miio_pic7.png)
