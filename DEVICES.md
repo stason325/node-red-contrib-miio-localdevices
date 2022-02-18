@@ -224,7 +224,51 @@
     </tbody>
   </table>
 
-  <h2>4) Lights</h2>
+  <h2>4) Vacuums</h2>
+  <table>
+    <thead>
+      <tr>
+        <th width="20">#</th>
+        <th width="150">Model</th>
+        <th width="150">Name</th>
+        <th width="150">Image</th>
+        <th width="200">Available Commands </th>
+        <th width="200">Values for Commands</th>
+        <th>Cloud Auth </th>
+        <th>Import File</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>viomi.vacuum.v7</td>
+        <td>Mi Robot Vacuum-Mop P</td>
+        <td><img src="https://static.home.mi.com/app/image/get/file/developer_156211621715fdn2i1.png" width="100"></td>
+        <td><ul>
+          <li>⏻ Charge</li><li>► Clean</li><li>↺ Repeat Clean</li>
+          <li>◰ ► Clean Rooms</li>
+          <li>❙❙ Pause</li><li>◼ Stop</li>
+          <li>⚙ Mode</li>
+          <li>♨ Fan Level</li>
+          <li>☉ Water Level</li>
+          <li>♪ Sound - Mute</li><li>♪ Sound - Volume</li>
+        </ul></td>
+        <td><ul>
+          <li>true / false</li><li>timestamp</li><li>true / false</li>
+          <li>array of rooms' IDs (each >=11): [11, 12, …]</li>
+          <li>timestamp</li><li>timestamp</li>
+          <li>string: "vacuum" / "vacuum-mop" / "mop"</li>
+          <li>string: "silent" / "standard" / "medium" / "turbo"</li>
+          <li>string: "low" / "medium" / "high"</li>
+          <li>true / false</li><li>1 - 100</li>
+        </ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5) Lights</h2>
   <table>
     <thead>
       <tr>

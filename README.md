@@ -13,7 +13,7 @@
 [![issues](https://img.shields.io/github/issues/stason325/node-red-contrib-miio-localdevices?logo=github)](https://github.com/stason325/node-red-contrib-miio-localdevices/issues)
 
 
-Node for Node-Red to control Mi Devices locally via node-mihome (Humidifiers, Purifiers, Heaters, Lights - list of devices to be enlarged).
+Node for Node-Red to control Mi Devices locally via node-mihome (Humidifiers, Purifiers, Heaters, Fans, Vacuums, Lights - list of devices to be enlarged).
 
 ## References
 
@@ -34,6 +34,8 @@ It is theoretically possible to add support for any wifi-device which is operate
 - [x] zhimi.heater.za1
 - [x] zhimi.airpurifier.mb4
 - [x] philips.light.downlight
+- [x] yeelink.light.strip1
+- [x] yeelink.light.color3
 ## Installation
 
 ```sh
@@ -41,6 +43,10 @@ npm install node-red-contrib-miio-localdevices
 ```
 
 ## Latest Updates
+### version 0.4.3
+- added support for viomi.vacuum.v7 (with clean by rooms)
+- 3 more devices were tested (philips.light.downlight, yeelink.light.strip1, yeelink.light.color3)
+
 ### version 0.4.2
 - zhimi.airpurifier.mb4 fan level command was fixed
 - now 15 new Yeelight ceilings, 6 new Yeelight strips and 1 Yeelight bulb are supported
@@ -138,7 +144,8 @@ You can import attached [example.json](examples/example.json) from Node-Red Impo
 - [x] implement MIOT protocol + add MIOT-humidifiers and purifiers
 - [x] make vocabulary with universal frendly names of properties 
 - [x] filter the list of commands in SEND-node to those applicable only to the device chosen
-- [x] added support for Xiaomi Philips Lights (5 devices as of now)
+- [x] added support for Xiaomi Philips Lights (5 devices as of now) + Yeelight Lights, Strips and Bulbs (22 devices)
+- [x] added support for Mi Robot Vacuum-Mop P
 - [ ] enlarge the list of devices with those operated via MIIO and MIOT protocols
 
 ## Reporting an issue and new devices support requests
