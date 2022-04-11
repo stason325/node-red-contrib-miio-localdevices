@@ -19,8 +19,6 @@ Node for Node-Red to control Mi Devices locally via node-mihome (Humidifiers, Pu
 
 Based on `node-mihome` library: <https://github.com/maxinminax/node-mihome>
 
-Inspired by `@spongioblast`: <https://github.com/spongioblast/node-red-contrib-local-mihome>
-
 ## List of supported devices
 See [DEVICES.md](DEVICES.md) for full list of supported devices and commands available for them.
 
@@ -36,6 +34,7 @@ It is theoretically possible to add support for any wifi-device which is operate
 - [x] philips.light.downlight
 - [x] yeelink.light.strip1
 - [x] yeelink.light.color3
+- [x] viomi.vacuum.v7
 ## Installation
 
 ```sh
@@ -43,6 +42,14 @@ npm install node-red-contrib-miio-localdevices
 ```
 
 ## Latest Updates
+### version 0.4.5
+- devices in configuration node are now splitted by device types
+- fixed range for color temperature for philips lights
+- 1 more device was tested (viomi.vacuum.v7)
+- fixed cleaning by rooms with viomi.vacuum.v7
+- updated powerOff with deerma.humidifier.mjjsq + now defFile is needed to be copied
+- added support for vzhimi.toilet.sa1
+
 ### version 0.4.3
 - added support for viomi.vacuum.v7 (with clean by rooms)
 - 3 more devices were tested (philips.light.downlight, yeelink.light.strip1, yeelink.light.color3)
@@ -80,7 +87,8 @@ You can find nodes in `mihome` section.
 1) Configure your device with configuration node
 
 ![NR-Miio_pic1.png](images/NR-Miio_pic1.png)
-![NR-Miio_pic2.png](images/NR-Miio_pic2.png)
+![NR-Miio_pic2_1.png](images/NR-Miio_pic2_1.png)
+![NR-Miio_pic2_2.png](images/NR-Miio_pic2_2.png)
 
 2) For obtaining MiHome tokens please check out this guide:
 
@@ -127,7 +135,7 @@ Ta make sure that your flow works properly I would recommend using certain hints
 2) Some devices are not basically included into Node-mihome library but supported through node-red-contrib-miio-localdevices (please see collumn "Import File" in [DEVICES.md](DEVICES.md)). If you have such a device you need to copy-paste additionally the definition-file for your device. Do it this way:
 
 * find file you need in "defFiles" folder here: `~/.node-red/node_modules/node-red-contrib-miio-localdevices/defFiles`  
-* copy definition-file you need and paste it to your node-mihome folder: `~/.node-red/node_modules/node-mihome/lib/devices`
+* copy definition-file you need and paste it to your node-mihome folder: `~/.node-red/node_modules/node-mihome/lib/devices` or `~/.node-red/node_modules/node-red-contrib-miio-localdevices/node_modules/node-mihome/lib/devices` (choose the one that exists)
 * reboot Nodered.
 
 #### Errors and Exceptions:
@@ -150,5 +158,3 @@ You can import attached [example.json](examples/example.json) from Node-Red Impo
 
 ## Reporting an issue and new devices support requests
 Please feel free to report all issues and to request support of new devices.
-
-

@@ -29,8 +29,8 @@ module.exports = class extends Device {
         return Promise.reject(new Error(`Invalid target brightness: ${v}`));
     }
 
-    setColorTemperature(v) { // temperature: 3000 - 5700
-        if (v >= 3000 && v <= 5700) {
+    setColorTemperature(v) { // percentages: 1 - 100
+        if (v >= 1 && v <= 100) {
             return this.miioCall('set_cct', [v]);
         }
         return Promise.reject(new Error(`Invalid target color temperature: ${v}`));

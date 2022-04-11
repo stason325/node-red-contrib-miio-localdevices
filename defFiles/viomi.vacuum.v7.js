@@ -140,12 +140,16 @@ module.exports = class extends Device {
     // NEW COMMAND - setCleanRooms
     setCleanRooms(v) {
         //let v = [11, 25, 12, 14, 15];
-        let InputLenght = v.length;
-        let CommToSend = [0,1,InputLenght];
-        for (var key in v) {
-            CommToSend.push(v[key])
+        if (Array.isArray(v)) {
+            let InputLenght = v.length;
+            let CommToSend = [0,1,InputLenght];
+            for (var key in v) {
+                CommToSend.push(v[key])
+            };
+            return this.miioCall('set_mode_withroom', CommToSend);
+        } else {
+            return Promise.reject(new Error(`Invalid input. Input must be an [array]`));
         };
-        return this.miioCall('set_mode_withroom', CommToSend);
     }
 
     // UPDATED via set_mode

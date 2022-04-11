@@ -36,49 +36,30 @@ module.exports = function(RED) {
                 ConnDevice ();
                 async function ConnDevice () {                   
                     try {
-                        // 2.3.1) case for Power-OFF command for mjjsq... unexplainably this command triggers 3 times
-                        if (node.MIdevice.model == "deerma.humidifier.mjjsq" && node.config.command == "Power" && msg.payload == false) {
-                            // 2.3.1.1) transfer command from input into device (not AWAIT)
-                            device.miioCall('Set_OnOff',[0],{refresh: false, retries: 0});
-                            
-                            // 2.3.2.2) sending msg and status after 1 sec time
-                            setTimeout(() => {
-                                node.status({fill:"green",shape:"dot",text:"Command: sent"});
-                                msg.payload = {[node.config.command]: msg.payload};
-                                node.send(msg);
-                            }, 1000);
-                        }
-                        // 2.3.2) all other commands ... to be tested
-                        else {
-                            // 2.3.2.1) transfer command from input into device (in AWAIT mode)
-                            if (device._miotSpecType) {
-                                await device.init();
-                            };
-                            await eval("device.set" + node.config.command + "(" + msg.payload + ")");
-                            device.destroy();
-                            
-                            // 2.3.2.2) sending msg and status after device answer
-                            node.status({fill:"green",shape:"dot",text:"Command: sent"});
-                            msg.payload = {[node.config.command]: msg.payload};
-
-                            node.send(msg);
-                        }
-
-                        // 2.3.3) cleaning status after 5 sec timeout
-                        setTimeout(() => {
-                            node.status({});
-                        }, 5000);
+                        // 2.3.1) transfer command from input into device (in AWAIT mode)
+                        if (device._miotSpecType) {
+                            await device.init();
+                        };
+                        await eval("device.set" + node.config.command + "(" + msg.payload + ")");
+                        device.destroy();
+                        // 2.3.2) sending msg and status after device answer
+                        node.status({fill:"green",shape:"dot",text:"Command: sent"});
+                        msg.payload = {[node.config.command]: msg.payload};
+                        node.send(msg);   
                     }
+                    // 2.3.3) catching errors from MIIO Protocol
                     catch(exception) {
-                        // 2.3.4) catching errors from MIIO Protocol
                         node.warn(`Mihome Exception. IP: ${node.MIdevice.address} -> ${exception.message}`);
                         node.status({fill:"red",shape:"ring",text:"Command: error"});
                         return;
-                    }                           
+                    };
+                    // 2.3.4) cleaning status after 5 sec timeout
+                    setTimeout(() => {
+                        node.status({});
+                    }, 5000);
                 }; 
             };
         });
     };
-
     RED.nodes.registerType("MIIOsendcommand",MIIOsendcommandNode);
 }

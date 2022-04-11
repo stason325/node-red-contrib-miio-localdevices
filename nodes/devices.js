@@ -1,4 +1,5 @@
 const MIIOcommandsVocabulary = require('../lib/commandsLib.js');
+//const MIIOdevtypesVocabulary = require('../lib/devtypesLib.js');
 const EventEmitter = require('events');
 const mihome = require('node-mihome');
 
@@ -10,6 +11,7 @@ module.exports = function(RED) {
         node.name = n.name;
         node.room = n.room;
         node.MI_id = n.MI_id;
+        node.device_type = n.device_type;
         node.model = n.model;
 
         node.address = n.address;
@@ -22,8 +24,36 @@ module.exports = function(RED) {
         node.isPolling = n.isPolling;
         node.pollinginterval = n.pollinginterval;
         
-        // Transfering device from runtime to filter commands in SEND-node
+        // 0) Transfering data from runtime to filter commands CONFIG-node and commands in SEND-node
         var NODE_PATH = '/node-red-contrib-miio-localdevices/nodes/';
+
+        // a) Humidifiers
+        /*RED.httpAdmin.get('getHumids', function (req, res) {
+            var ImportedHumids = MIIOdevtypesVocabulary.humid_list();
+            res.json(ImportedHumids);
+        });
+        // b) Air Purifiers
+        RED.httpAdmin.get(NODE_PATH + 'getPurifs', function (req, res) {
+            var ImportedPurifs = MIIOdevtypesVocabulary.purif_list();
+            res.json(ImportedPurifs);
+        });
+        // c) Heatres and Fans
+        RED.httpAdmin.get(NODE_PATH + 'getHeatfans', function (req, res) {
+            var ImportedHeatAndFans = MIIOdevtypesVocabulary.heatfan_list();
+            res.json(ImportedHeatAndFans);
+        });
+        // d) Vaccum Cleaners
+        RED.httpAdmin.get(NODE_PATH + 'getVaccums', function (req, res) {
+            var ImportedVacuums = MIIOdevtypesVocabulary.vacuum_list();
+            res.json(ImportedVacuums);
+        });
+        // e) Lights
+        RED.httpAdmin.get(NODE_PATH + 'getLights', function (req, res) {
+            var ImportedLights = MIIOdevtypesVocabulary.light_list();
+            res.json(ImportedLights);
+        });*/
+        
+        // f) Commands by device in SEND-node
         RED.httpAdmin.get(NODE_PATH + 'getCommands/' + node.id, function (req, res) {
             var ModelForCommand = node.model;
             var ImportedJSON = MIIOcommandsVocabulary.command_list(ModelForCommand);

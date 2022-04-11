@@ -23,7 +23,7 @@
         <td><ul><li>⏻ Power</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>☉ Led - On/Off</li><li>♪ Sound - On/Off</li></ul></td>
         <td><ul><li>true / false</li><li>1, 2, 3, 4</li><li>40, 50, 60, 70</li><li>true / false</li><li>true / false</li></ul></td>
         <td align="center">&#10060;</td>
-        <td align="center">&#10060;</td>
+        <td align="center">&#9989;</td>
       </tr>
       <tr>
         <td>2</td>
@@ -196,7 +196,7 @@
     </tbody>
   </table>
 
-  <h2>3) Heaters & Fans</h2>
+  <h2>3) Heaters, Fans & Toilet</h2>
   <table>
     <thead>
       <tr>
@@ -221,10 +221,20 @@
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
+      <tr>
+        <td>2</td>
+        <td>zhimi.toilet.sa1</td>
+        <td>Smartmi Smart Bidet Toilet Seat Pro</td>
+        <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1577765179435CyXcWINp.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>⚙ Wash Strength</li><li>⚙ Nozzle Position</li><li>⚙ Deodorization - On/Off</li><li>⚙ Mode</li><li>♨ Heating - On/Off</li><li>♨ Heat Level</li><li>☉ NightLight - On/Off</li><li>♪ Alarm - On/Off</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 4</li><li>1 - 4</li><li>true / false</li><li>1 - Posterior Wash, 2 - Feminine Wash, 3 - Air Dry, 4 - Idle</li><li>true / false</li><li>0 - 4</li><li>true / false</li><li>true / false</li></ul></td>
+        <td align="center">&#9989;</td>
+        <td align="center">&#9989;</td>
+      </tr>
     </tbody>
   </table>
 
-  <h2>4) Vacuums</h2>
+  <h2>4) Vacuum Cleaners</h2>
   <table>
     <thead>
       <tr>
@@ -255,7 +265,7 @@
         </ul></td>
         <td><ul>
           <li>true / false</li><li>timestamp</li><li>true / false</li>
-          <li>array of rooms' IDs (each >=11): [11, 12, …]</li>
+          <li>array of rooms' IDs (each ID>=10; rooms are ranked by area size starting from the smallest): [10, 11, …]</li>
           <li>timestamp</li><li>timestamp</li>
           <li>string: "vacuum" / "vacuum-mop" / "mop"</li>
           <li>string: "silent" / "standard" / "medium" / "turbo"</li>
@@ -289,7 +299,7 @@
         <td>Philips Zhirui Downlight</td>
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_163910713663097kIz1us.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>⚙ Scene</li></ul></td>
-        <td><ul><li>true / false</li><li>1 - 100</li><li>3000 - 5700</li><li>0 - none, 1 - lighting, 2 - TV, 3 - Wormth, 4 - Night Light</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1 - 100</li><li>0 - none, 1 - lighting, 2 - TV, 3 - Wormth, 4 - Night Light</li></ul></td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -299,7 +309,7 @@
         <td>Philips Light Bulb</td>
         <td><img src="http://static.home.mi.com/app/image/get/file/developer_1522407953modw7wox.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>⚙ Scene</li></ul></td>
-        <td><ul><li>true / false</li><li>1 - 100</li><li>3000 - 5700</li><li>1 - lighting, 2 - Night Light, 3 - TV, 4 - Wormth</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1 - 100</li><li>1 - lighting, 2 - Night Light, 3 - TV, 4 - Wormth</li></ul></td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
