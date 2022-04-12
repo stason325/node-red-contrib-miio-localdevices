@@ -35,6 +35,7 @@ It is theoretically possible to add support for any wifi-device which is operate
 - [x] yeelink.light.strip1
 - [x] yeelink.light.color3
 - [x] viomi.vacuum.v7
+- [x] deerma.humidifier.jsq5
 ## Installation
 
 ```sh
@@ -42,6 +43,11 @@ npm install node-red-contrib-miio-localdevices
 ```
 
 ## Latest Updates
+
+### version 0.4.6
+- 1 more device was tested (deerma.humidifier.jsq5)
+- added support for leshow.humidifier.jsq1 and zhimi.toilet.sa1 (both to be tested)
+
 ### version 0.4.5
 - devices in configuration node are now splitted by device types
 - fixed range for color temperature for philips lights

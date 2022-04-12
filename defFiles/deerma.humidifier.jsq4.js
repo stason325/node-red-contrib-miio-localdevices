@@ -3,8 +3,8 @@ const Device = require('../device-miio');
 module.exports = class extends Device {
 
   static model = 'deerma.humidifier.jsq4';
-  static name = 'Mijia CJSJSQ01DY Pure Evaporation';
-  static image = 'http://static.home.mi.com/app/image/get/file/developer_1543307568u9wu6wij.png';
+  static name = 'Mijia Pure Evaporation (jsq4, jsq5)';
+  static image = 'https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1616123889270TXVYhdbh.png';
 
   constructor(opts) {
     super(opts);
