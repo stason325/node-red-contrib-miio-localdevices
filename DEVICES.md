@@ -112,8 +112,8 @@
         <td>
           <img src="https://cnbj1.fds.api.xiaomi.com/iotweb-product-center/174a1dd784b331ca251794d036ac2855_产品拟物图2.png" width="100">
         </td>
-        <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>♨ Target Humidity</li><li>♪ Sound - On/Off</li></ul></td>
-        <td><ul><li>true / false</li><li>0 - Const Humidity, 1 - Strong, 2 - Sleep</li><li>40, 50, 60, 70</li><li>true / false</li></ul></td>
+        <td><ul><li>⏻ Power</li><li>⏻ Delayed TurnOff</li><li>⚙ Mode</li><li>♨ Heating Mode</li><li>♨ Filter Drying</li><li>♨ Target Humidity</li><li>░ Display - Brightness</li><li>♪ Sound - On/Off</li></ul></td>
+        <td><ul><li>true / false</li><li>0 - 480 secs</li><li>0 - Const Humidity, 1 - Strong, 2 - Sleep</li><li>true / false</li><li>true / false</li><li>40, 50, 60, 70</li><li>0 / 1</li><li>true / false</li></ul></td>
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -224,6 +224,16 @@
         <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>1, 2, 3</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
         <td align="center">&#9989;</td>
         <td align="center">&#10060;</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>dmaker.airfresh.a1</td>
+        <td>Mijia New Fan A1</td>
+        <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1571025407906ABkSN0nP.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>░ Display - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li><li>❤ Favorite Speed</li></ul></td>
+        <td><ul><li>true / false</li><li>string: "auto" / "none" / "sleep"</li><li>true / false</li><li>true / false</li><li>true / false</li><li>0 - 150</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#9989;</td>
       </tr>
     </tbody>
   </table>

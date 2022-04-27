@@ -11,15 +11,27 @@ module.exports = class extends Device {
 
         this._miotSpecType = 'urn:miot-spec-v2:device:toilet:0000A02E:zhimi-sa1:1';
         this._propertiesToMonitor = [
-            /*'power',
+            
+            // trying to find right props for on-off
+            'power',
+            'OnOff_State',
+            'toilet:on',
+
+            // trying to find right props for light
+            'ambient_light',
+            'ambient-light',
+            'night-light',
+            'night_light',
+            'night-light:on',
+
+            // possible miio (others)
             'mode',
             'work_state',
             'seating_state',
             'heating',
-            'ambient_light',
-            'filter_use_time'*/
+            'filter_use_time',
 
-            'toilet:on',
+            // miot commands by specs (others)
             'toilet:seating-state',
             'toilet:washing-strength',
             'toilet:nozzle-position',
@@ -27,7 +39,6 @@ module.exports = class extends Device {
             'toilet:mode',
             'seat:heating',
             'seat:heat-level',
-            'night-light:on',
             'filter:filter-life-level',
             'alarm:alarm'
         ];
