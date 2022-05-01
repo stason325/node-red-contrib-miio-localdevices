@@ -34,35 +34,41 @@ module.exports = class extends Device {
 
 
   setPower(v) { //boolean
-    return this.miioCall('set_power', [v ? 'on' : 'off']);
+    if (v === true) {
+      return this.miioCall('set_power', ["true"])
+    } else if (v === false) {
+      return this.miioCall('set_power',["false"],{refresh: true, retries: 0})
+    }
   }
 
-  setMode(v) { // "auto", "none", "sleep"
+  setMode(v) { // string: "auto", "sleep", "favourite"
     return this.miioCall('set_mode', [v]);
   }
 
   setDisplay(v) { //boolean
-    return this.miioCall('set_display', [v ? 'on' : 'off']);
+    return this.miioCall('set_display', [v ? "true" : "false"]);
   }
 
   setBuzzer(v) { //boolean
-    return this.miioCall('set_sound', [v ? 'on' : 'off']);
+    return this.miioCall('set_sound', [v ? "true" : "false"]);
   }
 
   setChildLock(v) { //boolean
-    return this.miioCall('set_child_lock', [v ? 'on' : 'off']);
+    return this.miioCall('set_child_lock', [v ? "true" : "false"]);
   }
 
-  setFavSpeed(v) { // 0 - 150
-    if (v >= 0 && v <= 150) {
+  setFavSpeed(v) { // 60 - 150
+    if (v >= 60 && v <= 150) {
       return this.miioCall('set_favourite_speed', [v]);
     }
     return Promise.reject(new Error(`Invalid speed parameter: ${v}`));
   }
 
+  setHeating(v) { //boolean
+    return this.miioCall('set_ptc_on', [v ? "true" : "false"]);
+  }
 
-
-
-
-
+  setHeatTimer(v) { //???
+    return this.miioCall('set_ptc_timer', [v]);
+  }
 };

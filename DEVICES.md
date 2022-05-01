@@ -230,8 +230,8 @@
         <td>dmaker.airfresh.a1</td>
         <td>Mijia New Fan A1</td>
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1571025407906ABkSN0nP.png" width="100"></td>
-        <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>░ Display - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li><li>❤ Favorite Speed</li></ul></td>
-        <td><ul><li>true / false</li><li>string: "auto" / "none" / "sleep"</li><li>true / false</li><li>true / false</li><li>true / false</li><li>0 - 150</li></ul></td>
+        <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>░ Display - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li><li>❤ Favorite Speed</li><li>♨ Heating - On/Off</li><li>♨ Heat Timer</li></ul></td>
+        <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" </li><li>true / false</li><li>true / false</li><li>true / false</li><li>60 - 150</li><li>true / false</li><li>...to be tested</li></ul></td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>

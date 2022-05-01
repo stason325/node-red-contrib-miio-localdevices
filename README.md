@@ -37,6 +37,7 @@ It is theoretically possible to add support for any wifi-device which is operate
 - [x] viomi.vacuum.v7
 - [x] deerma.humidifier.jsq5
 - [x] leshow.humidifier.jsq1
+- [x] dmaker.airfresh.a1
 ## Installation
 
 ```sh
@@ -44,6 +45,9 @@ npm install node-red-contrib-miio-localdevices
 ```
 
 ## Latest Updates
+
+### version 0.4.8
+- 1 more device was tested (dmaker.airfresh.a1)
 
 ### version 0.4.7
 - 1 more device was tested (leshow.humidifier.jsq1)
