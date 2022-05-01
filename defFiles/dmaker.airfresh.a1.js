@@ -41,8 +41,17 @@ module.exports = class extends Device {
     }
   }
 
-  setMode(v) { // string: "auto", "sleep", "favourite"
-    return this.miioCall('set_mode', [v]);
+  setMode(v) { // 0 - auto, 1 - sleep, 2 - favourite
+    if (v === 0) {
+      return this.miioCall('set_mode', ["auto"])
+    }
+    if (v === 1) {
+      return this.miioCall('set_mode', ["sleep"])
+    }
+    if (v === 2) {
+      return this.miioCall('set_mode', ["favourite"])
+    }
+    return Promise.reject(new Error(`Invalid mode parameter: ${v}`));
   }
 
   setDisplay(v) { //boolean
@@ -68,7 +77,4 @@ module.exports = class extends Device {
     return this.miioCall('set_ptc_on', [v ? "true" : "false"]);
   }
 
-  setHeatTimer(v) { //???
-    return this.miioCall('set_ptc_timer', [v]);
-  }
 };

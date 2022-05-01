@@ -46,7 +46,7 @@ npm install node-red-contrib-miio-localdevices
 
 ## Latest Updates
 
-### version 0.4.8
+### version 0.4.9
 - 1 more device was tested (dmaker.airfresh.a1)
 
 ### version 0.4.7
