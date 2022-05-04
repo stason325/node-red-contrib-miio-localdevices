@@ -46,36 +46,15 @@ npm install node-red-contrib-miio-localdevices
 
 ## Latest Updates
 
-### version 0.4.9
-- 1 more device was tested (dmaker.airfresh.a1)
-
-### version 0.4.7
-- 1 more device was tested (leshow.humidifier.jsq1)
-- added support for dmaker.airfresh.a1
-
-### version 0.4.6
-- 1 more device was tested (deerma.humidifier.jsq5)
-- added support for leshow.humidifier.jsq1 and zhimi.toilet.sa1 (both to be tested)
-
-### version 0.4.5
-- devices in configuration node are now splitted by device types
-- fixed range for color temperature for philips lights
-- 1 more device was tested (viomi.vacuum.v7)
-- fixed cleaning by rooms with viomi.vacuum.v7
-- updated powerOff with deerma.humidifier.mjjsq + now defFile is needed to be copied
-- added support for vzhimi.toilet.sa1
-
-### version 0.4.3
-- added support for viomi.vacuum.v7 (with clean by rooms)
-- 3 more devices were tested (philips.light.downlight, yeelink.light.strip1, yeelink.light.color3)
-
-### version 0.4.2
-- zhimi.airpurifier.mb4 fan level command was fixed
-- now 15 new Yeelight ceilings, 6 new Yeelight strips and 1 Yeelight bulb are supported
-
-### version 0.4.1
+### version 0.5.0
 - DEVICES.md was splitted by device types
-- now five new Philips Lights are supported: downlight, bulb, hbulb, candle, candle2
+- devices in configuration node are now splitted by device types
+- added support for 30 devices (Philips Lights, Yeelights, viomi.vacuum.v7, vzhimi.toilet.sa1, deerma.humidifier.jsq5, 
+leshow.humidifier.jsq1, dmaker.airfresh.a1)
+- 8 more devices were tested
+- internal structure optimization: now all communication with the device goes through config-node
+- additionaly to single commands it is available to send custom JSON command to device
+- quick respond from get-node with updated set of properties after sending command to device
 
 ### version 0.4.0
 - "frendly names" option for JSON with device properties was added in GET-node
@@ -126,7 +105,7 @@ You can find nodes in `mihome` section.
 Ta make sure that your flow works properly I would recommend using certain hints (like in [example.json](examples/example.json) attached):
 - save data to context and use filter-nodes to prevent looping in your flow
 - ~~send input message (timestamp) to GET-notes only after making changes to configuration of your device ... don't overpush GET-node~~ (*depreciated*)
-- try not to trigger several SEND-nodes related to the same device at the same time - this can lead to "call to device timed out" error and as a result you will need to reboot Node Red to restore connection with the device
+- ~~try not to trigger several SEND-nodes related to the same device at the same time - this can lead to "call to device timed out" error and as a result you will need to reboot Node Red to restore connection with the device~~ (*depreciated: starting from 0.5.0 all commands go through configuration node and are executed asynchronously*)
 
 
 ### Device Status Updates and Errors
@@ -134,6 +113,7 @@ Ta make sure that your flow works properly I would recommend using certain hints
 1) ~~sending JSON with actual device characteristics is trigered by input message~~ (*depreciated: starting from 0.3.0 there is no input in GET-node, JSON with current device properties is sent automatically after saving device configuration and deploying*)
 2) you can poll your device once or continuously with some interval, for that please check the box and choose polling interval in configuration node (*starting from 0.3.0 if auto-polling is turned on, GET-node sends JSON with actual characteristics only if these sharacteristics have changed*)
 3) if polling was successful you will see "Connection: OK" or "State: changed" green status under the node and after that get message with actual device characteristics (*starting from 0.4.0 the vocabulary was added and you are free to choose whether GET-node returns JSON with original Mi-protocol properties' names or "friendly" names*)
+4) starting from 0.5.0 GET-node quickly returns a message with updated device characteristics after every command sent to divice with SEND-node
 
 ![NR-Miio_pic6.png](images/NR-Miio_pic6.png)
 
@@ -147,7 +127,18 @@ Ta make sure that your flow works properly I would recommend using certain hints
 
 ![NR-Miio_pic5.png](images/NR-Miio_pic5.png)
 
-2) Some devices are not basically included into Node-mihome library but supported through node-red-contrib-miio-localdevices (please see collumn "Import File" in [DEVICES.md](DEVICES.md)). If you have such a device you need to copy-paste additionally the definition-file for your device. Do it this way:
+2) Starting from 0.5.0 it is possible to send complex command through SEND-node. To do that you need to choose `{} Custom JSON` command from the pick list. Message to push into the SEND-node must be in a follwing form:
+```sh
+{
+command_1: value_1,
+command_2: value_2,
+...
+command_X: value_X
+}
+```
+, where Command_1 ... _X and Value_1 ... _X are those supported by your device (please see [DEVICES.md](DEVICES.md))
+
+3) Some devices are not basically included into Node-mihome library but supported through node-red-contrib-miio-localdevices (please see collumn "Import File" in [DEVICES.md](DEVICES.md)). If you have such a device you need to copy-paste additionally the definition-file for your device. Do it this way:
 
 * find file you need in "defFiles" folder here: `~/.node-red/node_modules/node-red-contrib-miio-localdevices/defFiles`  
 * copy definition-file you need and paste it to your node-mihome folder: `~/.node-red/node_modules/node-mihome/lib/devices` or `~/.node-red/node_modules/node-red-contrib-miio-localdevices/node_modules/node-mihome/lib/devices` (choose the one that exists)
@@ -168,8 +159,12 @@ You can import attached [example.json](examples/example.json) from Node-Red Impo
 - [x] make vocabulary with universal frendly names of properties 
 - [x] filter the list of commands in SEND-node to those applicable only to the device chosen
 - [x] added support for Xiaomi Philips Lights (5 devices as of now) + Yeelight Lights, Strips and Bulbs (22 devices)
-- [x] added support for Mi Robot Vacuum-Mop P
+- [x] added support for viomi.vacuum.v7, deerma.humidifier.jsq5, leshow.humidifier.jsq1, dmaker.airfresh.a1
+- [x] sending complex JSON commands
+- [x] quick respond of GET-node after every command sent to device
 - [ ] enlarge the list of devices with those operated via MIIO and MIOT protocols
+- [ ] add aqara-protocol devices
+- [ ] add bridge devices
 
 ## Reporting an issue and new devices support requests
 Please feel free to report all issues and to request support of new devices.

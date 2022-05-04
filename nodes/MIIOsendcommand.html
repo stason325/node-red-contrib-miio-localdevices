@@ -89,6 +89,7 @@
             for (var key in ImportedCommands) {
                 CommandList.push({value: key, label: ImportedCommands[key].label})
             };
+            CommandList.push({value: "Custom", label: "{} Custom JSON"})
 
             $("#node-input-command").typedInput({
                 types: [

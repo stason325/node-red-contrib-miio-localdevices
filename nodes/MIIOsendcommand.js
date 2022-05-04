@@ -1,3 +1,4 @@
+const EventEmitter = require('events');
 const mihome = require('node-mihome');
 
 module.exports = function(RED) {
@@ -23,43 +24,67 @@ module.exports = function(RED) {
                 msg.address = node.MIdevice.address;
                 msg.model = node.MIdevice.model;
 
-                // 2.2) defining device properties for MIIO
-                const device = mihome.device({
-                    id: node.MIdevice.MI_id,
-                    model: node.MIdevice.model,
-                    address: node.MIdevice.address,
-                    token: node.MIdevice.token,
-                    //refresh: 5000 // miio-device option, device properties refresh interval in ms
-                });
+                // 2.2) sending Single and JSON commands separately 
+                if (node.config.command == "Custom") {
+                    SendCustomJsonCMD ();
+                } else {
+                    SendSingleCMD ();
+                };
+            };
 
-                // 2.3) main function
-                ConnDevice ();
-                async function ConnDevice () {                   
-                    try {
-                        // 2.3.1) transfer command from input into device (in AWAIT mode)
-                        if (device._miotSpecType) {
-                            await device.init();
-                        };
-                        await eval("device.set" + node.config.command + "(" + msg.payload + ")");
-                        device.destroy();
-                        // 2.3.2) sending msg and status after device answer
-                        node.status({fill:"green",shape:"dot",text:"Command: sent"});
-                        msg.payload = {[node.config.command]: msg.payload};
-                        node.send(msg);   
-                    }
-                    // 2.3.3) catching errors from MIIO Protocol
-                    catch(exception) {
-                        node.warn(`Mihome Exception. IP: ${node.MIdevice.address} -> ${exception.message}`);
+
+            // functions in USE:
+            // A) For single command
+            function SendSingleCMD () {
+                // A.1) sending data to config-node
+                SingleCMD = node.config.command;
+                SinglePayload = msg.payload;
+                node.MIdevice.emit('onSingleCommand', SingleCMD, SinglePayload);
+                // A.2) starting msg and status
+                node.status({fill:"green",shape:"dot",text:"Command: sent"});
+                msg.payload = {[SingleCMD]: SinglePayload};
+                node.send(msg);
+                // A.3) check for not multiplying error warns
+                ErrorSingleCMDRepeatCheck = 0;
+                // A.4) getting errors from config-node + sending them only once
+                node.MIdevice.on('onSingleCMDSentError', (SingleCMDErrorMsg, SingleCMDErrorCube) => {
+                    if (SingleCMDErrorCube === node.config.command && ErrorSingleCMDRepeatCheck == 0) {
+                        node.warn(`Mihome Exception. IP: ${node.MIdevice.address} -> ${SingleCMDErrorMsg}`);
                         node.status({fill:"red",shape:"ring",text:"Command: error"});
-                        return;
+                        ErrorSingleCMDRepeatCheck++;
                     };
-                    // 2.3.4) cleaning status after 5 sec timeout
-                    setTimeout(() => {
-                        node.status({});
-                    }, 5000);
-                }; 
+                });
+                // A.5) cleaning status after 5 sec timeout
+                setTimeout(() => {
+                    node.status({});
+                }, 5000);
+            };
+            // B) For CustomJSON command 
+            function SendCustomJsonCMD () {
+                // B.1) sending data to config-node
+                CustomJsonCMD = msg.payload;
+                node.MIdevice.emit('onJsonCommand', CustomJsonCMD);
+                // B.2) starting msg and status
+                node.status({fill:"green",shape:"dot",text:"Command: sent"});
+                msg.payload = CustomJsonCMD;
+                node.send(msg);
+                // B.3) check for not multiplying error warns
+                ErrorJsonCMDRepeatCheck = 0;
+                // B.4) getting errors from config-node + sending them only once
+                node.MIdevice.on('onJsonCMDSentError', (JsonCMDErrorMsg, JsonCMDErrorCube) => {
+                    if (JsonCMDErrorCube === node.config.command && ErrorJsonCMDRepeatCheck == 0) {
+                        node.warn(`Mihome Exception. IP: ${node.MIdevice.address} -> ${JsonCMDErrorMsg}`);
+                        node.status({fill:"red",shape:"ring",text:"Command: error"});
+                        ErrorJsonCMDRepeatCheck++;
+                    };
+                });
+                // B.5) cleaning status after 15 sec timeout
+                setTimeout(() => {
+                    node.status({});
+                }, 15000);
             };
         });
     };
+
     RED.nodes.registerType("MIIOsendcommand",MIIOsendcommandNode);
 }

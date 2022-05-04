@@ -23,37 +23,9 @@ module.exports = function(RED) {
         
         node.isPolling = n.isPolling;
         node.pollinginterval = n.pollinginterval;
-        
+
         // 0) Transfering data from runtime to filter commands CONFIG-node and commands in SEND-node
         var NODE_PATH = '/node-red-contrib-miio-localdevices/nodes/';
-
-        // a) Humidifiers
-        /*RED.httpAdmin.get('getHumids', function (req, res) {
-            var ImportedHumids = MIIOdevtypesVocabulary.humid_list();
-            res.json(ImportedHumids);
-        });
-        // b) Air Purifiers
-        RED.httpAdmin.get(NODE_PATH + 'getPurifs', function (req, res) {
-            var ImportedPurifs = MIIOdevtypesVocabulary.purif_list();
-            res.json(ImportedPurifs);
-        });
-        // c) Heatres and Fans
-        RED.httpAdmin.get(NODE_PATH + 'getHeatfans', function (req, res) {
-            var ImportedHeatAndFans = MIIOdevtypesVocabulary.heatfan_list();
-            res.json(ImportedHeatAndFans);
-        });
-        // d) Vaccum Cleaners
-        RED.httpAdmin.get(NODE_PATH + 'getVaccums', function (req, res) {
-            var ImportedVacuums = MIIOdevtypesVocabulary.vacuum_list();
-            res.json(ImportedVacuums);
-        });
-        // e) Lights
-        RED.httpAdmin.get(NODE_PATH + 'getLights', function (req, res) {
-            var ImportedLights = MIIOdevtypesVocabulary.light_list();
-            res.json(ImportedLights);
-        });*/
-        
-        // f) Commands by device in SEND-node
         RED.httpAdmin.get(NODE_PATH + 'getCommands/' + node.id, function (req, res) {
             var ModelForCommand = node.model;
             var ImportedJSON = MIIOcommandsVocabulary.command_list(ModelForCommand);
@@ -70,7 +42,6 @@ module.exports = function(RED) {
             model: node.model,
             address: node.address,
             token: node.token,
-            //refresh: 5000 // miio-device option, device properties refresh interval in ms
         });
 
         // 3) Defining auto-polling variables
@@ -86,18 +57,22 @@ module.exports = function(RED) {
         ConnDevice().then((data) => {
             data = OldData;    
             node.emit('onInit', data);
-            });
-            
-        // 6) Auto-polling cycle
+        });
+        
+        // 6) Commands from send-node
+        ExecuteSingleCMD ();
+        ExecuteJsonCMD ();
+        
+        // 7) Auto-polling cycle
         setTimeout(function run() {    
-            // 6.1) stop auto-polling cycle
+            // 7.1) stop auto-polling cycle
             if (Poll_or_Not == false) {return};
-            // 6.2) continue auto-polling cycle
+            // 7.2) continue auto-polling cycle
             if (Poll_or_Not == true && Polling_Interval > 0) {
-                // 6.2.1) re-define auto-polling interval
+                // 7.2.1) re-define auto-polling interval
                 if (node.pollinginterval == null) {New_Interval = 30}
                 else {New_Interval = node.pollinginterval};
-                // 6.2.2) check for changing the Interval, if changed then stop previous cycle
+                // 7.2.2) check for changing the Interval, if changed then stop previous cycle
                 if (New_Interval == Polling_Interval) {
                     ConnDevice ();
                     setTimeout(run, Polling_Interval * 1000);
@@ -105,12 +80,13 @@ module.exports = function(RED) {
             };
         },  Polling_Interval * 1000);
 
+
         // functions in USE:
         // A) Initializing MiLocal
         function MiioConnect () {
             mihome.miioProtocol.init();
         };
-        // B) Logging in to MiCloud if needed
+        // B) Logging into MiCloud if needed
         async function MiotConnect () {
             MIOT_login = node.isMIOT;
             if (MIOT_login == true) {
@@ -142,13 +118,54 @@ module.exports = function(RED) {
                 });
                 await device.init();
                 device.destroy();
-            }
-            catch (exception) {
+            } catch (exception) {
                 // D.2) catching errors from MIHOME Protocol
                 PollError = `Mihome Exception. IP: ${node.address} -> ${exception.message}`;
                 node.emit('onError', PollError);
             }
         };
-    };   
+        // E) Executing single command from send-node
+        function ExecuteSingleCMD () {
+            node.on('onSingleCommand', async function (SingleCMD, SinglePayload) {
+                try {
+                    // E.1) Initializing device if MIOT
+                    if (device._miotSpecType) {
+                        await device.init();
+                    };
+                    // E.2) transfer command from input into device (in AWAIT mode)
+                    await eval("device.set" + SingleCMD + "(" + SinglePayload + ")");
+                    device.destroy();
+                } catch(exception) {
+                    // E.3) catching errors from MIIO Protocol and sending back to send-node
+                    SingleCMDErrorMsg = exception.message;
+                    SingleCMDErrorCube = SingleCMD;
+                    node.emit('onSingleCMDSentError', SingleCMDErrorMsg, SingleCMDErrorCube);
+                };
+            })
+        };
+        // F) Executing JSON command from send-node
+        function ExecuteJsonCMD () {
+            node.on('onJsonCommand', async function (CustomJsonCMD) {
+                // F.1) Initializing device if MIOT
+                if (device._miotSpecType) {
+                    await device.init();
+                };
+                // F.2) asynchronous cycle for each command in JSON (in AWAIT mode)
+                Object.keys(CustomJsonCMD).forEach(async function(key) {
+                    try {
+                        JsonItemX = [key] + "(" + CustomJsonCMD[key] + ")";
+                        await eval("device.set" + JsonItemX);
+                        device.destroy();
+                    } catch(exception) {
+                        // F.3) catching errors from MIIO Protocol and sending back to send-node
+                        JsonCMDErrorMsg = exception.message;
+                        JsonCMDErrorCube = CustomJsonCMD;
+                        node.emit('onJsonCMDSentError', JsonCMDErrorMsg, JsonCMDErrorCube);
+                    }
+                });
+            });
+        };
+    };
+
     RED.nodes.registerType("MIIOdevices",MIIOdevicesNode);
 }

@@ -17,17 +17,18 @@ module.exports = function(RED) {
             Polling_Interval = node.MIdevice.pollinginterval;
             if (Poll_or_Not == false) {msg.polling = "OFF"};
             if (Poll_or_Not == true) {msg.polling = "ON. Every " + Polling_Interval + " sec"};
-
-            // 2) Defining outgoing outgoing msg structure
+            
+            // 2) Defining outgoing msg structure
             msg.name = node.MIdevice.name + " - " + node.MIdevice.room;
             msg.address = node.MIdevice.address;
             msg.model = node.MIdevice.model;
-
+            
             // 3) Main Functions - Sending outgoing msg on start, on change, on error
             SendOnStart ();
             SendOnChange ();
             SendOnError ();
         };
+
 
         // functions in USE
         // A) send msg on Initialization of the device
