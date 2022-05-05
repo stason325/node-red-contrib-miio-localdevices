@@ -22,7 +22,7 @@ Based on `node-mihome` library: <https://github.com/maxinminax/node-mihome>
 ## List of supported devices
 See [DEVICES.md](DEVICES.md) for full list of supported devices and commands available for them.
 
-Please make sure whether your device is supported by default, or you need to import additional definition file (please inspect carefully column "Import File" in DEVICES table). In case you need to import the file follow the instuctions below (*section "Send command node"* in README).
+Please make sure whether your device is supported by default, or you need to import additional definition file (please inspect carefully column "Import File" in DEVICES table). In case you need to import the file follow the instuctions below (*section "SEND-node"* in README).
 
 It is theoretically possible to add support for any wifi-device which is operated via MIIO and MIOT protocols. Thus feel  free to request support of new devices.
 
@@ -47,38 +47,38 @@ npm install node-red-contrib-miio-localdevices
 ## Latest Updates
 
 ### version 0.5.0
-- DEVICES.md was splitted by device types
-- devices in configuration node are now splitted by device types
+- DEVICES.md was splitted by device type
+- devices in CONFIG-node are now splitted by device type
 - added support for 30 devices (Philips Lights, Yeelights, viomi.vacuum.v7, vzhimi.toilet.sa1, deerma.humidifier.jsq5, 
 leshow.humidifier.jsq1, dmaker.airfresh.a1)
 - 8 more devices were tested
-- internal structure optimization: now all communication with the device goes through config-node
-- additionaly to single commands it is available to send custom JSON command to device
-- quick respond from get-node with updated set of properties after sending command to device
+- internal structure optimization: now all communication with the device goes through CONFIG-node
+- additionaly to single commands it is available to send custom JSON command to devices
+- quick respond from GET-node with updated set of properties after sending command to the device
 
 ### version 0.4.0
 - "frendly names" option for JSON with device properties was added in GET-node
 - filter for list of commands apllicable for the chosen device was added in SEND-node
 - "Node Help" section was added in GET-node and SEND-node
-- two more devices were tested (za1, mb4)
+- 2 more devices were tested (za1, mb4)
 
 ### version 0.3.0
 - algorithm for sending commands to MIOT devices was updated
 - logic behind GET-node was revised: no need to trigger GET-node with input message anymore, in case of auto-polling GET-node sends actual JSON each time properties were changed
-- one more device was tested (cb1)
+- 1 more device was tested (cb1)
 
 ## Description and Setup
 ### Available nodes:
 * MIIOgetdata
 * MIIOsencommand
-* devices (configuration node)
+* devices (CONFIG-node)
 
 You can find nodes in `mihome` section.
 
 ![NR-Miio_pic9.png](images/NR-Miio_pic9.png)
 
 ### Setting Up:
-1) Configure your device with configuration node
+1) Configure your device with CONFIG-node
 
 ![NR-Miio_pic1.png](images/NR-Miio_pic1.png)
 ![NR-Miio_pic2_1.png](images/NR-Miio_pic2_1.png)
@@ -92,7 +92,7 @@ You can find nodes in `mihome` section.
 
 ![NR-Miio_pic1_2.png](images/NR-Miio_pic1_2.png)
 
-4) Set up Send command nodes in line with pictures and example:
+4) Set up SEND-nodes in line with pictures and example:
 
 ![NR-Miio_pic3.png](images/NR-Miio_pic3.png)
 ![NR-Miio_pic3_2.png](images/NR-Miio_pic3_2.png)
@@ -104,25 +104,25 @@ You can find nodes in `mihome` section.
 
 Ta make sure that your flow works properly I would recommend using certain hints (like in [example.json](examples/example.json) attached):
 - save data to context and use filter-nodes to prevent looping in your flow
-- ~~send input message (timestamp) to GET-notes only after making changes to configuration of your device ... don't overpush GET-node~~ (*depreciated*)
-- ~~try not to trigger several SEND-nodes related to the same device at the same time - this can lead to "call to device timed out" error and as a result you will need to reboot Node Red to restore connection with the device~~ (*depreciated: starting from 0.5.0 all commands go through configuration node and are executed asynchronously*)
+- ~~send input message (timestamp) to GET-nodes only after making changes to configuration of your device ... don't overpush GET-node~~ (*depreciated*)
+- ~~try not to trigger several SEND-nodes related to the same device at the same time - this can lead to "call to device timed out" error and as a result you will need to reboot Node Red to restore connection with the device~~ (*depreciated: starting from 0.5.0 all commands go through CONFIG-node and are executed asynchronously*)
 
 
 ### Device Status Updates and Errors
-#### Get node:
+#### GET-node:
 1) ~~sending JSON with actual device characteristics is trigered by input message~~ (*depreciated: starting from 0.3.0 there is no input in GET-node, JSON with current device properties is sent automatically after saving device configuration and deploying*)
-2) you can poll your device once or continuously with some interval, for that please check the box and choose polling interval in configuration node (*starting from 0.3.0 if auto-polling is turned on, GET-node sends JSON with actual characteristics only if these sharacteristics have changed*)
+2) you can poll your device once or continuously with some interval, for that please check the box and choose polling interval in CONFIG-node (*starting from 0.3.0 if auto-polling is turned on, GET-node sends JSON with actual characteristics only if these sharacteristics have changed*)
 3) if polling was successful you will see "Connection: OK" or "State: changed" green status under the node and after that get message with actual device characteristics (*starting from 0.4.0 the vocabulary was added and you are free to choose whether GET-node returns JSON with original Mi-protocol properties' names or "friendly" names*)
-4) starting from 0.5.0 GET-node quickly returns a message with updated device characteristics after every command sent to divice with SEND-node
+4) starting from 0.5.0 GET-node quickly returns a message with updated device characteristics after every command sent to device through SEND-node
 
 ![NR-Miio_pic6.png](images/NR-Miio_pic6.png)
 
 
 ![NR-Miio_pic10.png](images/NR-Miio_pic10.png)
 
-4) some MIOT devices could require authorization in your MiHome account (please see collumn "Cloud Auth" in [DEVICES.md](DEVICES.md)). If you failed to get JSON with device charecteristics without MiHome auth, fill in your MiHome credentials in config node and try to poll the device once again (I hope you will not need it).
+4) some MIOT devices could require authorization in your MiHome account (please see collumn "Cloud Auth" in [DEVICES.md](DEVICES.md)). If you failed to get JSON with device charecteristics without MiHome auth, fill in your MiHome credentials in CONFIG-node and try to poll the device once again (I hope you will not need it).
 
-#### Send command node:
+#### SEND-node:
 1) If sending command was successful and device supports your command (please see [DEVICES.md](DEVICES.md)) you will see ok-status under the node.
 
 ![NR-Miio_pic5.png](images/NR-Miio_pic5.png)
