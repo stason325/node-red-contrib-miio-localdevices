@@ -46,6 +46,11 @@ npm install node-red-contrib-miio-localdevices
 
 ## Latest Updates
 
+### version 0.5.2
+- fixed power-off command for dmaker.airfresh.a1
+- updated selector for commands in SEND-node
+- updated selectors for device types and for list of devices of each type in CONFIG-node
+
 ### version 0.5.0
 - DEVICES.md was splitted by device type
 - devices in CONFIG-node are now splitted by device type

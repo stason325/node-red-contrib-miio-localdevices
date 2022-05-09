@@ -37,7 +37,7 @@ module.exports = class extends Device {
     if (v === true) {
       return this.miioCall('set_power', ["true"])
     } else if (v === false) {
-      return this.miioCall('set_power',["false"],{refresh: true, retries: 0})
+      return this.miioCall('set_power',["false"])
     }
   }
 

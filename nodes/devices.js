@@ -1,5 +1,5 @@
 const MIIOcommandsVocabulary = require('../lib/commandsLib.js');
-//const MIIOdevtypesVocabulary = require('../lib/devtypesLib.js');
+const MIIOdevtypesVocabulary = require('../lib/devtypesLib.js');
 const EventEmitter = require('events');
 const mihome = require('node-mihome');
 
@@ -26,6 +26,28 @@ module.exports = function(RED) {
 
         // 0) Transfering data from runtime to filter commands CONFIG-node and commands in SEND-node
         var NODE_PATH = '/node-red-contrib-miio-localdevices/nodes/';
+        
+        RED.httpAdmin.get(NODE_PATH + 'getHumidList/', function (req, res) {
+            var ImportedHumidList = MIIOdevtypesVocabulary.humid_list();
+            res.json(ImportedHumidList);
+        });
+        RED.httpAdmin.get(NODE_PATH + 'getPurifList/', function (req, res) {
+            var ImportedPurifList = MIIOdevtypesVocabulary.purif_list();
+            res.json(ImportedPurifList);
+        });
+        RED.httpAdmin.get(NODE_PATH + 'getHeatFanList/', function (req, res) {
+            var ImportedHeatFanList = MIIOdevtypesVocabulary.heatfan_list();
+            res.json(ImportedHeatFanList);
+        });
+        RED.httpAdmin.get(NODE_PATH + 'getVacuumList/', function (req, res) {
+            var ImportedVacuumList = MIIOdevtypesVocabulary.vacuum_list();
+            res.json(ImportedVacuumList);
+        });
+        RED.httpAdmin.get(NODE_PATH + 'getLightsList/', function (req, res) {
+            var ImportedLightsList = MIIOdevtypesVocabulary.light_list();
+            res.json(ImportedLightsList);
+        });
+
         RED.httpAdmin.get(NODE_PATH + 'getCommands/' + node.id, function (req, res) {
             var ModelForCommand = node.model;
             var ImportedJSON = MIIOcommandsVocabulary.command_list(ModelForCommand);

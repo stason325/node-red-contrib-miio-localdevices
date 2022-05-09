@@ -15,18 +15,27 @@
 
     <div class="form-row">
         <label for="node-config-input-device_type"><i class="fa fa-tablet"></i> Device Type</label>
-        <input type="text" id="node-config-input-device_type">
+        <div style="display: inline-block; position: relative; width: 70%; height: 20px;">
+            <select id="node-config-input-device_type" data-single="true" style="width: 100%">
+                <option value="humid">Humidifiers</option>
+                <option value="purif">Air Purifiers</option>
+                <option value="heatfan">Heaters, Fans & Toilets</option>
+                <option value="vacuum">Vacuum Cleaners</option>
+                <option value="light">Lights</option>
+            </select>
+        </div>
 	</div>
 
     <div class="form-row">
         <label for="node-config-input-model"><i class="fa fa-tablet"></i> Model</label>
         <div style="display: inline-block; position: relative; width: 70%; height: 20px;">
             <div style="position: absolute; left: 0; right: 40px;">
-                <input type="text" id="node-config-input-model" style="width: 100%" placeholder="Refresh and Choose the Model">
+                <select id="node-config-input-model" data-single="true" style="width: 100%"></select>
             </div>
-            <button onclick="OnClickDev()" class="red-ui-button" style="text-align: end; display: inline; float: right">
-                <i class="fa fa-refresh"></i>
-            </button>
+            <div style="text-align: end; display: inline; float: right">
+                <button onclick="RefreshDeviceList()" class="red-ui-button" style="text-align: end; display: inline; float: right">
+                    <i class="fa fa-refresh"></i></button>
+            </div>
         </div> 
 	</div>
 
@@ -89,21 +98,10 @@
     });   
 
     function OnOpen () {
-        $("#node-config-input-device_type").typedInput({
-            types: [
-                {
-                    value: "model",
-                    options: [
-                        { value: "humid", label: "Humidifiers"},
-                        { value: "purif", label: "Air Purifiers"},
-                        { value: "heatfan", label: "Heaters, Fans & Toilets"},
-                        { value: "vacuum", label: "Vacuum Cleaners"},
-                        { value: "light", label: "Lights"}  
-                    ]
-                }
-            ]
-        });
+        // Refreshing list of devices in Chosen Device Type
+        RefreshDeviceList ();
 
+        // MIOT autorization unhide
         $("#node-config-input-isMIOT").on('change', function (type, value) {
             if ($(this).prop('checked')) {
                 $(".MIOT-show-or-hide").show();
@@ -112,6 +110,7 @@
             };
         });
 
+        // Autopolling unhide
         $("#node-config-input-isPolling").on('change', function (type, value) {
             if ($(this).prop('checked')) {
                 $(".polling-show-or-hide").show();
@@ -121,143 +120,71 @@
         });
     };
 
-    function OnClickDev () {
+    function RefreshDeviceList() {
         let ChosenDevType = $('#node-config-input-device_type').val();
+        let CurrentModel = this.model;
+        
+        let Selector = $("#node-config-input-model");
+        Selector.empty();
+        
         switch (ChosenDevType) {
             case "humid": {
-                var DevList = [
-                    { value: "deerma.humidifier.mjjsq", label: "Mi Smart Humidifier (mjjsq)"},
-                    { value: "deerma.humidifier.jsq", label: "Mi Smart Antibacterial Humidifier (jsq)"},
-                    { value: "deerma.humidifier.jsq4", label: "Mijia Pure Evaporation (jsq4, jsq5)"},
-                    { value: "zhimi.humidifier.ca1", label: "Smartmi Evaporative Humidifier (ca1)"},
-                    { value: "zhimi.humidifier.cb1", label: "Smartmi Evaporative Humidifier (cb1)"},
-                    { value: "zhimi.humidifier.ca4", label: "Smartmi Evaporative Humidifer 2 (ca4)"},
-                    { value: "nwt.derh.330ef", label: "NWT Internet Dehumidifier 30L"},
-                    { value: "leshow.humidifier.jsq1", label: "Mijia Pure Intelligent Humidifier Pro (jsq1)"},
-                ];
-                $("#node-config-input-model").typedInput({
-                    types: [
-                        {
-                            value: "model",
-                            options: DevList,
-                        }
-                    ]
+                $.getJSON('node-red-contrib-miio-localdevices/nodes/getHumidList/').done(function (data) {
+                    var ImportedHumidList = data;
+                    for (var key in ImportedHumidList) {
+                        Selector.append(
+                            `<option value="${ImportedHumidList[key].model}">${ImportedHumidList[key].name}</option>`
+                        );
+                    };
                 });
                 break;
             }
             case "purif": {
-                var DevList = [
-                    { value: "zhimi.airpurifier.v7", label: "Mi Air Purifier Pro (v7)"},
-                    { value: "zhimi.airpurifier.vb2", label: "Mi Air Purifier Pro H (vb2)"},
-                    { value: "zhimi.airpurifier.m1", label: "Mi Air Purifier 2 (m1)"},
-                    { value: "zhimi.airpurifier.ma2", label: "Mi Air Purifier 2S (ma2)"},
-                    { value: "zhimi.airpurifier.ma4", label: "Mi Air Purifier 3 (ma4)"},
-                    { value: "zhimi.airpurifier.mb3", label: "Mi Air Purifier 3H (mb3)"},
-                    { value: "zhimi.airpurifier.mb4", label: "Mi Air Purifier 3C (mb4)"},
-                    { value: "zhimi.airpurifier.mc1", label: "Mi Air Purifier 2S (mc1)"},
-                    { value: "zhimi.airpurifier.mc2", label: "Mi Air Purifier 2H (mc2)"},
-                    { value: "dmaker.airfresh.a1", label: "Mijia New Fan A1 (a1)"}
-                ];
-                $("#node-config-input-model").typedInput({
-                    types: [
-                        {
-                            value: "model",
-                            options: DevList,
-                        }
-                    ]
+                $.getJSON('node-red-contrib-miio-localdevices/nodes/getPurifList/').done(function (data) {
+                    var ImportedPurifList = data;
+                    for (var key in ImportedPurifList) {
+                        Selector.append(
+                            `<option value="${ImportedPurifList[key].model}">${ImportedPurifList[key].name}</option>`
+                        );
+                    };
                 });
                 break;
             }
             case "heatfan": {
-                var DevList = [
-                    { value: "zhimi.heater.za1", label: "SmartMi Electric Heater 1S (za1)"},
-                    { value: "zhimi.toilet.sa1", label: "Smartmi Smart Bidet Toilet Seat Pro (sa1)"}
-                ];
-                $("#node-config-input-model").typedInput({
-                        types: [
-                            {
-                                value: "model",
-                                options: DevList,
-                            }
-                        ]
-                    });
+                $.getJSON('node-red-contrib-miio-localdevices/nodes/getHeatFanList/').done(function (data) {
+                    var ImportedHeatFanList = data;
+                    for (var key in ImportedHeatFanList) {
+                        Selector.append(
+                            `<option value="${ImportedHeatFanList[key].model}">${ImportedHeatFanList[key].name}</option>`
+                        );
+                    };
+                });
                 break;
             }
             case "vacuum": {
-                var DevList = [
-                    { value: "viomi.vacuum.v7", label: "Mi Robot Vacuum-Mop P (v7)"}
-                ];
-                $("#node-config-input-model").typedInput({
-                        types: [
-                            {
-                                value: "model",
-                                options: DevList,
-                            }
-                        ]
-                    });
+                $.getJSON('node-red-contrib-miio-localdevices/nodes/getVacuumList/').done(function (data) {
+                    var ImportedVacuumList = data;
+                    for (var key in ImportedVacuumList) {
+                        Selector.append(
+                            `<option value="${ImportedVacuumList[key].model}">${ImportedVacuumList[key].name}</option>`
+                        );
+                    };
+                });
                 break;
             }
             case "light": {
-                var DevList = [
-                    { value: "philips.light.downlight", label: "Philips Zhirui Downlight (downlight)"},
-                    { value: "philips.light.bulb", label: "Philips Light Bulb (bulb)"},
-                    { value: "philips.light.hbulb", label: "Philips Wi-Fi bulb E27 White (hbulb)"},
-                    { value: "philips.light.candle", label: "Philips Candle (candle)"},
-                    { value: "philips.light.candle2", label: "Philips Candle 2 (candle2)"},
-                    { value: "yeelink.light.ceiling1", label: "Yeelight ShaoHua Celing Light (ceiling 1)"},
-                    { value: "yeelink.light.ceiling1", label: "Yeelight LED Ceiling Light (ceiling 3 - 7, 13)"},
-                    { value: "yeelink.light.ceiling1", label: "Yeelight Square Ceiling Light (ceiling 8, 11)"},
-                    { value: "yeelink.light.ceiling1", label: "Yeelight HaoShi LED Ceiling Lamp Pro (ceiling 9, 12, 18, 19)"},
-                    { value: "yeelink.light.ceiling1", label: "Yeelight YLDL01YL (ceiling 10)"},
-                    { value: "yeelink.light.ceiling1", label: "Yeelight LED Ceiling Mini (ceiling 14)"},
-                    { value: "yeelink.light.ceiling1", label: "Yeelight LED Ceiling 480 (ceiling 15)"},
-                    { value: "yeelink.light.ceiling1", label: "Yeelight RGB (ceiling 20)"},
-                    { value: "yeelink.light.ceiling2", label: "Yeelight ShaoHua Celing Light (ceiling 2)"},
-                    { value: "yeelink.light.ceiling16", label: "Yeelight LED Ceiling Light (ceiling 16, 17)"},
-                    { value: "yeelink.light.ceiling16", label: "Yeelight LED Ceiling 260 (ceiling 24)"},
-                    { value: "yeelink.light.ceila", label: "Yeelight C2001 (ceila)"},
-                    { value: "yeelink.light.ceila", label: "Yeelight Arwen 450S/550S (ceilb)"},
-                    { value: "yeelink.light.ceila", label: "Yeelight Arwen  450C/550C (ceilc)"},
-                    { value: "yeelink.light.ceila", label: "Yeelight Minas Ceiling Light (ceild)"},
-                    { value: "yeelink.light.strip1", label: "Yeelight Lightstrip (strip1)"},
-                    { value: "yeelink.light.strip1", label: "Yeelight LED Lightstrip 1S (stripa)"},
-                    { value: "yeelink.light.strip2", label: "Yeelight Lightstrip Plus (strip2)"},
-                    { value: "yeelink.light.strip2", label: "Yeelight LED Lightstrip 1S (strip6)"},
-                    { value: "yeelink.light.strip2", label: "Yeelight Chameleon Lightstrip (strip8)"},
-                    { value: "yeelink.light.strip4", label: "Yeelight Willow LED Lightstrip (strip4)"},
-                    { value: "yeelink.light.color3", label: "Mi LED Smart Bulb (White and Color)"}
-                ];
-                $("#node-config-input-model").typedInput({
-                        types: [
-                            {
-                                value: "model",
-                                options: DevList,
-                            }
-                        ]
-                    });
+                $.getJSON('node-red-contrib-miio-localdevices/nodes/getLightsList/').done(function (data) {
+                    var ImportedLightsList = data;
+                    for (var key in ImportedLightsList) {
+                        Selector.append(
+                            `<option value="${ImportedLightsList[key].model}">${ImportedLightsList[key].name}</option>`
+                        );
+                    };
+                });
                 break;
             }
         };
-    };
 
-    /*function OnClickDevUpdated() {
-        let ChosenDevType = $('#node-config-input-device_type').val();
-        var currNode = this;
-        $.getJSON('getHumids').done(function (data) {
-            var ImportedDevs = data;
-            var DevList = [];
-            for (var key in ImportedDevs) {
-                DevList.push({value: ImportedDevs[key].model, label: ImportedDevs[key].name});
-            };
-            //DevList.push({value: currNode.id, label: currNode.name});
-            $("#node-config-input-model").typedInput({
-                types: [
-                    {
-                        value: "model",
-                        options: DevList,
-                    }
-                ]
-            });
-        });
-    };*/
+        $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
+    };
 </script>

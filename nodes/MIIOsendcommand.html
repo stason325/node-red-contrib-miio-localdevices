@@ -12,11 +12,12 @@
         <label for="node-input-command"><i class="fa fa-tasks"></i> Command</label>
         <div style="display: inline-block; position: relative; width: 70%; height: 20px;">
             <div style="position: absolute; left: 0; right: 40px;">
-                <input type="text" id="node-input-command" style="width: 100%" placeholder="Refresh and Choose the Command">
+                <select id="node-input-command" data-single="true" style="width: 100%"></select>
             </div>
-            <button onclick="OnClick()" class="red-ui-button" style="text-align: end; display: inline; float: right">
-                <i class="fa fa-refresh"></i>
-            </button>
+            <div style="text-align: end; display: inline; float: right">
+                <button onclick="OnMessage()" class="red-ui-button" style="text-align: end; display: inline; float: right">
+                    <i class="fa fa-refresh"></i></button>
+            </div>
         </div>    
     </div>
     
@@ -79,26 +80,22 @@
             types:["msg"],
             typeField: "#node-input-command_state-type"
         });
-    };
-    
-    function OnClick () {
+
         let ChosenDevice = RED.nodes.node($('#node-input-devices').val());
+        let Selector = $("#node-input-command");
+        Selector.empty();
+        let CurrentCommand = this.command;
         $.getJSON('node-red-contrib-miio-localdevices/nodes/getCommands/' + ChosenDevice.id).done(function (data) {
             var ImportedCommands = data;
-            var CommandList = [];
             for (var key in ImportedCommands) {
-                CommandList.push({value: key, label: ImportedCommands[key].label})
+                Selector.append(
+                    `<option value="${key}">${ImportedCommands[key].label}</option>`
+                );
             };
-            CommandList.push({value: "Custom", label: "{} Custom JSON"})
-
-            $("#node-input-command").typedInput({
-                types: [
-                    {
-                        value: "command",
-                        options: CommandList,
-                    }
-                ]
-            });
+            Selector.append(
+                `<option value="Custom">{} Custom JSON</option>`
+            );
+            $(`#node-input-command option[value="${CurrentCommand}"]`).attr('selected', 'selected');
         });
     };
 </script>
