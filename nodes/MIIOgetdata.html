@@ -4,9 +4,16 @@
         <input id="node-input-devices">
     </div>
 
+    <hr align="middle"/>
+
     <div class="form-row">
         <label for="node-input-prop_type"><i class="fa fa-newspaper-o"></i> Props Type</label>
-        <input type="text" id="node-input-prop_type">
+        <div style="display: inline-block; position: relative; width: 70%; height: 20px;">
+            <select id="node-input-prop_type" data-single="true" style="width: 100%">
+                <option value="MiProtocol">Mi Protocol Name</option>
+                <option value="Friendly">Friendly Name</option>
+            </select>
+        </div>
     </div>
 </script>
 
@@ -59,16 +66,7 @@
     });
 
     function OnStart() {
-        $("#node-input-prop_type").typedInput({
-            types: [
-                {
-                    value: "prop_type",
-                    options: [
-                        { value: "MiProtocol", label: "Mi Protocol Name"},
-                        { value: "Friendly", label: "Friendly Name"},
-                    ]
-                }
-            ]
-        });
+        let CurrPropType = this.prop_type;
+        $(`#node-input-prop_type option[value="${CurrPropType}"]`).attr('selected', 'selected');
     }
 </script>
