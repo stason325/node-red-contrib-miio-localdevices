@@ -35,7 +35,7 @@
                 <select id="node-config-input-model" data-single="true" style="width: 100%"></select>
             </div>
             <div style="text-align: end; display: inline; float: right">
-                <button onclick="RefreshDeviceList()" class="red-ui-button" style="text-align: end; display: inline; float: right">
+                <button onclick="OnOpen()" class="red-ui-button" style="text-align: end; display: inline; float: right">
                     <i class="fa fa-refresh"></i></button>
             </div>
         </div> 
@@ -101,9 +101,6 @@
     });   
 
     function OnOpen () {
-        // Refreshing list of devices in Chosen Device Type
-        RefreshDeviceList ();
-
         // MIOT autorization unhide
         $("#node-config-input-isMIOT").on('change', function (type, value) {
             if ($(this).prop('checked')) {
@@ -121,14 +118,12 @@
                 $(".polling-show-or-hide").hide();
             };
         });
-    };
 
-    function RefreshDeviceList() {
+        // Refreshing list of devices in Chosen Device Type
         let ChosenDevType = $('#node-config-input-device_type').val();
-        let CurrentModel = this.model;
-        
         let Selector = $("#node-config-input-model");
         Selector.empty();
+        var CurrentModel = this.model;
         
         switch (ChosenDevType) {
             case "humid": {
@@ -139,6 +134,7 @@
                             `<option value="${ImportedHumidList[key].model}">${ImportedHumidList[key].name}</option>`
                         );
                     };
+                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
                 });
                 break;
             }
@@ -150,6 +146,7 @@
                             `<option value="${ImportedPurifList[key].model}">${ImportedPurifList[key].name}</option>`
                         );
                     };
+                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
                 });
                 break;
             }
@@ -161,6 +158,7 @@
                             `<option value="${ImportedHeatFanList[key].model}">${ImportedHeatFanList[key].name}</option>`
                         );
                     };
+                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
                 });
                 break;
             }
@@ -172,6 +170,7 @@
                             `<option value="${ImportedVacuumList[key].model}">${ImportedVacuumList[key].name}</option>`
                         );
                     };
+                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
                 });
                 break;
             }
@@ -183,11 +182,11 @@
                             `<option value="${ImportedLightsList[key].model}">${ImportedLightsList[key].name}</option>`
                         );
                     };
+                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
                 });
                 break;
             }
         };
-
-        $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
     };
+
 </script>
