@@ -46,6 +46,9 @@ npm install node-red-contrib-miio-localdevices
 
 ## Latest Updates
 
+### version 0.5.5
+- added support for 6 devices (zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18 - see also issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2) )
+
 ### version 0.5.4
 - fixed power-off command for dmaker.airfresh.a1
 - updated selector for commands in SEND-node

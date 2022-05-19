@@ -124,7 +124,7 @@
         let Selector = $("#node-config-input-model");
         Selector.empty();
         var CurrentModel = this.model;
-        
+
         switch (ChosenDevType) {
             case "humid": {
                 $.getJSON('node-red-contrib-miio-localdevices/nodes/getHumidList/').done(function (data) {

@@ -273,6 +273,26 @@
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
+      <tr>
+        <td>3</td>
+        <td>zhimi.fan.za4</td>
+        <td>Smartmi Standing Fan 1 (sa1, za1), 2 (za3), 2S (za4)</td>
+        <td><img src="https://static.home.mi.com/app/image/get/file/developer_1541408255kg3xtr1j.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>♨ Fan Level</li><li>☀ Sleep Mode</li><li>← → Swing - On/Off</li><li>← → Swing - Angle</li><li>♪ Sound - On/Off</li><li>░ Display - On/Off</li><li>🕐 Timer in seconds</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 4</li><li>1 - 4</li><li>true / false</li><li>0 - 120</li><li>2 / 0</li><li>string: "on" / "off"</li><li>XX seconds</li></ul></td>
+        <td align="center">&#10060;</td>
+        <td align="center">&#10060;</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>dmaker.fan.p18</td>
+        <td>Mi Smart Standing Fan 2 (p10, p18)</td>
+        <td><img src="https://cdn.awsusor1.fds.api.mi-img.com/iotweb-product-center/developer_15972184073099haFbYTk.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>🕐 Timer in seconds</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♨ Fan Speed</li><li>← → Fan Direction</li><li>← → Swing - On/Off</li><li>← → Swing - Angle</li><li>░ Display - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
+        <td><ul><li>true / false</li><li>0 - 480</li><li>0 - Straight Wind, 1 - Natural Wind</li><li>1, 2, 3, 4</li><li>0 - 100</li><li>0 - none, 1 - left, 2 - right</li><li>tue / false</li><li>30, 60, 90, 120, 140</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
+        <td align="center">&#9989;</td>
+        <td align="center">&#9989;</td>
+      </tr>
     </tbody>
   </table>
 
