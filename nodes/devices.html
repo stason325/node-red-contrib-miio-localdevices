@@ -1,192 +1,192 @@
 <script type="text/html" data-template-name="MIIOdevices">
-    <div class="form-row">
-        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-config-input-name" placeholder="Device Frendly Name">
-    </div>
-    <div class="form-row">
-        <label for="node-config-input-room"><i class="fa fa-tag"></i> Room</label>
-        <input type="text" id="node-config-input-room" placeholder="Room">
-    </div>
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-config-input-name" placeholder="Device Frendly Name">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-room"><i class="fa fa-tag"></i> Room</label>
+    <input type="text" id="node-config-input-room" placeholder="Room">
+  </div>
     
-    <hr align="middle"/>
+  <hr align="middle"/>
     
-    <div class="form-row">
-        <label for="node-config-input-MI_id"><i class="fa fa-id-card"></i> MI_id</label>
-        <input type="text" id="node-config-input-MI_id" placeholder="Device ID">
+  <div class="form-row">
+    <label for="node-config-input-MI_id"><i class="fa fa-id-card"></i> MI_id</label>
+    <input type="text" id="node-config-input-MI_id" placeholder="Device ID">
 	</div>
 
-    <div class="form-row">
-        <label for="node-config-input-device_type"><i class="fa fa-tablet"></i> Device Type</label>
-        <div style="display: inline-block; position: relative; width: 70%; height: 20px;">
-            <select id="node-config-input-device_type" data-single="true" style="width: 100%">
-                <option value="humid">Humidifiers</option>
-                <option value="purif">Air Purifiers</option>
-                <option value="heatfan">Heaters, Fans & Toilets</option>
-                <option value="vacuum">Vacuum Cleaners</option>
-                <option value="light">Lights</option>
-            </select>
-        </div>
+  <div class="form-row">
+    <label for="node-config-input-device_type"><i class="fa fa-tablet"></i> Device Type</label>
+    <div style="display: inline-block; position: relative; width: 70%; height: 20px;">
+      <select id="node-config-input-device_type" data-single="true" style="width: 100%">
+        <option value="humid">Humidifiers</option>
+        <option value="purif">Air Purifiers</option>
+        <option value="heatfan">Heaters, Fans & Toilets</option>
+        <option value="vacuum">Vacuum Cleaners</option>
+        <option value="light">Lights</option>
+      </select>
+    </div>
 	</div>
 
-    <div class="form-row">
-        <label for="node-config-input-model"><i class="fa fa-tablet"></i> Model</label>
-        <div style="display: inline-block; position: relative; width: 70%; height: 20px;">
-            <div style="position: absolute; left: 0; right: 40px;">
-                <select id="node-config-input-model" data-single="true" style="width: 100%"></select>
-            </div>
-            <div style="text-align: end; display: inline; float: right">
-                <button onclick="OnOpen()" class="red-ui-button" style="text-align: end; display: inline; float: right">
-                    <i class="fa fa-refresh"></i></button>
-            </div>
-        </div> 
+  <div class="form-row">
+    <label for="node-config-input-model"><i class="fa fa-tablet"></i> Model</label>
+    <div style="display: inline-block; position: relative; width: 70%; height: 20px;">
+      <div style="position: absolute; left: 0; right: 40px;">
+        <select id="node-config-input-model" data-single="true" style="width: 100%"></select>
+      </div>
+      <div style="text-align: end; display: inline; float: right">
+        <button onclick="OnOpen()" class="red-ui-button" style="text-align: end; display: inline; float: right">
+          <i class="fa fa-refresh"></i></button>
+      </div>
+    </div> 
 	</div>
 
-    <div class="form-row">
-        <label for="node-config-input-address"><i class="fa fa-wifi"></i> IP Address</label>
-        <input type="text" id="node-config-input-address" placeholder="192.168.xxx.xxx">
+  <div class="form-row">
+    <label for="node-config-input-address"><i class="fa fa-wifi"></i> IP Address</label>
+    <input type="text" id="node-config-input-address" placeholder="192.168.xxx.xxx">
 	</div>
 	<div class="form-row">
-        <label for="node-config-input-token"><i class="fa fa-id-card"></i> Token</label>
-        <input type="text" id="node-config-input-token" placeholder="Insert Local Token Here">
+    <label for="node-config-input-token"><i class="fa fa-id-card"></i> Token</label>
+    <input type="text" id="node-config-input-token" placeholder="Insert Local Token Here">
 	</div>
     
-    <hr align="middle"/>
+  <hr align="middle"/>
     
-    <div class="form-row">
-        <label for="node-config-input-isMIOT"><i class="fa fa-id-card"></i> Cloud Auth</label>
-        <input type="checkbox" id="node-config-input-isMIOT">
-    </div>
-    <div class="form-row MIOT-show-or-hide">
-        <label for="node-config-input-username"><i class="fa fa-id-card"></i> Username</label>
-        <input type="text" id="node-config-input-username" placeholder="email@example.com">
+  <div class="form-row">
+    <label for="node-config-input-isMIOT"><i class="fa fa-id-card"></i> Cloud Auth</label>
+    <input type="checkbox" id="node-config-input-isMIOT">
+  </div>
+  <div class="form-row MIOT-show-or-hide">
+    <label for="node-config-input-username"><i class="fa fa-id-card"></i> Username</label>
+    <input type="text" id="node-config-input-username" placeholder="email@example.com">
 	</div>
-    <div class="form-row MIOT-show-or-hide">
-        <label for="node-config-input-password"><i class="fa fa-id-card"></i> Password</label>
-        <input type="text" id="node-config-input-password" placeholder="MiHome password">
+  <div class="form-row MIOT-show-or-hide">
+    <label for="node-config-input-password"><i class="fa fa-id-card"></i> Password</label>
+    <input type="text" id="node-config-input-password" placeholder="MiHome password">
 	</div>
     
-    <div class="form-row">
-        <label for="node-config-input-isPolling"><i class="fa fa-refresh"></i> Auto Polling</label>
-        <input type="checkbox" id="node-config-input-isPolling">
-    </div>
-    <div class="form-row polling-show-or-hide">
-        <label for="node-config-input-pollinginterval"><i class="fa fa-refresh"></i> Polling, sec</label>
-        <input type="text" id="node-config-input-pollinginterval" placeholder="XX seconds">
+  <div class="form-row">
+    <label for="node-config-input-isPolling"><i class="fa fa-refresh"></i> Auto Polling</label>
+    <input type="checkbox" id="node-config-input-isPolling">
+  </div>
+  <div class="form-row polling-show-or-hide">
+    <label for="node-config-input-pollinginterval"><i class="fa fa-refresh"></i> Polling, sec</label>
+    <input type="text" id="node-config-input-pollinginterval" placeholder="XX seconds">
 	</div>
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('MIIOdevices',{
-        category: 'config',
-        defaults: {
-            name: {value: ""},
-            room: {value: ""},
-            MI_id: {value: ""},
-            device_type: {value: ""},
-            model: {value: "", required: true},
-            address: {value: "", required: true},
-            token: {value: "", required: true},
-            
-            isMIOT: {value: false},
-            username: {value: ""},
-            password: {value: ""},
+  RED.nodes.registerType('MIIOdevices',{
+    category: 'config',
+    defaults: {
+      name: {value: ""},
+      room: {value: ""},
+      MI_id: {value: ""},
+      device_type: {value: ""},
+      model: {value: "", required: true},
+      address: {value: "", required: true},
+      token: {value: "", required: true},
+      
+      isMIOT: {value: false},
+      username: {value: ""},
+      password: {value: ""},
 
-            isPolling : {value: false},
-            pollinginterval: {value: "30"}
-        },
-        label: function() {
-            return this.name + " - " + this.room;
-        },
-        oneditprepare: OnOpen,
-    });   
+      isPolling : {value: false},
+      pollinginterval: {value: "30"}
+    },
+    label: function() {
+      return this.name + " - " + this.room;
+    },
+    oneditprepare: OnOpen,
+  });   
 
-    function OnOpen () {
-        // MIOT autorization unhide
-        $("#node-config-input-isMIOT").on('change', function (type, value) {
-            if ($(this).prop('checked')) {
-                $(".MIOT-show-or-hide").show();
-            } else if (!$(this).prop('checked')) {
-                $(".MIOT-show-or-hide").hide();
-            };
+  function OnOpen () {
+    // MIOT autorization unhide
+    $("#node-config-input-isMIOT").on('change', function (type, value) {
+      if ($(this).prop('checked')) {
+        $(".MIOT-show-or-hide").show();
+      } else if (!$(this).prop('checked')) {
+        $(".MIOT-show-or-hide").hide();
+      };
+    });
+
+    // Autopolling unhide
+    $("#node-config-input-isPolling").on('change', function (type, value) {
+      if ($(this).prop('checked')) {
+        $(".polling-show-or-hide").show();
+      } else if (!$(this).prop('checked')) {
+        $(".polling-show-or-hide").hide();
+      };
+    });
+
+    // Refreshing list of devices in Chosen Device Type
+    let ChosenDevType = $('#node-config-input-device_type').val();
+    let Selector = $("#node-config-input-model");
+    Selector.empty();
+    var CurrentModel = this.model;
+
+    switch (ChosenDevType) {
+      case "humid": {
+        $.getJSON('node-red-contrib-miio-localdevices/nodes/getHumidList/').done(function (data) {
+          var ImportedHumidList = data;
+          for (var key in ImportedHumidList) {
+            Selector.append(
+              `<option value="${ImportedHumidList[key].model}">${ImportedHumidList[key].name}</option>`
+            );
+          };
+          $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
         });
-
-        // Autopolling unhide
-        $("#node-config-input-isPolling").on('change', function (type, value) {
-            if ($(this).prop('checked')) {
-                $(".polling-show-or-hide").show();
-            } else if (!$(this).prop('checked')) {
-                $(".polling-show-or-hide").hide();
-            };
+        break;
+      }
+      case "purif": {
+        $.getJSON('node-red-contrib-miio-localdevices/nodes/getPurifList/').done(function (data) {
+          var ImportedPurifList = data;
+          for (var key in ImportedPurifList) {
+            Selector.append(
+              `<option value="${ImportedPurifList[key].model}">${ImportedPurifList[key].name}</option>`
+            );
+          };
+          $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
         });
-
-        // Refreshing list of devices in Chosen Device Type
-        let ChosenDevType = $('#node-config-input-device_type').val();
-        let Selector = $("#node-config-input-model");
-        Selector.empty();
-        var CurrentModel = this.model;
-
-        switch (ChosenDevType) {
-            case "humid": {
-                $.getJSON('node-red-contrib-miio-localdevices/nodes/getHumidList/').done(function (data) {
-                    var ImportedHumidList = data;
-                    for (var key in ImportedHumidList) {
-                        Selector.append(
-                            `<option value="${ImportedHumidList[key].model}">${ImportedHumidList[key].name}</option>`
-                        );
-                    };
-                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
-                });
-                break;
-            }
-            case "purif": {
-                $.getJSON('node-red-contrib-miio-localdevices/nodes/getPurifList/').done(function (data) {
-                    var ImportedPurifList = data;
-                    for (var key in ImportedPurifList) {
-                        Selector.append(
-                            `<option value="${ImportedPurifList[key].model}">${ImportedPurifList[key].name}</option>`
-                        );
-                    };
-                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
-                });
-                break;
-            }
-            case "heatfan": {
-                $.getJSON('node-red-contrib-miio-localdevices/nodes/getHeatFanList/').done(function (data) {
-                    var ImportedHeatFanList = data;
-                    for (var key in ImportedHeatFanList) {
-                        Selector.append(
-                            `<option value="${ImportedHeatFanList[key].model}">${ImportedHeatFanList[key].name}</option>`
-                        );
-                    };
-                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
-                });
-                break;
-            }
-            case "vacuum": {
-                $.getJSON('node-red-contrib-miio-localdevices/nodes/getVacuumList/').done(function (data) {
-                    var ImportedVacuumList = data;
-                    for (var key in ImportedVacuumList) {
-                        Selector.append(
-                            `<option value="${ImportedVacuumList[key].model}">${ImportedVacuumList[key].name}</option>`
-                        );
-                    };
-                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
-                });
-                break;
-            }
-            case "light": {
-                $.getJSON('node-red-contrib-miio-localdevices/nodes/getLightsList/').done(function (data) {
-                    var ImportedLightsList = data;
-                    for (var key in ImportedLightsList) {
-                        Selector.append(
-                            `<option value="${ImportedLightsList[key].model}">${ImportedLightsList[key].name}</option>`
-                        );
-                    };
-                    $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
-                });
-                break;
-            }
-        };
+        break;
+      }
+      case "heatfan": {
+        $.getJSON('node-red-contrib-miio-localdevices/nodes/getHeatFanList/').done(function (data) {
+          var ImportedHeatFanList = data;
+          for (var key in ImportedHeatFanList) {
+            Selector.append(
+              `<option value="${ImportedHeatFanList[key].model}">${ImportedHeatFanList[key].name}</option>`
+            );
+          };
+          $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
+        });
+        break;
+      }
+      case "vacuum": {
+        $.getJSON('node-red-contrib-miio-localdevices/nodes/getVacuumList/').done(function (data) {
+          var ImportedVacuumList = data;
+          for (var key in ImportedVacuumList) {
+            Selector.append(
+              `<option value="${ImportedVacuumList[key].model}">${ImportedVacuumList[key].name}</option>`
+            );
+          };
+          $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
+        });
+        break;
+      }
+      case "light": {
+        $.getJSON('node-red-contrib-miio-localdevices/nodes/getLightsList/').done(function (data) {
+          var ImportedLightsList = data;
+          for (var key in ImportedLightsList) {
+            Selector.append(
+              `<option value="${ImportedLightsList[key].model}">${ImportedLightsList[key].name}</option>`
+            );
+          };
+          $(`#node-config-input-model option[value="${CurrentModel}"]`).attr('selected', 'selected');
+        });
+        break;
+      }
     };
+  };
 
 </script>

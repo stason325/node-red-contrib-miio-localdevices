@@ -38,6 +38,7 @@ It is theoretically possible to add support for any wifi-device which is operate
 - [x] deerma.humidifier.jsq5
 - [x] leshow.humidifier.jsq1
 - [x] dmaker.airfresh.a1
+- [x] dmaker.fan.p18
 ## Installation
 
 ```sh
@@ -46,8 +47,12 @@ npm install node-red-contrib-miio-localdevices
 
 ## Latest Updates
 
-### version 0.5.5
-- added support for 6 devices (zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18 - see also issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2) )
+### version 0.5.6
+- added support for 6 devices (zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18)
+- dmaker.fan.p18 (see also issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2)) was tested
+- defFile for zhimi.toilet.sa1 is in testing
+- added a description of the custom JSON command for each device in [DEVICES.md](DEVICES.md)
+- slight code optimizations
 
 ### version 0.5.4
 - fixed power-off command for dmaker.airfresh.a1
@@ -137,7 +142,7 @@ Ta make sure that your flow works properly I would recommend using certain hints
 
 ![NR-Miio_pic5.png](images/NR-Miio_pic5.png)
 
-2) Starting from 0.5.0 it is possible to send complex command through SEND-node. To do that you need to choose `{} Custom JSON` command from the pick list. Message to push into the SEND-node must be in a follwing form:
+2) Starting from 0.5.0 it is possible to send complex command through SEND-node. To do that you need to choose `{} Custom JSON` command from the pick list. Message to push into the SEND-node must be in a following form:
 ```sh
 {
 command_1: value_1,

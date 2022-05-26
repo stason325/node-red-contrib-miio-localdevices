@@ -9,18 +9,15 @@ module.exports = class extends Device {
   constructor(opts) {
     super(opts);
 
-    this._miotSpecType = 'urn:miot-spec-v2:device:fan:0000A005:dmaker-p18:1';
+    this._miotSpecType = 'urn:miot-spec-v2:device:fan:0000A005:dmaker-p10:1';
     this._propertiesToMonitor = [
       'fan:on',
       'fan:off-delay-time',
       'fan:mode',
-
       'fan:fan-level',
       'fan:speed-level',
-      
       'fan:horizontal-swing',
       'fan:horizontal-angle',
-      
       'fan:brightness',
       'fan:alarm',
       'physical-controls-locked:physical-controls-locked',
@@ -61,7 +58,7 @@ module.exports = class extends Device {
 
   setDirection(v) { // 0 - none, 1 - left, 2 - right
     if ([0, 1, 2].includes(v)) {
-      return this.miotSetProperty('fan::motor-control', v);
+      return this.miotSetProperty('fan:motor-control', v);
     }
     return Promise.reject(new Error(`Invalid deriction: ${v}. Choose 1 for left, 2 for right, 0 for none`));
   }
@@ -71,6 +68,10 @@ module.exports = class extends Device {
   }
 
   setSwingAngle(v) { // 30, 60, 90, 120, 140
+    const Swing_Mode = this.properties['fan:horizontal-swing'];
+    if (!Swing_Mode) {
+      return Promise.reject(new Error(`Horizontal Swing is turned off. Please turn it on and then set an angle`));
+    }
     if ([30, 60, 90, 120, 140].includes(v)) {
       return this.miotSetProperty('fan:horizontal-angle', v);
     }

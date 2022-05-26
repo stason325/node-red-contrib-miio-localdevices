@@ -8,8 +8,9 @@
         <th width="150">Model</th>
         <th width="150">Name</th>
         <th width="150">Image</th>
-        <th width="200">Available Commands </th>
+        <th width="200">Available Single Commands </th>
         <th width="200">Values for Commands</th>
+        <th width="150">Available Commands for Custom JSON {}</th>
         <th>Cloud Auth </th>
         <th>Import File</th>
       </tr>
@@ -24,6 +25,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>☉ Led - On/Off</li><li>♪ Sound - On/Off</li></ul></td>
         <td><ul><li>true / false</li><li>1, 2, 3, 4</li><li>40, 50, 60, 70</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, FanLevel, TargetHumidity, Led, Buzzer }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -38,6 +40,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>♪ Sound - On/Off</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>☉ Led - Brightness</li><li>🔒 Child Lock</li><li>⚙ Mode</li></ul></td>
         <td><ul><li>true / false</li><li>true / false</li><li>1, 2, 3, 4</li><li>30, 40, 50, 60, 70, 80</li><li>string</li><li>true / false</li><li>string: "dry" / "humidity"</li></ul></td>
+        <td>{ Power, Buzzer, FanLevel, TargetHumidity, LedBrightness, ChildLock, Mode }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -54,6 +57,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>♪ Sound - On/Off</li><li>☉ Bright - On/Off</li></ul></td>
         <td><ul><li>true / false</li><li>1, 2, 3</li><li>30, 40, 50, 60, 70, 80</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, FanLevel, TargetHumidity, Buzzer, Bright }</td>  
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -66,6 +70,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>♪ Sound - On/Off</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>☉ Led - Brightness</li><li>🔒 Child Lock</li><li>⚙ Mode</li></ul></td>
         <td><ul><li>true / false</li><li>true / false</li><li>0, 1, 2, 3</li><li>30, 40, 50, 60, 70, 80</li><li>string</li><li>true / false</li><li>string: "dry" / "humidity"</li></ul></td>
+        <td>{ Power, Buzzer, FanLevel, TargetHumidity, LedBrightness, ChildLock, Mode }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -78,6 +83,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>♪ Sound - On/Off</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>☉ Led - Brightness</li><li>🔒 Child Lock</li><li>⚙ Mode</li></ul></td>
         <td><ul><li>true / false</li><li>true / false</li><li>1, 2, 3, 4</li><li>30, 40, 50, 60, 70, 80</li><li>string</li><li>true / false</li><li>string: "dry" / "humidity"</li></ul></td>
+        <td>{ Power, Buzzer, FanLevel, TargetHumidity, LedBrightness, ChildLock, Mode }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -90,6 +96,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>♪ Sound - On/Off</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>☉ Led - Brightness</li><li>🔒 Child Lock</li><li>⚙ Mode</li></ul></td>
         <td><ul><li>true / false</li><li>true / false</li><li>0, 1, 2, 3</li><li>30, 40, 50, 60, 70, 80</li><li>string</li><li>true / false</li><li>string: "dry" / "humidity"</li></ul></td>
+        <td>{ Power, Buzzer, FanLevel, TargetHumidity, LedBrightness, ChildLock, Mode }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -102,6 +109,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>♨ Target Humidity</li><li>♨ Fan Level</li></ul></td>
         <td><ul><li>true / false</li><li>string: "dry" / "humidity"</li><li>30, 40, 50, 60, 70, 80</li><li>1, 2, 3, 4</li></ul></td>
+        <td>{ Power, Mode, TargetHumidity, FanLevel }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -114,6 +122,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>⏻ Delayed TurnOff</li><li>⚙ Mode</li><li>♨ Heating Mode</li><li>♨ Filter Drying</li><li>♨ Target Humidity</li><li>░ Display - Brightness</li><li>♪ Sound - On/Off</li></ul></td>
         <td><ul><li>true / false</li><li>0 - 480 secs</li><li>0 - Const Humidity, 1 - Strong, 2 - Sleep</li><li>true / false</li><li>true / false</li><li>40, 50, 60, 70</li><li>0 / 1</li><li>true / false</li></ul></td>
+        <td>{ Power, DelayedTurnOff, Mode, HeatMode, FilterDry, TargetHumidity, LcdBrightness, Buzzer }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -128,8 +137,9 @@
         <th width="150">Model</th>
         <th width="150">Name</th>
         <th width="150">Image</th>
-        <th width="200">Available Commands </th>
+        <th width="200">Available Single Commands </th>
         <th width="200">Values for Commands</th>
+        <th width="150">Available Commands for Custom JSON {}</th>
         <th>Cloud Auth </th>
         <th>Import File</th>
       </tr>
@@ -142,6 +152,7 @@
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_1551944689505i5ubr.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Level</li><li>░ Display - On/Off</li><li>♪ Sound - Volume</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>string: "auto" / "silent" / "favorite"</li><li>0 - 16</li><li>true / false</li><li>0 - 100</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FavoriteLevel, Display, Volume, ChildLock }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -152,6 +163,7 @@
         <td><img src="http://static.home.mi.com/app/image/get/file/developer_1543307568u9wu6wij.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>❤ Fav Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>1, 2, 3</li><li>1 - 9</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FanLevel, FavLevel, Buzzer, LcdBrightness, ChildLock }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -162,6 +174,7 @@
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Level</li><li>☉ Led - On/Off</li><li>☉ Led B - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>string: "auto" / "silent" / "favorite"</li><li>0 - 16</li><li>true / false</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FavoriteLevel, Led, LedB, Buzzer, ChildLock }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -172,6 +185,7 @@
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Level</li><li>☉ Led - On/Off</li><li>☉ Led B - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>string: "auto" / "silent" / "favorite"</li><li>0 - 16</li><li>true / false</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FavoriteLevel, Led, LedB, Buzzer, ChildLock }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -182,6 +196,7 @@
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_1543307568u9wu6wij.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>1, 2, 3</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FanLevel, Buzzer, LcdBrightness, ChildLock }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -192,6 +207,7 @@
         <td><img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_15504816557tej1pj6.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>1, 2, 3</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FanLevel, Buzzer, LcdBrightness, ChildLock }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -202,6 +218,7 @@
         <td><img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_15504816557tej1pj6.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Speed</li><li>♨ Fan Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>string: "auto" / "silent" / "medium" / "high"</li><li>300 - 2200</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FavSpeed, FanLevel, Buzzer, LcdBrightness, ChildLock }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -212,6 +229,7 @@
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>❤ Favorite Level</li><li>☉ Led - On/Off</li><li>☉ Led B - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>0 - 16</li><li>true / false</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FavoriteLevel, Led, LedB, Buzzer, ChildLock }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -222,6 +240,7 @@
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "none"</li><li>1, 2, 3</li><li>true / false</li><li>0 - brightest, 1 - glimmer, 2 - led_closed</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FanLevel, Buzzer, LcdBrightness, ChildLock }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -232,13 +251,14 @@
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1571025407906ABkSN0nP.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>░ Display - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li><li>❤ Favorite Speed</li><li>♨ Heating - On/Off</li></ul></td>
         <td><ul><li>true / false</li><li>0 - auto, 1 - sleep, 2 - favorite</li><li>true / false</li><li>true / false</li><li>true / false</li><li>60 - 150</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, Display, Buzzer, ChildLock, FavSpeed, Heating }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>3) Heaters, Fans & Toilet</h2>
+  <h2>3) Heaters, Fans & Toilets</h2>
   <table>
     <thead>
       <tr>
@@ -246,8 +266,9 @@
         <th width="150">Model</th>
         <th width="150">Name</th>
         <th width="150">Image</th>
-        <th width="200">Available Commands </th>
+        <th width="200">Available Single Commands </th>
         <th width="200">Values for Commands</th>
+        <th width="150">Available Commands for Custom JSON {}</th>
         <th>Cloud Auth </th>
         <th>Import File</th>
       </tr>
@@ -260,36 +281,40 @@
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639643044442TWB1cChs.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>♪ Sound - On/Off</li><li>℃ Target Temperature</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>true / false</li><li>16 - 32</li><li>true / false</li></ul></td>
+        <td>{ Power, Buzzer, TargetTemperature, ChildLock }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
       <tr>
         <td>2</td>
-        <td>zhimi.toilet.sa1</td>
-        <td>Smartmi Smart Bidet Toilet Seat Pro</td>
-        <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1577765179435CyXcWINp.png" width="100"></td>
-        <td><ul><li>⏻ Power</li><li>⚙ Wash Strength</li><li>⚙ Nozzle Position</li><li>⚙ Deodorization - On/Off</li><li>⚙ Mode</li><li>♨ Heating - On/Off</li><li>♨ Heat Level</li><li>☉ NightLight - On/Off</li><li>♪ Alarm - On/Off</li></ul></td>
-        <td><ul><li>true / false</li><li>1 - 4</li><li>1 - 4</li><li>true / false</li><li>1 - Posterior Wash, 2 - Feminine Wash, 3 - Air Dry, 4 - Idle</li><li>true / false</li><li>0 - 4</li><li>true / false</li><li>true / false</li></ul></td>
-        <td align="center">&#9989;</td>
-        <td align="center">&#9989;</td>
-      </tr>
-      <tr>
-        <td>3</td>
         <td>zhimi.fan.za4</td>
         <td>Smartmi Standing Fan 1 (sa1, za1), 2 (za3), 2S (za4)</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_1541408255kg3xtr1j.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>♨ Fan Level</li><li>☀ Sleep Mode</li><li>← → Swing - On/Off</li><li>← → Swing - Angle</li><li>♪ Sound - On/Off</li><li>░ Display - On/Off</li><li>🕐 Timer in seconds</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 4</li><li>1 - 4</li><li>true / false</li><li>0 - 120</li><li>2 / 0</li><li>string: "on" / "off"</li><li>XX seconds</li></ul></td>
+        <td>{ Power, FanLevel, SleepMode, Swing, SwingAngle, Buzzer, LcdBrightness, Timer }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
       </tr>
       <tr>
-        <td>4</td>
+        <td>3</td>
         <td>dmaker.fan.p18</td>
         <td>Mi Smart Standing Fan 2 (p10, p18)</td>
         <td><img src="https://cdn.awsusor1.fds.api.mi-img.com/iotweb-product-center/developer_15972184073099haFbYTk.png" width="100"></td>
-        <td><ul><li>⏻ Power</li><li>🕐 Timer in seconds</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♨ Fan Speed</li><li>← → Fan Direction</li><li>← → Swing - On/Off</li><li>← → Swing - Angle</li><li>░ Display - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
+        <td><ul><li>⏻ Power</li><li>🕐 Timer in minutes</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♨ Fan Speed</li><li>← → Fan Direction</li><li>← → Swing - On/Off</li><li>← → Swing - Angle</li><li>░ Display - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
         <td><ul><li>true / false</li><li>0 - 480</li><li>0 - Straight Wind, 1 - Natural Wind</li><li>1, 2, 3, 4</li><li>0 - 100</li><li>0 - none, 1 - left, 2 - right</li><li>tue / false</li><li>30, 60, 90, 120, 140</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, Timer, Mode, FanLevel, Speed, Direction, Swing, SwingAngle, LcdBrightness, Buzzer, ChildLock }</td>
+        <td align="center">&#9989;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>zhimi.toilet.sa1</td>
+        <td>Smartmi Smart Bidet Toilet Seat Pro</td>
+        <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1577765179435CyXcWINp.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>⚙ Wash Strength</li><li>⚙ Nozzle Position</li><li>⚙ Deodorization - On/Off</li><li>⚙ Mode</li><li>♨ Heating - On/Off</li><li>♨ Heat Level</li><li>☉ NightLight - On/Off</li><li>♪ Alarm - On/Off</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 4</li><li>1 - 4</li><li>true / false</li><li>1 - Posterior Wash, 2 - Feminine Wash, 3 - Air Dry, 4 - Idle</li><li>true / false</li><li>0 - 4</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, WashStrength, NozzlePos, Deodorization, Mode, Heating, HeatLevel, NightLight, Alarm }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -304,8 +329,9 @@
         <th width="150">Model</th>
         <th width="150">Name</th>
         <th width="150">Image</th>
-        <th width="200">Available Commands </th>
+        <th width="200">Available Single Commands </th>
         <th width="200">Values for Commands</th>
+        <th width="150">Available Commands for Custom JSON {}</th>
         <th>Cloud Auth </th>
         <th>Import File</th>
       </tr>
@@ -334,6 +360,7 @@
           <li>string: "low" / "medium" / "high"</li>
           <li>true / false</li><li>1 - 100</li>
         </ul></td>
+        <td>{ Charge, Clean, RepeatClean, CleanRooms, Pause, Stop, Mode, FanLevel, WaterLevel, Mute, Volume }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -348,8 +375,9 @@
         <th width="150">Model</th>
         <th width="150">Name</th>
         <th width="150">Image</th>
-        <th width="200">Available Commands </th>
+        <th width="200">Available Single Commands </th>
         <th width="200">Values for Commands</th>
+        <th width="150">Available Commands for Custom JSON {}</th>
         <th>Cloud Auth </th>
         <th>Import File</th>
       </tr>
@@ -362,6 +390,7 @@
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_163910713663097kIz1us.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>⚙ Scene</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1 - 100</li><li>0 - none, 1 - lighting, 2 - TV, 3 - Wormth, 4 - Night Light</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature, Scene }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -372,6 +401,7 @@
         <td><img src="http://static.home.mi.com/app/image/get/file/developer_1522407953modw7wox.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>⚙ Scene</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1 - 100</li><li>1 - lighting, 2 - Night Light, 3 - TV, 4 - Wormth</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature, Scene }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -382,6 +412,7 @@
         <td><img src="http://static.home.mi.com/app/image/get/file/developer_1522407953modw7wox.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li></ul></td>
+        <td>{ Power, Brightness }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -392,6 +423,7 @@
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639568383016c3tBnNav.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1 - 100</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -402,6 +434,7 @@
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1639548423185Z8zhZvpr.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1 - 100</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -427,6 +460,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>☀ Sleep Mode</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>2700 - 6500</li><li>1 - Day, 2 - Night</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature, SleepMode }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -441,6 +475,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>☀ Sleep Mode</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1 - Day, 2 - Night</li></ul></td>
+        <td>{ Power, Brightness, SleepMode }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -456,6 +491,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>3000 - 5700</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -473,6 +509,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>☀ Sleep Mode</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>2700 - 6500</li><li>0 - Day, 1 - Night</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature, SleepMode }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
@@ -488,6 +525,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>░ HSV Color</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,satuartion: YY}</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature, ColorHSV }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -504,6 +542,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>░ HSV Color</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,satuartion: YY}</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature, ColorHSV }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -518,6 +557,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
       </tr>
@@ -532,6 +572,7 @@
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>░ HSV Color</li></ul></td>
         <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,satuartion: YY}</li></ul></td>
+        <td>{ Power, Brightness, ColorTemperature, ColorHSV }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
