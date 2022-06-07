@@ -287,6 +287,17 @@
       </tr>
       <tr>
         <td>2</td>
+        <td>zhimi.toilet.sa1</td>
+        <td>Smartmi Smart Bidet Toilet Seat Pro</td>
+        <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1577765179435CyXcWINp.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>⚙ Wash Strength</li><li>⚙ Nozzle Position</li><li>⚙ Deodorization - On/Off</li><li>⚙ Mode</li><li>♨ Heating - On/Off</li><li>♨ Heat Level</li><li>☉ NightLight - On/Off</li><li>♪ Alarm - On/Off</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 4</li><li>1 - 4</li><li>true / false</li><li>1 - Posterior Wash, 2 - Feminine Wash, 3 - Air Dry, 4 - Idle</li><li>true / false</li><li>0 - 4</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, WashStrength, NozzlePos, Deodorization, Mode, Heating, HeatLevel, NightLight, Alarm }</td>
+        <td align="center">&#9989;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+      <tr>
+        <td>3</td>
         <td>zhimi.fan.za4</td>
         <td>Smartmi Standing Fan 1 (sa1, za1), 2 (za3), 2S (za4)</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_1541408255kg3xtr1j.png" width="100"></td>
@@ -297,24 +308,24 @@
         <td align="center">&#10060;</td>
       </tr>
       <tr>
-        <td>3</td>
+        <td>4</td>
         <td>dmaker.fan.p18</td>
         <td>Mi Smart Standing Fan 2 (p10, p18)</td>
         <td><img src="https://cdn.awsusor1.fds.api.mi-img.com/iotweb-product-center/developer_15972184073099haFbYTk.png" width="100"></td>
         <td><ul><li>⏻ Power</li><li>🕐 Timer in minutes</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♨ Fan Speed</li><li>← → Fan Direction</li><li>← → Swing - On/Off</li><li>← → Swing - Angle</li><li>░ Display - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
-        <td><ul><li>true / false</li><li>0 - 480</li><li>0 - Straight Wind, 1 - Natural Wind</li><li>1, 2, 3, 4</li><li>0 - 100</li><li>0 - none, 1 - left, 2 - right</li><li>tue / false</li><li>30, 60, 90, 120, 140</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
+        <td><ul><li>true / false</li><li>0 - 480</li><li>0 - Straight Wind, 1 - Natural Wind</li><li>1, 2, 3, 4</li><li>0 - 100</li><li>0 - none, 1 - left, 2 - right</li><li>true / false</li><li>30, 60, 90, 120, 140</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
         <td>{ Power, Timer, Mode, FanLevel, Speed, Direction, Swing, SwingAngle, LcdBrightness, Buzzer, ChildLock }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
       <tr>
-        <td>4</td>
-        <td>zhimi.toilet.sa1</td>
-        <td>Smartmi Smart Bidet Toilet Seat Pro</td>
-        <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1577765179435CyXcWINp.png" width="100"></td>
-        <td><ul><li>⏻ Power</li><li>⚙ Wash Strength</li><li>⚙ Nozzle Position</li><li>⚙ Deodorization - On/Off</li><li>⚙ Mode</li><li>♨ Heating - On/Off</li><li>♨ Heat Level</li><li>☉ NightLight - On/Off</li><li>♪ Alarm - On/Off</li></ul></td>
-        <td><ul><li>true / false</li><li>1 - 4</li><li>1 - 4</li><li>true / false</li><li>1 - Posterior Wash, 2 - Feminine Wash, 3 - Air Dry, 4 - Idle</li><li>true / false</li><li>0 - 4</li><li>true / false</li><li>true / false</li></ul></td>
-        <td>{ Power, WashStrength, NozzlePos, Deodorization, Mode, Heating, HeatLevel, NightLight, Alarm }</td>
+        <td>5</td>
+        <td>zhimi.fan.za5</td>
+        <td>Smartmi Standing Fan 3 (za5)</td>
+        <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1577772535191ODLLij7b.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>🕐 Timer in msecs</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♨ Fan Speed</li><li>← → Swing - On/Off</li><li>← → Swing - Angle</li><li>♨ Ionization</li><li>░ Display - Brightness</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
+        <td><ul><li>true / false</li><li>0 - 36000</li><li>0 - Natural Wind, 1 - Straight Wind</li><li>1, 2, 3, 4</li><li>1 - 100</li><li>true / false</li><li>30, 60, 90, 120</li><li>true / false</li><li>0 - 100</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, Timer, Mode, FanLevel, Speed, Swing, SwingAngle, Ionization, LcdBrightness, Buzzer, ChildLock }</td>
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>

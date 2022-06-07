@@ -11,6 +11,8 @@
 ![NPM Total Downloads](https://img.shields.io/npm/dt/node-red-contrib-miio-localdevices.svg)
 ![NPM Downloads per month](https://img.shields.io/npm/dm/node-red-contrib-miio-localdevices)
 [![issues](https://img.shields.io/github/issues/stason325/node-red-contrib-miio-localdevices?logo=github)](https://github.com/stason325/node-red-contrib-miio-localdevices/issues)
+[![issues](https://img.shields.io/github/issues-closed/stason325/node-red-contrib-miio-localdevices?logo=github)](https://github.com/stason325/node-red-contrib-miio-localdevices/issues?q=is%3Aclosed)
+
 
 
 Node for Node-Red to control Mi Devices locally via node-mihome (Humidifiers, Purifiers, Heaters, Fans, Vacuums, Lights - list of devices to be enlarged).
@@ -39,6 +41,7 @@ It is theoretically possible to add support for any wifi-device which is operate
 - [x] leshow.humidifier.jsq1
 - [x] dmaker.airfresh.a1
 - [x] dmaker.fan.p18
+- [x] zhimi.airpurifier.mb3
 ## Installation
 
 ```sh
@@ -47,10 +50,12 @@ npm install node-red-contrib-miio-localdevices
 
 ## Latest Updates
 
-### version 0.5.6
+### version 0.5.7
 - added support for 6 devices (zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18)
 - dmaker.fan.p18 (see also issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2)) was tested
-- defFile for zhimi.toilet.sa1 is in testing
+- zhimi.airpurifier.mb3 (see also issue [#3](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3)) was tested
+- added support for zhimi.fan.za5 (see also issue [#4](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3))
+- defFiles for zhimi.toilet.sa1 and zhimi.fan.za5 are in testing
 - added a description of the custom JSON command for each device in [DEVICES.md](DEVICES.md)
 - slight code optimizations
 
