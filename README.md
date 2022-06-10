@@ -42,6 +42,7 @@ It is theoretically possible to add support for any wifi-device which is operate
 - [x] dmaker.airfresh.a1
 - [x] dmaker.fan.p18
 - [x] zhimi.airpurifier.mb3
+- [x] zhimi.fan.za5
 ## Installation
 
 ```sh
@@ -52,10 +53,9 @@ npm install node-red-contrib-miio-localdevices
 
 ### version 0.5.7
 - added support for 6 devices (zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18)
-- dmaker.fan.p18 (see also issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2)) was tested
-- zhimi.airpurifier.mb3 (see also issue [#3](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3)) was tested
-- added support for zhimi.fan.za5 (see also issue [#4](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3))
-- defFiles for zhimi.toilet.sa1 and zhimi.fan.za5 are in testing
+- dmaker.fan.p18 (see also issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2)), zhimi.airpurifier.mb3 (see also issue [#3](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3)), zhimi.fan.za5 (see also issue [#4](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/4)) were tested
+- added support for dmaker.fan.1c (see also issue [#5](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/5))
+- defFiles for zhimi.toilet.sa1 and dmaker.fan.1c are in testing
 - added a description of the custom JSON command for each device in [DEVICES.md](DEVICES.md)
 - slight code optimizations
 

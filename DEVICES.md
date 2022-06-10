@@ -329,6 +329,17 @@
         <td align="center">&#9989;</td>
         <td align="center">&#9989;</td>
       </tr>
+      <tr>
+        <td>6</td>
+        <td>dmaker.fan.1c</td>
+        <td>Mi Smart Standing Fan 2 Lite (1c)</td>
+        <td><img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_1573710547nq1me2nm.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>🕐 Timer in minutes</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>← → Swing - On/Off</li><li>░ Display - On/Off</li><li>♪ Sound - On/Off</li><li>🔒 Child Lock</li></ul></td>
+        <td><ul><li>true / false</li><li>0 - 480</li><li>0 - Straight Wind, 1 - Sleep</li><li>1, 2, 3</li><li>true / false</li><li>true / false</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, Timer, Mode, FanLevel, Swing, LcdBrightness, Buzzer, ChildLock }</td>
+        <td align="center">&#9989;</td>
+        <td align="center">&#9989;</td>
+      </tr>
     </tbody>
   </table>
 
