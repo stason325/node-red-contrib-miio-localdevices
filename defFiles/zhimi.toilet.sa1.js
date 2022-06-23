@@ -11,19 +11,7 @@ module.exports = class extends Device {
 
     this._miotSpecType = 'urn:miot-spec-v2:device:toilet:0000A02E:zhimi-sa1:1';
     this._propertiesToMonitor = [
-      'power',
-      'OnOff_State',
       'toilet:on',
-      'ambient_light',
-      'ambient-light',
-      'night-light',
-      'night_light',
-      'night-light:on',
-      'mode',
-      'work_state',
-      'seating_state',
-      'heating',
-      'filter_use_time',
       'toilet:seating-state',
       'toilet:washing-strength',
       'toilet:nozzle-position',

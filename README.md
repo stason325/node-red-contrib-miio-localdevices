@@ -43,6 +43,7 @@ It is theoretically possible to add support for any wifi-device which is operate
 - [x] dmaker.fan.p18
 - [x] zhimi.airpurifier.mb3
 - [x] zhimi.fan.za5
+- [x] dmaker.fan.1c
 ## Installation
 
 ```sh
@@ -51,20 +52,16 @@ npm install node-red-contrib-miio-localdevices
 
 ## Latest Updates
 
-### version 0.5.7
-- added support for 6 devices (zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18)
-- dmaker.fan.p18 (see also issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2)), zhimi.airpurifier.mb3 (see also issue [#3](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3)), zhimi.fan.za5 (see also issue [#4](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/4)) were tested
-- added support for dmaker.fan.1c (see also issue [#5](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/5))
-- defFiles for zhimi.toilet.sa1 and dmaker.fan.1c are in testing
+### version 0.5.9
+- added support for 7 devices (zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18,dmaker.fan.1c)
+- dmaker.fan.p18 (see also issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2)), zhimi.airpurifier.mb3 (see also issue [#3](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3)), zhimi.fan.za5 (see also issue [#4](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/4)), dmaker.fan.1c (see also issue [#5](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/5)) were tested
+- updated defFile for zhimi.airpurifier.mb3 is in testing (see also issue [#7](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/7))
+- defFile for zhimi.toilet.sa1 was updated and is in testing
 - added a description of the custom JSON command for each device in [DEVICES.md](DEVICES.md)
 - slight code optimizations
-
-### version 0.5.4
-- fixed power-off command for dmaker.airfresh.a1
-- updated selector for commands in SEND-node
-- updated selector for properties in GET-node
-- updated selectors for device types and for list of devices of each type in CONFIG-node + fixed saving initial choise
 - minor visual updates
+- fixed power-off command for dmaker.airfresh.a1
+- updated selectors for commands in SEND-node, for properties in GET-node,or device types and for list of devices of each type in CONFIG-node + fixed saving initial choise
 
 ### version 0.5.0
 - DEVICES.md was splitted by device type
