@@ -52,10 +52,11 @@ npm install node-red-contrib-miio-localdevices
 
 ## Latest Updates
 
-### version 0.5.9
-- added support for 7 devices (zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18,dmaker.fan.1c)
-- dmaker.fan.p18 (see also issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2)), zhimi.airpurifier.mb3 (see also issue [#3](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3)), zhimi.fan.za5 (see also issue [#4](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/4)), dmaker.fan.1c (see also issue [#5](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/5)) were tested
-- updated defFile for zhimi.airpurifier.mb3 is in testing (see also issue [#7](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/7))
+### version 0.5.10
+- updated deerma.humidifier.jsq4 and deerma.humidifier.jsq5 - devices are now splited and defFiles are updated (these are now first fully local MIOT-devices(!!!) - no internet connection needed anymore)
+- zhimi.toilet.sa1 is in testing: 5 of 12 properties and 3 of 11 commands are tested, defFile is updated as of current results - to be enlarge in future versions
+- added support for 7 devices: zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18,dmaker.fan.1c
+- 5 more devices were tested: dmaker.fan.p18 (issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2)), zhimi.airpurifier.mb3 (issue [#3](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3)), zhimi.fan.za5 (issue [#4](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/4)), dmaker.fan.1c (issue [#5](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/5)), zhimi.airpurifier.mb3 (issue [#7](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/7))
 - defFile for zhimi.toilet.sa1 was updated and is in testing
 - added a description of the custom JSON command for each device in [DEVICES.md](DEVICES.md)
 - slight code optimizations

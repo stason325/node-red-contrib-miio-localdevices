@@ -9,66 +9,47 @@ module.exports = class extends Device {
   constructor(opts) {
     super(opts);
 
-    this._miotSpecType = 'urn:miot-spec-v2:device:toilet:0000A02E:zhimi-sa1:1';
     this._propertiesToMonitor = [
-      'toilet:on',
-      'toilet:seating-state',
-      'toilet:washing-strength',
-      'toilet:nozzle-position',
-      'toilet:deodorization',
-      'toilet:mode',
-      'seat:heating',
-      'seat:heat-level',
-      'filter:filter-life-level',
-      'alarm:alarm'
+      'power',
+      'mode',
+      'buzzer',
+      'seat_temp',
+      'water_temp',
+      'warm_air_temperature',
+      'filter_use_percentage',
+      'filter_remaining_time'
     ];
   }
 
   setPower(v) { //boolean
-    return this.miotSetProperty('toilet:on', v);
-  }
-
-  setWashStrength(v) { // 1-4
-    if ([1, 2, 3, 4].includes(v)) {
-      return this.miotSetProperty('toilet:washing-strength', v);
+    if (v === true) {
+      return this.miioCall('set_power', ["on"])
+    } else if (v === false) {
+      return this.miioCall('set_power', ["off"])
     }
-    return Promise.reject(new Error(`Invalid Washing Strenght: ${v}. Choose 1, 2, 3 or 4`));
-  }
-
-  setNozzlePos(v) { // 1-4
-    if ([1, 2, 3, 4].includes(v)) {
-      return this.miotSetProperty('toilet:nozzle-position', v);
-    }
-    return Promise.reject(new Error(`Invalid Nozzle Position: ${v}. Choose 1, 2, 3 or 4`));
-  }
-
-  setDeodorization(v) { //boolean
-    return this.miotSetProperty('toilet:deodorization', v);
-  }
-
-  setMode(v) { // 1-Posterior Wash, 2-Feminine Wash, 3-Air Dry, 4-Idle
-    if ([1, 2, 3, 4].includes(v)) {
-      return this.miotSetProperty('toilet:mode', v);
-    }
-    return Promise.reject(new Error(`Invalid Mode: ${v}. Choose 1, 2, 3 or 4`));
-  }
-
-  setHeating(v) { //boolean
-    return this.miotSetProperty('seat:heating', v);
-  }
-
-  setHeatLevel(v) { // 0-4
-    if ([0, 1, 2, 3, 4].includes(v)) {
-      return this.miotSetProperty('seat:heat-level', v);
-    }
-    return Promise.reject(new Error(`Invalid Heat Level: ${v}. Choose 0, 1, 2, 3 or 4`));
-  }
-
-  setNightLight(v) { //boolean
-    return this.miotSetProperty('night-light:on', v);
+    return Promise.reject(new Error(`Invalid value: ${v}. Choose true or false`));
   }
 
   setAlarm(v) { //boolean
-    return this.miotSetProperty('alarm:alarm', v);
+    if (v === true) {
+      return this.miioCall('set_buzzer', ["on"])
+    } else if (v === false) {
+      return this.miioCall('set_buzzer', ["off"])
+    }
+    return Promise.reject(new Error(`Invalid value: ${v}. Choose true or false`));
   }
+
+  setMode(v) { // 1-Posterior Wash, 2-Feminine Wash, 3-Air Dry, 4-Idle
+    if (v === 1) {
+      return this.miioCall('set_mode', ["hipclean"])
+    } else if (v === 2) {
+      return this.miioCall('set_mode', ["womanclean"])
+    } else if (v === 3) {
+      return this.miioCall('set_mode', ["heatwind"])
+    } else if (v === 4) {
+      return this.miioCall('set_mode', ["idle"])
+    }
+    return Promise.reject(new Error(`Invalid Mode: ${v}. Choose 1, 2, 3 or 4`));
+  }
+  
 };

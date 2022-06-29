@@ -49,16 +49,14 @@
         <td>deerma.humidifier.jsq4</td>
         <td>
           <p>Mijia CJSJSQ01DY Pure Evaporation (jsq4)</p>
-          <p>Mi Smart Antibacterial Humidifier (jsq5)</p>
         </td>
         <td>
           <img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1616123889270TXVYhdbh.png" width="100">
-          <img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_1584598944z7vf4g16.png" width="100">
         </td>
         <td><ul><li>⏻ Power</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>♪ Sound - On/Off</li><li>☉ Bright - On/Off</li></ul></td>
         <td><ul><li>true / false</li><li>1, 2, 3</li><li>30, 40, 50, 60, 70, 80</li><li>true / false</li><li>true / false</li></ul></td>
         <td>{ Power, FanLevel, TargetHumidity, Buzzer, Bright }</td>  
-        <td align="center">&#9989;</td>
+        <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
       <tr>
@@ -124,6 +122,21 @@
         <td><ul><li>true / false</li><li>0 - 480 secs</li><li>0 - Const Humidity, 1 - Strong, 2 - Sleep</li><li>true / false</li><li>true / false</li><li>40, 50, 60, 70</li><li>0 / 1</li><li>true / false</li></ul></td>
         <td>{ Power, DelayedTurnOff, Mode, HeatMode, FilterDry, TargetHumidity, LcdBrightness, Buzzer }</td>
         <td align="center">&#9989;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>deerma.humidifier.jsq5</td>
+        <td>
+          <p>Mi Smart Antibacterial Humidifier (jsq5)</p>
+        </td>
+        <td>
+          <img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_1584598944z7vf4g16.png" width="100">
+        </td>
+        <td><ul><li>⏻ Power</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>♪ Sound - On/Off</li><li>☉ Bright - On/Off</li></ul></td>
+        <td><ul><li>true / false</li><li>1, 2, 3, 4</li><li>30, 40, 50, 60, 70, 80</li><li>true / false</li><li>true / false</li></ul></td>
+        <td>{ Power, FanLevel, TargetHumidity, Buzzer, Bright }</td>  
+        <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
     </tbody>
@@ -288,12 +301,12 @@
       <tr>
         <td>2</td>
         <td>zhimi.toilet.sa1</td>
-        <td>Smartmi Smart Bidet Toilet Seat Pro</td>
+        <td>Smartmi Smart Bidet Toilet Seat Pro (sa1)</td>
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1577765179435CyXcWINp.png" width="100"></td>
-        <td><ul><li>⏻ Power</li><li>⚙ Wash Strength</li><li>⚙ Nozzle Position</li><li>⚙ Deodorization - On/Off</li><li>⚙ Mode</li><li>♨ Heating - On/Off</li><li>♨ Heat Level</li><li>☉ NightLight - On/Off</li><li>♪ Alarm - On/Off</li></ul></td>
-        <td><ul><li>true / false</li><li>1 - 4</li><li>1 - 4</li><li>true / false</li><li>1 - Posterior Wash, 2 - Feminine Wash, 3 - Air Dry, 4 - Idle</li><li>true / false</li><li>0 - 4</li><li>true / false</li><li>true / false</li></ul></td>
-        <td>{ Power, WashStrength, NozzlePos, Deodorization, Mode, Heating, HeatLevel, NightLight, Alarm }</td>
-        <td align="center">&#9989;</td>
+        <td><ul><li>⏻ Power</li><li>♪ Alarm - On/Off</li><li>⚙ Mode</li></ul></td>
+        <td><ul><li>true / false</li><li>true / false</li><li>1 - Posterior Wash, 2 - Feminine Wash, 3 - Air Dry, 4 - Idle</li></ul></td>
+        <td>{ Power, Alarm, Mode }</td>
+        <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
       </tr>
       <tr>

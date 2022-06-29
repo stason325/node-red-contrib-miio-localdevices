@@ -33,6 +33,6 @@
     "type": "git",
     "url": "git+https://github.com/stason325/node-red-contrib-miio-localdevices.git"
   },
-  "version": "0.5.9",
+  "version": "0.5.10",
   "homepage": "https://github.com/stason325/node-red-contrib-miio-localdevices"
 }

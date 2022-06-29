@@ -2,8 +2,8 @@ const Device = require('../device-miio');
 
 module.exports = class extends Device {
 
-  static model = 'deerma.humidifier.jsq4';
-  static name = 'Mijia Pure Evaporation (jsq4)';
+  static model = 'deerma.humidifier.jsq5';
+  static name = 'Mi Smart Antibacterial Humidifier (jsq5)';
   static image = 'https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1616123889270TXVYhdbh.png';
 
   constructor(opts) {
@@ -44,10 +44,10 @@ module.exports = class extends Device {
   }
 
   setFanLevel(v) {
-    if ([1, 2, 3].includes(v)) {
+    if ([1, 2, 3, 4].includes(v)) {
       return this.miioCall('set_properties', [{'siid': 2, 'piid': 5, value: v}])
     }
-    return Promise.reject(new Error(`Invalid FanLevel: ${v}. Choose 1, 2, 3`));
+    return Promise.reject(new Error(`Invalid FanLevel: ${v}. Choose 1, 2, 3, 4`));
   }
 
   setTargetHumidity(v) {
