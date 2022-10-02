@@ -15,7 +15,7 @@
     "humidifier", "airpurifier", "airfresh", "heater", "fan", "toilet", "bidet", "vacuum", "light",
     "mijia", "deerma", "zhimi", "leshow", "dmaker", "viomi", "philips", "yeelight",
     "mjjsq", "jsq", "jsq4", "jsq5", "ca1", "cb1", "ca4", "jsq1",
-    "v7", "vb2",  "m1", "ma2", "ma4", "mb3", "mb4", "mc1", "mc2", "a1",
+    "v7", "vb2", "vb4", "m1", "ma2", "ma4", "mb3", "mb4", "mc1", "mc2", "a1",
     "za1", "sa1", "za3", "za4", "za5", "p10", "p18", "1c",
     "downlight", "bulb", "candle", "ceiling1", "strip1", "color3"
   ],
@@ -33,6 +33,6 @@
     "type": "git",
     "url": "git+https://github.com/stason325/node-red-contrib-miio-localdevices.git"
   },
-  "version": "0.5.10",
+  "version": "0.5.11",
   "homepage": "https://github.com/stason325/node-red-contrib-miio-localdevices"
 }

@@ -1,145 +1,131 @@
 const Device = require('../device-miio');
-//edited and checked for full funcionality by Wildbill-Z
+
 module.exports = class extends Device {
 
     static model = 'zhimi.airp.vb4';
     static name =  'Xiaomi Smart Air Purifier 4 Pro';
-    static image = 'https://cnbj1.fds.api.xiaomi.com/iotweb-product-center/c5749d791740f4239ac4bb73d5dcc3a2_2031503-168.png?GalaxyAccessKeyId=AKVGLQWBOVIRQ3XLEW&Expires=9223372036854775807&Signature=0GtQNpheAcWibA9VQLIWr5G1skE=';
+    static image = 'https://cnbj1.fds.api.xiaomi.com/iotweb-product-center/c5749d791740f4239ac4bb73d5dcc3a2_2031503-168.png';
 
   constructor(opts) {
     super(opts);
 
-    this._miotSpecType = 'urn:miot-spec-v2:device:air-purifier:0000A007:zhimi-vb4:1';
+    this._miotSpec = {
+      "air-purifier:on": {"siid":2,"piid":1},
+      "air-purifier:fault": {"siid":2,"piid":2},
+      "air-purifier:mode": {"siid":2,"piid":4},
+      "air-purifier:fan-level": {"siid":2,"piid":5},
+      "air-purifier:anion": {"siid":2,"piid":6},
+      "environment:relative-humidity": {"siid":3,"piid":1},
+      "environment:pm2.5-density": {"siid":3,"piid":4},
+      "environment:temperature": {"siid":3,"piid":7},
+      "environment:pm10-density": {"siid":3,"piid":8},
+      "filter:filter-life-level": {"siid":4,"piid":1},
+      "filter:filter-used-time": {"siid":4,"piid":3},
+      "filter:filter-left-time": {"siid":4,"piid":4},
+      "alarm:alarm": {"siid":6,"piid":1},
+      "physical-controls-locked:physical-controls-locked": {"siid":8,"piid":1},
+      "screen:brightness": {"siid":13,"piid":2},
+      "device-display-unit:temperature-display-unit": {"siid":14,"piid":1},
+      "custom-service:moto-speed-rpm": {"siid":9,"piid":1},
+      "custom-service:favorite-speed": {"siid":9,"piid":2},
+      "custom-service:motor-set-speed": {"siid":9,"piid":4},
+      "custom-service:favorite-level": {"siid":9,"piid":5},
+      "custom-service:buttom-door": {"siid":9,"piid":6},
+      "custom-service:manual-level": {"siid":9,"piid":9},
+      "aqi:average-aqi": {"siid":11,"piid":2}
+    };
+
     this._propertiesToMonitor = [
-      'air-purifier:fault',
-      'air-purifier:on',
-      'air-purifier:fan-level',
-      'air-purifier:mode',
-      'environment:pm2.5-density',
-      'environment:relative-humidity',
-      'environment:temperature',
-      'environment:pm10-density',
-      'filter:filter-life-level',
-      'filter:filter-used-time',
-      'filter:filter-left-time',
-      'alarm:volume',
-      'physical-controls-locked:physical-controls-locked',
-      'custom-service:moto-speed-rpm',
-      'custom-service:favorite-speed',
-      'custom-service:motor-set-speed',
-      'custom-service:favorite-level',
-      'custom-service:buttom-door',
-      'custom-service:manual-level',
-      'screen:brightness',
-      'device-display-unit:temperature-display-unit'];
-  }
-
-  ///GET
-  getPower() {
-    return this.properties['air-purifier:on'];  //ok
-  }
-
-  getMode() {
-    const mode = this.properties['air-purifier:mode']; //ok
-    if (mode === 0) return 'auto';
-    if (mode === 1) return 'sleep';
-    if (mode === 2) return 'favorite';
-    if (mode === 3) return 'none';
-    return undefined;
-  }
-
-  //Filter
-  getFilterused() {
-    return this.properties['filter:filter-used-time'];  //ok
-  }
-
-  getFilterlife() {
-    return this.properties['filter:filter-life-level']; //ok 
-  }
-
-  getFanLevel() { // 1 - 3
-    return this.properties['air-purifier:fan-level']; //ok
-  }
-
-  getFavLevel() { // 1 - 11
-    return this.properties['custom-service:favorite-level']; //ok
-  }
-
-  getSpeed() {
-    return this.properties['custom-service:moto-speed-rpm']; //ok
-  }
-
-  getSetSpeed() {
-    return this.properties['custom-service:motor-set-speed']; //ok
-  }
-
-  getTemperature() {
-    return this.properties['environment:temperature']; //ok
-  }
-
-  getHumidity() {
-    return this.properties['environment:relative-humidity']; //ok
-  }
-
-  // eslint-disable-next-line camelcase
-  getPM2_5() {
-    return this.properties['environment:pm2.5-density']; //ok
-  }
-
-  getPM10() {
-    return this.properties['environment:pm10-density']; //ok
+      "air-purifier:on",
+      "air-purifier:fault",
+      "air-purifier:mode",
+      "air-purifier:fan-level",
+      "air-purifier:anion",
+      "environment:relative-humidity",
+      "environment:pm2.5-density",
+      "environment:temperature",
+      "environment:pm10-density",
+      "filter:filter-life-level",
+      "filter:filter-used-time",
+      "filter:filter-left-time",
+      "alarm:alarm",
+      "physical-controls-locked:physical-controls-locked",
+      "screen:brightness",
+      "device-display-unit:temperature-display-unit",
+      "custom-service:moto-speed-rpm",
+      "custom-service:favorite-speed",
+      "custom-service:motor-set-speed",
+      "custom-service:favorite-level",
+      "custom-service:buttom-door",
+      "custom-service:manual-level",
+      "aqi:average-aqi"
+    ];
   }
 
 
-  getFilterRemaining() {
-    const filterTotal = this.properties['filter:filter-life-level']; //ok
-    const filterUsed = this.properties['filter:filter-used-time']; //ok
-    if (filterTotal > 0 && filterUsed >= 0) {
-      //return Math.max((1 - filterUsed / filterTotal) * 100, 0);
-      return Math.max(filterUsed / (100 - filterTotal) * filterTotal/24, 0);
-    }
-    return undefined;
-  }
-
-  getBuzzer() {
-    return this.properties['alarm:volume']; //ok
-  }
-
-  getLcdBrightness() {
-    return this.properties['screen:brightness']; //ok
-  }
-
-  ///SET
   setPower(v) {
-    return this.miotSetProperty('air-purifier:on', v); //ok
+    if ([true, false].includes(v)) {
+      return this.miioCall ('set_properties', [{'siid': 2, 'piid': 1, value: v}])
+    }
+    return Promise.reject(new Error(`Invalid value: ${v}. Choose true or false`));
   }
 
   setMode(v) {
-    if (v === 'auto') v = 0;
-    else if (v === 'sleep') v = 1;
-    else if (v === 'favorite') v = 2;
-    else if (v === 'none') v = 3;
-    return this.miotSetProperty('air-purifier:mode', v);
+    if (v === 'auto') {
+      return this.miioCall ('set_properties', [{'siid': 2, 'piid': 4, value: 0}])
+    }
+    if (v === 'sleep') {
+      return this.miioCall ('set_properties', [{'siid': 2, 'piid': 4, value: 1}])
+    }
+    if (v === 'favorite') {
+      return this.miioCall ('set_properties', [{'siid': 2, 'piid': 4, value: 2}])
+    }
+    if (v === 'manual') {
+      return this.miioCall ('set_properties', [{'siid': 2, 'piid': 4, value: 3}])
+    }
+    return Promise.reject(new Error(`Invalid mode: ${v}. Choose auto, sleep, favorite or manual`));
   }
 
   setFanLevel(v) { // 1-3
-    return this.miotSetProperty('air-purifier:fan-level', v);
+    if ([1, 2, 3].includes(v)) {
+      return this.miioCall ('set_properties', [{'siid': 2, 'piid': 5, value: v}])
+    }
+    return Promise.reject(new Error(`Invalid FanLevel: ${v}. Choose 1, 2, 3`));
   }
 
-  setFavLevel(v) { // 1 - 9
-    return this.miotSetProperty('custom-service:favorite-level', v);
+  setIonization(v) {
+    if ([true, false].includes(v)) {
+      return this.miioCall ('set_properties', [{'siid': 2, 'piid': 6, value: v}])
+    }
+    return Promise.reject(new Error(`Invalid value: ${v}. Choose true or false`));
+  }
+
+  setFavLevel(v) { // 0-11
+    if (v >= 0 && v <= 11) {
+      return this.miioCall ('set_properties', [{'siid': 9, 'piid': 5, value: v}])
+    }
+    return Promise.reject(new Error(`Invalid Favorite Level: ${v}. Should be between 0 and 11`));
   }
 
   setBuzzer(v) {
-    return this.miotSetProperty('alarm:volume', v);
+    if ([true, false].includes(v)) {
+      return this.miioCall ('set_properties', [{'siid': 6, 'piid': 1, value: v}])
+    }
+    return Promise.reject(new Error(`Invalid value: ${v}. Choose true or false`));
   }
 
-  setLcdBrightness(v) { // 0-brightest, 1-glimmer, 2-led_closed
-    return this.miotSetProperty('screen:brightness', v);
+  setLcdBrightness(v) { // 0-close, 1-bright, 2-brightest
+    if ([0, 1, 2].includes(v)) {
+      return this.miioCall ('set_properties', [{'siid': 13, 'piid': 2, value: v}])
+    }
+    return Promise.reject(new Error(`Invalid LCD Brightness: ${v}. Choose 0, 1, 2`));
   }
 
   setChildLock(v) {
-    return this.miotSetProperty('physical-controls-locked:physical-controls-locked', v);
+    if ([true, false].includes(v)) {
+      return this.miioCall ('set_properties', [{'siid': 8, 'piid': 1, value: v}])
+    }
+    return Promise.reject(new Error(`Invalid value: ${v}. Choose true or false`));
   }
 
 };

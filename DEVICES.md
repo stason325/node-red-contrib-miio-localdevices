@@ -80,10 +80,10 @@
           <img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1575251878117y5EMNnGn.png" width="100">
         </td>
         <td><ul><li>⏻ Power</li><li>♪ Sound - On/Off</li><li>♨ Fan Level</li><li>♨ Target Humidity</li><li>☉ Led - Brightness</li><li>🔒 Child Lock</li><li>⚙ Mode</li></ul></td>
-        <td><ul><li>true / false</li><li>true / false</li><li>1, 2, 3, 4</li><li>30, 40, 50, 60, 70, 80</li><li>string</li><li>true / false</li><li>string: "dry" / "humidity"</li></ul></td>
+        <td><ul><li>true / false</li><li>true / false</li><li>0, 1, 2, 3</li><li>30, 40, 50, 60, 70, 80</li><li>string</li><li>true / false</li><li>string: "dry" / "humidity"</li></ul></td>
         <td>{ Power, Buzzer, FanLevel, TargetHumidity, LedBrightness, ChildLock, Mode }</td>
-        <td align="center">&#10060;</td>
-        <td align="center">&#10060;</td>
+        <td align="center">&#9989;</td>
+        <td align="center">&#9989;</td>
       </tr>
       <tr>
         <td>6</td>
@@ -182,6 +182,17 @@
       </tr>
       <tr>
         <td>3</td>
+        <td>zhimi.airp.vb4</td>
+        <td>Xiaomi Smart Air Purifier 4 Pro</td>
+        <td><img src="https://cnbj1.fds.api.xiaomi.com/iotweb-product-center/c5749d791740f4239ac4bb73d5dcc3a2_2031503-168.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>♨ Fan Level</li><li>♨ Ionization</li><li>❤ Fav Level</li><li>♪ Sound - On/Off</li><li>░ Display - Brightness</li><li>🔒 Child Lock</li></ul></td>
+        <td><ul><li>true / false</li><li>string: "auto" / "sleep" / "favorite" / "manual"</li><li>1, 2, 3</li><li>true / false</li><li>0 - 11</li><li>true / false</li><li>0 - close, 1 - bright, 2 - brightest</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, FanLevel, Ionization, FavLevel, Buzzer, LcdBrightness, ChildLock }</td>
+        <td align="center">&#9989;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+      <tr>
+        <td>4</td>
         <td>zhimi.airpurifier.m1</td>
         <td>Mi Air Purifier 2</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
@@ -192,7 +203,7 @@
         <td align="center">&#9989;</td>
       </tr>
       <tr>
-        <td>4</td>
+        <td>5</td>
         <td>zhimi.airpurifier.ma2</td>
         <td>Mi Air Purifier 2S</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
@@ -203,7 +214,7 @@
         <td align="center">&#9989;</td>
       </tr>
       <tr>
-        <td>5</td>
+        <td>6</td>
         <td>zhimi.airpurifier.ma4</td>
         <td>Mi Air Purifier 3</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_1543307568u9wu6wij.png" width="100"></td>
@@ -214,7 +225,7 @@
         <td align="center">&#10060;</td>
       </tr>
       <tr>
-        <td>6</td>
+        <td>7</td>
         <td>zhimi.airpurifier.mb3</td>
         <td>Mi Air Purifier 3H</td>
         <td><img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_15504816557tej1pj6.png" width="100"></td>
@@ -225,7 +236,7 @@
         <td align="center">&#9989;</td>
       </tr>
       <tr>
-        <td>7</td>
+        <td>8</td>
         <td>zhimi.airpurifier.mb4</td>
         <td>Mi Air Purifier 3C</td>
         <td><img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_15504816557tej1pj6.png" width="100"></td>
@@ -236,7 +247,7 @@
         <td align="center">&#9989;</td>
       </tr>
       <tr>
-        <td>8</td>
+        <td>9</td>
         <td>zhimi.airpurifier.mc1</td>
         <td>Mi Air Purifier 2S</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
@@ -247,7 +258,7 @@
         <td align="center">&#9989;</td>
       </tr>
       <tr>
-        <td>9</td>
+        <td>10</td>
         <td>zhimi.airpurifier.mc2</td>
         <td>Mi Air Purifier 2H</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_15470144879uw2ei4h.png" width="100"></td>
@@ -258,7 +269,7 @@
         <td align="center">&#10060;</td>
       </tr>
       <tr>
-        <td>10</td>
+        <td>11</td>
         <td>dmaker.airfresh.a1</td>
         <td>Mijia New Fan A1</td>
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1571025407906ABkSN0nP.png" width="100"></td>
