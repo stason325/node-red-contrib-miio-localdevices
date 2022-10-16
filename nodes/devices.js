@@ -8,6 +8,8 @@ module.exports = function(RED) {
     RED.nodes.createNode(this,n);
     let node = this;
 
+    node.setMaxListeners(255);
+    
     node.name = n.name;
     node.room = n.room;
     node.MI_id = n.MI_id;

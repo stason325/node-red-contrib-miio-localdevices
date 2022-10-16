@@ -54,10 +54,11 @@ npm install node-red-contrib-miio-localdevices
 
 ## Latest Updates
 
-### version 0.5.11
-- added support for 8 devices: zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18,dmaker.fan.1c, zhimi.airp.vb4
+### version 0.5.12
+- added support for 9 devices: zhimi.fan.sa1, zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, dmaker.fan.p10, dmaker.fan.p18,dmaker.fan.1c, zhimi.airp.vb4, mmgg.pet_waterer.wi11
 - 7 more devices were tested: dmaker.fan.p18 (issue [#2](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/2)), zhimi.airpurifier.mb3 (issue [#3](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/3)), zhimi.fan.za5 (issue [#4](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/4)), dmaker.fan.1c (issue [#5](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/5)), zhimi.airpurifier.mb3 (issue [#7](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/7)), zhimi.airp.vb4 (PR [#1](https://github.com/stason325/node-red-contrib-miio-localdevices/pull/12)), zhimi.humidifier.ca4 (issue [#1](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/1))
 - updated deerma.humidifier.jsq4 and deerma.humidifier.jsq5 - devices are now splited and defFiles are updated (these are now first fully local MIOT-devices(!!!) - no internet connection needed anymore)
+- updated zhimi.airp.vb4 - limited number of properties to monitor (issue [#13](https://github.com/stason325/node-red-contrib-miio-localdevices/issues/13))
 - zhimi.toilet.sa1 is in testing: 5 of 12 properties and 3 of 11 commands are tested, defFile is updated as of current results - to be enlarge in future versions
 - added a description of the custom JSON command for each device in [DEVICES.md](DEVICES.md)
 - slight code optimizations

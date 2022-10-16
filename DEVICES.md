@@ -282,7 +282,7 @@
     </tbody>
   </table>
 
-  <h2>3) Heaters, Fans & Toilets</h2>
+  <h2>3) Heaters, Fans & Water Devices</h2>
   <table>
     <thead>
       <tr>
@@ -322,6 +322,17 @@
       </tr>
       <tr>
         <td>3</td>
+        <td>mmgg.pet_waterer.wi11</td>
+        <td>Xiaomi Pet Drinking Fountain (wi11)</td>
+        <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_15762045935682DTzmYGL.png" width="100"></td>
+        <td><ul><li>⏻ Power</li><li>⚙ Mode</li><li>"☉ Led - On/Off"</li></ul></td>
+        <td><ul><li>true / false</li><li>string: "common" / "smart"</li><li>true / false</li></ul></td>
+        <td>{ Power, Mode, Led }</td>
+        <td align="center">&#9989;</td>
+        <td align="center">&#9989;</td>
+      </tr>
+      <tr>
+        <td>4</td>
         <td>zhimi.fan.za4</td>
         <td>Smartmi Standing Fan 1 (sa1, za1), 2 (za3), 2S (za4)</td>
         <td><img src="https://static.home.mi.com/app/image/get/file/developer_1541408255kg3xtr1j.png" width="100"></td>
@@ -332,7 +343,7 @@
         <td align="center">&#10060;</td>
       </tr>
       <tr>
-        <td>4</td>
+        <td>5</td>
         <td>dmaker.fan.p18</td>
         <td>Mi Smart Standing Fan 2 (p10, p18)</td>
         <td><img src="https://cdn.awsusor1.fds.api.mi-img.com/iotweb-product-center/developer_15972184073099haFbYTk.png" width="100"></td>
@@ -343,7 +354,7 @@
         <td align="center">&#9989;</td>
       </tr>
       <tr>
-        <td>5</td>
+        <td>6</td>
         <td>zhimi.fan.za5</td>
         <td>Smartmi Standing Fan 3 (za5)</td>
         <td><img src="https://cdn.cnbj1.fds.api.mi-img.com/iotweb-product-center/developer_1577772535191ODLLij7b.png" width="100"></td>
@@ -354,7 +365,7 @@
         <td align="center">&#9989;</td>
       </tr>
       <tr>
-        <td>6</td>
+        <td>7</td>
         <td>dmaker.fan.1c</td>
         <td>Mi Smart Standing Fan 2 Lite (1c)</td>
         <td><img src="https://cdn.awsde0.fds.api.mi-img.com/miio.files/developer_1573710547nq1me2nm.png" width="100"></td>

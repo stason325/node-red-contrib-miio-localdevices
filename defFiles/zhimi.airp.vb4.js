@@ -19,19 +19,11 @@ module.exports = class extends Device {
       "environment:pm2.5-density": {"siid":3,"piid":4},
       "environment:temperature": {"siid":3,"piid":7},
       "environment:pm10-density": {"siid":3,"piid":8},
-      "filter:filter-life-level": {"siid":4,"piid":1},
-      "filter:filter-used-time": {"siid":4,"piid":3},
       "filter:filter-left-time": {"siid":4,"piid":4},
       "alarm:alarm": {"siid":6,"piid":1},
       "physical-controls-locked:physical-controls-locked": {"siid":8,"piid":1},
       "screen:brightness": {"siid":13,"piid":2},
-      "device-display-unit:temperature-display-unit": {"siid":14,"piid":1},
-      "custom-service:moto-speed-rpm": {"siid":9,"piid":1},
-      "custom-service:favorite-speed": {"siid":9,"piid":2},
-      "custom-service:motor-set-speed": {"siid":9,"piid":4},
       "custom-service:favorite-level": {"siid":9,"piid":5},
-      "custom-service:buttom-door": {"siid":9,"piid":6},
-      "custom-service:manual-level": {"siid":9,"piid":9},
       "aqi:average-aqi": {"siid":11,"piid":2}
     };
 
@@ -45,19 +37,11 @@ module.exports = class extends Device {
       "environment:pm2.5-density",
       "environment:temperature",
       "environment:pm10-density",
-      "filter:filter-life-level",
-      "filter:filter-used-time",
       "filter:filter-left-time",
       "alarm:alarm",
       "physical-controls-locked:physical-controls-locked",
       "screen:brightness",
-      "device-display-unit:temperature-display-unit",
-      "custom-service:moto-speed-rpm",
-      "custom-service:favorite-speed",
-      "custom-service:motor-set-speed",
       "custom-service:favorite-level",
-      "custom-service:buttom-door",
-      "custom-service:manual-level",
       "aqi:average-aqi"
     ];
   }
