@@ -581,7 +581,7 @@
           <img src="http://static.home.mi.com/app/image/get/file/developer_1522402108a74o9ufa.png" width="100">
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>░ HSV Color</li></ul></td>
-        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,satuartion: YY}</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,saturation: YY}</li></ul></td>
         <td>{ Power, Brightness, ColorTemperature, ColorHSV }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
@@ -598,7 +598,7 @@
           <img src="http://static.home.mi.com/app/image/get/file/developer_1522402108a74o9ufa.png" width="100">
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>░ HSV Color</li></ul></td>
-        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,satuartion: YY}</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,saturation: YY}</li></ul></td>
         <td>{ Power, Brightness, ColorTemperature, ColorHSV }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#10060;</td>
@@ -628,7 +628,7 @@
           <img src="https://cdn.awsusor0.fds.api.mi-img.com/miio.files/developer_15239567889mgx5j3j.png" width="100">
         </td>
         <td><ul><li>⏻ Power</li><li>░ Brightness</li><li>░ Color Temperature</li><li>░ HSV Color</li></ul></td>
-        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,satuartion: YY}</li></ul></td>
+        <td><ul><li>true / false</li><li>1 - 100</li><li>1700 - 6500</li><li>object {hue: XX,saturation: YY}</li></ul></td>
         <td>{ Power, Brightness, ColorTemperature, ColorHSV }</td>
         <td align="center">&#10060;</td>
         <td align="center">&#9989;</td>
