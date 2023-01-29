@@ -77,7 +77,7 @@ module.exports = function(RED) {
     node.on('close', () => OnClose());
 
     // 5) Main Function - Polling the device
-    OldData = {};
+    let OldData = {};
     ConnDevice().then((data) => {
       data = OldData;    
       node.emit('onInit', data);
