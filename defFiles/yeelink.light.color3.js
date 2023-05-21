@@ -57,7 +57,11 @@ module.exports = class extends Device {
     }
 
     setColorHSV(v) {
-        this._miioCall('set_hsv', withLightEffect([v.hue, v.saturation]));
+        return this.miioCall('set_hsv', withLightEffect([v.hue, v.saturation]));
+    }
+	
+    setColorRGB(v) {
+        return this.miioCall('set_rgb', withLightEffect([v]));
     }
 
 };
