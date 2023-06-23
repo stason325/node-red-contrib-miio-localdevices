@@ -61,6 +61,7 @@ module.exports = class extends Device {
     }
 	
     setColorRGB(v) {
+		//If you don't want a fade effect change the end to withLightEffect([v],{ms:0})
         return this.miioCall('set_rgb', withLightEffect([v]));
     }
 
