@@ -177,8 +177,7 @@ module.exports = function(RED) {
               await device.init();
             };
             // F.2) transfer command from input into device (in AWAIT mode)
-            JsonItemX = [key] + "(" + CustomJsonCMD[key] + ")";
-            await eval("device.set" + JsonItemX);
+            await device["set" + key](CustomJsonCMD[key]);
             device.destroy();  
           } catch(exception) {
             // F.3) catching errors from MIIO Protocol and sending back to send-node
